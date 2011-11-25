@@ -5,7 +5,7 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '0.2.7'
+gem 'mysql2', '>= 0.3'
 gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'json'
