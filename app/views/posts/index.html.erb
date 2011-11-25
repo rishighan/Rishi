@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Category</th>
     <th>Content</th>
+    <th>Photos</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,7 @@
     <td><%= post.title %></td>
     <td><%= post.category_id %></td>
     <td><%= post.content %></td>
+    <td><%= %>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>

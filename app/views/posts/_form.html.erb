@@ -17,9 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br />
-  
     <%= collection_select(:post, :category_id, Category.all, :id, :category_name, :prompt => true) %>
     
+  </div>
+  
+  <div class="field">
+  <%= f.fields_for :attachments do |attach| %>
+  	<%= attach.file_field :photo%>
+ 	
+  <%end %>	
   </div>
   <div class="field">
     <%= f.label :content %><br />
