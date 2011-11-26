@@ -24,14 +24,15 @@
 
   <div class="field">
   <%= f.fields_for :attachments do |attach| %>
+  	<% unless attach.object.new_record? %>
+  		<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:original)%><br>
+		Destroy this: <%= attach.check_box :_destroy %>
+	<%end%>
   	<%= attach.file_field :photo%> <br>
+  	
   <%end %>	
   </div>
-	<% @post.attachments.each do |at|%>
-	<%= image_tag at.photo.url(:thumb)%><br>
-	<%= check_box_tag :_destroy %>
-	<%= label :_destroy, "Remove Pic"%><br>
-	<%end%>
+	
 
   <div class="field">
     <%= f.label :content %><br />
