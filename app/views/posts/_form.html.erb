@@ -21,12 +21,18 @@
     
   </div>
   
+
   <div class="field">
   <%= f.fields_for :attachments do |attach| %>
-  	<%= attach.file_field :photo%>
- 	
+  	<%= attach.file_field :photo%> <br>
   <%end %>	
   </div>
+	<% @post.attachments.each do |at|%>
+	<%= image_tag at.photo.url(:thumb)%><br>
+	<%= check_box_tag :_destroy %>
+	<%= label :_destroy, "Remove Pic"%><br>
+	<%end%>
+
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-
+    @attachment =Attachment.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @posts }
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    
     4.times {@post.attachments.build}
     respond_to do |format|
       format.html # new.html.erb
