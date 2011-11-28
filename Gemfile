@@ -8,6 +8,7 @@ gem 'rails', '3.1.1'
 gem 'mysql2', '>= 0.3'
 gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
+gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 gem 'json'
 
 # Gems used only for assets and not required

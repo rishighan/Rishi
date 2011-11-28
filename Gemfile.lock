@@ -81,6 +81,8 @@ GEM
       activesupport (= 3.1.1)
       bundler (~> 1.0)
       railties (= 3.1.1)
+    rails-footnotes (3.7.5)
+      rails (>= 3.0.0)
     railties (3.1.1)
       actionpack (= 3.1.1)
       activesupport (= 3.1.1)
@@ -124,6 +126,7 @@ DEPENDENCIES
   mysql2 (>= 0.3)
   paperclip (~> 2.4)
   rails (= 3.1.1)
+  rails-footnotes (>= 3.7.5.rc4)
   sass-rails (~> 3.1.4)
   therubyracer
   uglifier (>= 1.0.3)
