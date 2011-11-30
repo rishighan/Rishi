@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/elmatou/nested_form.git
+  revision: 92c2adc5de1762679f7ec54de817164fe0a6c3c0
+  branch: defacto
+  specs:
+    nested_form (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -124,6 +131,7 @@ DEPENDENCIES
   jquery-rails
   json
   mysql2 (>= 0.3)
+  nested_form!
   paperclip (~> 2.4)
   rails (= 3.1.1)
   rails-footnotes (>= 3.7.5.rc4)
