@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
   
-  belongs_to :post
+  has_many :posts
   
   validates :category_name, :category_description, :presence => true
   

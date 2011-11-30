@@ -37,8 +37,10 @@ pre {
 
 a {
   color: #000;
+  text-decoration:none;
   &:visited {
-    color: #666; }
+    color: #666;
+     }
   &:hover {
     color: #fff;
     background-color: #000; } }
@@ -62,6 +64,7 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  
   h2 {
     text-align: left;
     font-weight: bold;
@@ -71,6 +74,7 @@ div {
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff; }
+    
   ul li {
     font-size: 12px;
     list-style: square; } }
