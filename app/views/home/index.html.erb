@@ -3,7 +3,9 @@
 
 <% @posts.each do |post| %>
   <h3><%= post.title %></h3>
-  filed under: <%= @catname.category_name %>
+  filed under: <%= @cat.each do |ca| %>
+  		<%= ca.category_name%>
+  		<%end%>
   <br><br>
    <%= post.content %><br><br>
    
