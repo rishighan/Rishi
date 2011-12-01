@@ -3,14 +3,20 @@
 
 <% @posts.each do |post| %>
   <h3><%= post.title %></h3>
-  filed under: <%= @cat.each do |ca| %>
-  		<%= ca.category_name%>
-  		<%end%>
-  <br><br>
-   <%= post.content %><br><br>
+  filed under <%= post.category.category_name %>
+  <p> 
+  
+  <% post.attachments.each do |attach| %>
+  
+    <%= image_tag attach.photo.url(:thumb)%>
+  
+  <%end%>
+  </p> 		
+  
+  <p>
+   <%= post.content %>
+  </p>
    
-    	
-    	
-   <br><br>
+   <hr> 	
    
 <%end%>
