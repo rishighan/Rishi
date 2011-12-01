@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     
-    @posts = Post.except(:where "category_id => 3")
-    
+    @posts = Post.all.where(:category_id)
+    @carousel_posts = Post.where(:category_id =>3)
     
 
   end

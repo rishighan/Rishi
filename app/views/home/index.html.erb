@@ -1,6 +1,13 @@
 <h1>Rishi Ghan</h1>
 <p>is working on his new website, check back soon!</p>
 
+<div class="carousel-container">
+ <% @carousel_posts.each do |carousel|%>
+ 	<%= carousel.title%>
+ <%end%>	
+</div>
+
+
 <% @posts.each do |post| %>
   <h3><%= post.title %></h3>
   filed under <%= post.category.category_name %>
