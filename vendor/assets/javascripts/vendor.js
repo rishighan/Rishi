@@ -1,0 +1,2 @@
+
+//= require jquery.cycle.all

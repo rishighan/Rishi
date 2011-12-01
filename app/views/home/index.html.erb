@@ -1,10 +1,19 @@
 <h1>Rishi Ghan</h1>
 <p>is working on his new website, check back soon!</p>
 
+
+
 <div class="carousel-container">
  <% @carousel_posts.each do |carousel|%>
- 	<%= carousel.title%>
- <%end%>	
+ 	<div id="nav"></div>
+ 	  <% carousel.attachments.each do |attach| %>
+ 		<%= image_tag attach.photo.url(:thumb)%>
+ 	  <%end%>	
+	
+	
+
+ <%end%>
+ 
 </div>
 
 
