@@ -5,7 +5,7 @@
 
 <div class="carousel-container">
  <% @carousel_posts.each do |carousel|%>
- 	<div id="nav"></div>
+ 	
  	  <% carousel.attachments.each do |attach| %>
  		<%= image_tag attach.photo.url(:thumb)%>
  	  <%end%>	
@@ -15,7 +15,7 @@
  <%end%>
  
 </div>
-
+<div id="nav"></div>
 
 <% @posts.each do |post| %>
   <h3><%= post.title %></h3>

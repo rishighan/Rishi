@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+  	<th>ID</th>
     <th>Category name</th>
     <th>Category description</th>
     <th></th>
@@ -11,6 +12,7 @@
 
 <% @categories.each do |category| %>
   <tr>
+  	<td><%= category.id %></td>
     <td><%= category.category_name %></td>
     <td><%= category.category_description %></td>
     <td><%= link_to 'Show', category %></td>
