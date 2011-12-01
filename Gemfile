@@ -9,6 +9,7 @@ gem 'mysql2', '>= 0.3'
 gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+gem 'RedCloth', '4.2.8'
 
 # http://damncabbage.github.com/blog/2011/09/20/less-wood-behind-more-arrows-nested-form/
 # Elmatou's fork:

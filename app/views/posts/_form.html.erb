@@ -28,13 +28,14 @@
   
   <% if attach.object.new_record? %>
   <%= attach.file_field :photo%> <br>
+  
   <%end%>
     
 
   
   <% unless attach.object.new_record? %>
-  	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:original)%>
-		
+  	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:original)%><br>
+	<%= attach.object.photo.url%><br>	
   <%end%>
   
   <%= attach.link_to_remove "Remove this image" %><br><br>

@@ -14,7 +14,7 @@
   </p> 		
   
   <p>
-   <%= post.content %>
+   <%= RedCloth.new(post.content) %>
   </p>
    
    <hr> 	
