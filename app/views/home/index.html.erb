@@ -17,7 +17,7 @@
  
 </div>
 <div id="nav"></div>
-
+<%= paginate @posts %>
 <% @posts.each do |post| %>
   <h3><%= post.title %></h3>
   filed under <%= post.category.category_name %>
