@@ -40,6 +40,7 @@ GEM
     acts-as-taggable-on (2.1.1)
       rails
     arel (2.2.1)
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
     cocaine (0.2.0)
     coffee-rails (3.1.1)
@@ -131,6 +132,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth (= 4.2.8)
   acts-as-taggable-on (~> 2.1.0)
+  bcrypt-ruby
   coffee-rails (~> 3.1.1)
   jquery-rails
   json

@@ -11,6 +11,8 @@ gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 gem 'RedCloth', '4.2.8'
 gem 'kaminari'
+gem 'bcrypt-ruby'
+
 
 # http://damncabbage.github.com/blog/2011/09/20/less-wood-behind-more-arrows-nested-form/
 # Elmatou's fork:

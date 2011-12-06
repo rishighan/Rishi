@@ -9,7 +9,7 @@
  	
  	  <% carousel.attachments.each do |attach| %>
  		<%= image_tag attach.photo.url(:thumb)%>
- 	  <%end%>	
+ <%end%>	
 	
 	
 
@@ -17,8 +17,9 @@
  
 </div>
 <div id="nav"></div>
-<%= paginate @posts %>
-<% @posts.each do |post| %>
+  <%= paginate @posts %>
+  <% @posts.each do |post| %>
+  
   <h3><%= post.title %></h3>
   filed under <%= post.category.category_name %>
   <p> 
