@@ -1,9 +1,10 @@
 Rishi::Application.routes.draw do
   get "home/index"
 
-  resources :categories
-  resources :posts
-  resources :users
+  namespace :admin do
+    resources :categories, :posts
+  end
+ 
  
   # The priority is based upon order of creation:
   # first created -> highest priority.
