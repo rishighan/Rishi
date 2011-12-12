@@ -2,7 +2,7 @@ Rishi::Application.routes.draw do
   get "home/index"
 
   namespace :admin do
-    resources :categories, :posts
+    resources :posts, :categories
   end
  
  

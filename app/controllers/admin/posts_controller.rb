@@ -46,7 +46,7 @@ class Admin::PostsController < ApplicationController
     
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, :notice => 'Post was successfully created.' }
+        format.html { redirect_to admin_posts_url, :notice => 'Post was successfully created.' }
         format.json { render :json => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -78,7 +78,7 @@ class Admin::PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to admin_posts_url }
       format.json { head :ok }
     end
   end
