@@ -1,7 +1,13 @@
 Rishi::Application.routes.draw do
+
+  devise_for :users
+
+  get "admin/index"
   get "home/index"
 
+    
   namespace :admin do
+    root :to => "admin#index" #root page defined inside the namespace.
     resources :posts, :categories
   end
  

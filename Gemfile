@@ -7,10 +7,11 @@ gem 'rails', '3.1.1'
 gem 'mysql2', '>= 0.3'
 gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
-gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+
 gem 'RedCloth', '4.2.8'
-gem 'kaminari'
-gem 'bcrypt-ruby'
+gem 'kaminari', '0.12.4'
+gem 'devise'
+gem 'warden'
 
 
 # http://damncabbage.github.com/blog/2011/09/20/less-wood-behind-more-arrows-nested-form/
@@ -18,6 +19,10 @@ gem 'bcrypt-ruby'
 gem 'nested_form', :git => 'git://github.com/elmatou/nested_form.git', :branch => 'defacto'
 
 gem 'json'
+
+group :development, :test do
+  gem 'rails-footnotes', '>= 3.7.5.rc4'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,7 +35,7 @@ end
 gem 'jquery-rails'
 gem 'therubyracer'
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
