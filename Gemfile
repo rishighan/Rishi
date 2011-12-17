@@ -22,6 +22,7 @@ gem 'json'
 
 group :development, :test do
   gem 'rails-footnotes', '>= 3.7.5.rc4'
+
 end
 
 # Gems used only for assets and not required
