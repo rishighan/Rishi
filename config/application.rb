@@ -38,7 +38,7 @@ module Rishi
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
+    config.cookie_secret = 'f802c7b63bcf3f084980a3f2589feb5b64c0981e9165cca7c32c87d01d7f98785b014dea52bede0c2e29245e949d97f33d0dcd41deb4325023bc4810f4d9bd92'
     # Enable the asset pipeline
     config.assets.enabled = true
 

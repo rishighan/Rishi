@@ -15,7 +15,7 @@
   <%= @post.content %>
 </p>
 
-<p>
+<p id="attachments">
 	<% @post.attachments.each do |at|%>
 	<%= image_tag at.photo.url(:thumb)%>
 	<%end%>
