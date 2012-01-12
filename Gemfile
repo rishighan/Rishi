@@ -11,8 +11,6 @@ gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'RedCloth', '4.2.8'
 gem 'kaminari', '0.12.4'
 gem 'devise'
-gem 'warden'
-
 
 # http://damncabbage.github.com/blog/2011/09/20/less-wood-behind-more-arrows-nested-form/
 # Elmatou's fork:

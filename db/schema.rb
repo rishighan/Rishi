@@ -10,11 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20111222211750) do
-=======
-ActiveRecord::Schema.define(:version => 20111217211256) do
->>>>>>> 06f8b4fb9026b5b4a90643e1333e885196b345f1
+ActiveRecord::Schema.define(:version => 20120111193750) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "post_id"
@@ -69,11 +65,9 @@ ActiveRecord::Schema.define(:version => 20111217211256) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-<<<<<<< HEAD
     t.datetime "created_at"
     t.datetime "updated_at"
-=======
->>>>>>> 06f8b4fb9026b5b4a90643e1333e885196b345f1
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

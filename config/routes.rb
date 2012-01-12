@@ -1,4 +1,5 @@
 Rishi::Application.routes.draw do
+  
   devise_for :users
 
   get "admin/index"
