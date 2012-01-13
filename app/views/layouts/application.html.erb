@@ -17,7 +17,7 @@
 
 <span class="current-user">
 <% if user_signed_in? %>
-Signed in as <%=current_user.email %>
+Signed in as <%=current_user.email %> , would you like to <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  
 <%end%>
 </span>
 
