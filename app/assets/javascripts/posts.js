@@ -6,7 +6,7 @@ $("#insert_into_post").click(function() {
  var filename = sumtin.split('\\').pop();
 
  // appending the text to textarea
- $('#post_content').val($('#post_content').val()+'<img src="/system/photosfilename); 
+ $('#post_content').val($('#post_content').val()+'<img src="/public/system/attachments/'+filename+'" />'); 
     
 });
 
