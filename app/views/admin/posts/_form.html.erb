@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br/>
+    <%= f.label :title %> <br/>
     <%= f.text_field :title %>
     
   </div>
@@ -24,23 +24,25 @@
   </div>
   
   <!-- attachment block -->
-  <%= f.label :attachments%>  <br>	
+  <%= f.label :attachments %>  <br>	
   <div class="field" id="attachments">
  
   <%= f.fields_for :attachments do |attach| %>
   
   <% if attach.object.new_record? %>
   <%= attach.file_field :photo %>
- 
+  	
   <%end%>
     
 
   
   <% unless attach.object.new_record? %>
-  	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:original)%><br>
+  	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
 	<%= attach.object.photo.url%><br>	
+	
+
   <%end%>
-  
+  	
   <%= attach.link_to_remove "Remove this image" %> <br><br>
    <%end %>	
   
