@@ -31,7 +31,6 @@
   
   <% if attach.object.new_record? %>
   <%= attach.file_field :photo %>
-  	
   <%end%>
     
 
@@ -39,11 +38,10 @@
   <% unless attach.object.new_record? %>
   	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
 	<%= attach.object.photo.url(:medium)%><br>	
-	
-
   <%end%>
-  	
+  
   <%= attach.link_to_remove "Remove this image" %> <br><br>
+  
    <%end %>	
   
  <%= f.link_to_add "Add another image", :attachments %>  

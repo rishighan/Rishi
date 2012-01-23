@@ -5,5 +5,7 @@
 // the compiled file.
 //
 
+
 //= require_tree .
+//= require jquery
 //= require nested_form
