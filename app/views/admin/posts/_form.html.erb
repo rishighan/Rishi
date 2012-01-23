@@ -1,4 +1,4 @@
-<%= nested_form_for([:admin, @post], :remote=>true) do |f| %>
+<%= nested_form_for([:admin, @post], :remote=>true, :html => { :multipart => true }) do |f| %>
    
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -23,14 +23,15 @@
     
   </div>
   
- <%= f.label :attachments%>  <br>	
+  <!-- attachment block -->
+  <%= f.label :attachments%>  <br>	
   <div class="field" id="attachments">
  
   <%= f.fields_for :attachments do |attach| %>
   
   <% if attach.object.new_record? %>
   <%= attach.file_field :photo %>
-  <%= link_to "Insert into post", new_admin_post_path(@post), :id=>'insert_into_post' %>	
+ 
   <%end%>
     
 
@@ -41,10 +42,11 @@
   <%end%>
   
   <%= attach.link_to_remove "Remove this image" %> <br><br>
+   <%end %>	
   
-  
-  <%end %>	
-   <%= f.link_to_add "Add another image", :attachments %>
+ <%= f.link_to_add "Add another image", :attachments %>  
+ 
+ 
   </div>
 	
 	 <div class="field">
