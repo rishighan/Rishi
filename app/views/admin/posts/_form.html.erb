@@ -38,15 +38,13 @@
   <% unless attach.object.new_record? %>
   	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
 	<%= attach.object.photo.url(:medium)%><br>	
-  <%end%>
+ <%end%>
   
-  <%= attach.link_to_remove "Remove this image" %> <br><br>
+  <%= attach.link_to_remove "Remove this image", {:id=> @post.id} %> <br><br>
   
    <%end %>	
   
- <%= f.link_to_add "Add another image", :attachments %>  
- 
- 
+  <%= f.link_to_add "Add another image", :attachments %>  
   </div>
 	
 	 <div class="field">
@@ -57,7 +55,9 @@
 
   <div class="field">
     <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.text_area :content %> <br>
+    <%= link_to_function "Insert Carousel wrapper", "insertCarouselMarkup()", :class=> "insert-carousel-wrapper"%>
+    
   </div>
   <div class="actions">
     <%= f.submit %>

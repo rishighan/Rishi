@@ -24,15 +24,15 @@
   filed under <%= post.category.category_name %>
   <p> 
   
+  <!--
   <% post.attachments.each do |attach| %>
-  
-    <%= image_tag attach.photo.url(:thumb)%>
-  
-  <%end%>
+  <%= image_tag attach.photo.url(:thumb)%>
+  <% end%>
+  -->
   </p> 		
   
-  <p>
-   <%= RedCloth.new(post.content) %>
+   <p>
+   <%= post.content.html_safe %>
   </p>
    
    <hr> 	
