@@ -20,7 +20,6 @@ gem 'json'
 
 group :development, :test do
   gem 'rails-footnotes', '>= 3.7.5.rc4'
-
 end
 
 # Gems used only for assets and not required
@@ -31,7 +30,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 1.0.12'
 gem 'therubyracer'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

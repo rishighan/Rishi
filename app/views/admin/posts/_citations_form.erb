@@ -1,0 +1,20 @@
+  <%= f.label :citations %>  <br>	
+  <div class="field" id="citations">
+ 
+  <%= f.fields_for :citations do |citation| %>
+  
+
+  <%= f.label :source_name%><br>
+  <%= citation.text_field :source_name %> 
+  
+  <br><br>
+  
+  <%= f.label :extended_description%><br>
+  <%= citation.text_area :extended_description %>
+  
+
+  
+   <%end %>	
+  
+ 
+  </div>

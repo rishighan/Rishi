@@ -142,7 +142,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.1.1)
   devise
-  jquery-rails
+  jquery-rails (>= 1.0.12)
   json
   kaminari (= 0.12.4)
   mysql2 (>= 0.3)

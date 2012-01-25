@@ -29,7 +29,9 @@ class Admin::PostsController < ApplicationController
   def new
     @post = Post.new
     
-    4.times {@post.attachments.build}
+    4.times {@post.attachments.build} #attachments
+    @post.citations.build #citations
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @post }
