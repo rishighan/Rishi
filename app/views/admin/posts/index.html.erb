@@ -12,6 +12,14 @@
     	<% post.attachments.each do |at|%>
 		<%= image_tag at.photo.url(:thumb)%>
 		<%end%>
+		
+		<br/></br/>
+		<div class="citations-list">
+		<% post.citations.each do |citations| %>
+		<i><b><%= citations.source_name %></b></i> <br />
+		<%= citations.extended_description %>	<br />
+		<% end%>
+		</div>
     	
    <br><br>
     <%= link_to 'Show', admin_post_path(post) %>
@@ -22,6 +30,6 @@
 <% end %>
 
 
-<br />
+</p>
 
 

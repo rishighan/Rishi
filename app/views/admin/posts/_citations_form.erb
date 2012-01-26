@@ -1,6 +1,7 @@
-  <%= f.label :citations %>  <br>	
-  <div class="field" id="citations">
  
+  <div class="field" id="citations">
+  <%= f.label :citations %>  <br>	
+  
   <%= f.fields_for :citations do |citation| %>
   
 
@@ -15,7 +16,7 @@
  
  
 
-  
+  <%= link_to_function "Insert Superscript", 'insertSuperScript("#post_content")', :class=> "insert-super-script"%>
   <%= citation.link_to_remove "Remove this citation", {:id=> @post.id} %> <br><br>
   
    <%end %>	
