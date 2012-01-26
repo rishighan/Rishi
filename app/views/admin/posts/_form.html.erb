@@ -1,50 +1,50 @@
 <%= nested_form_for([:admin, @post], :remote=>true, :html => { :multipart => true }) do |f| %>
-   
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %> <br/>
-    <%= f.text_field :title %>
-    
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br/>
-    <%= collection_select(:post, :category_id, Category.all, :id, :category_name, :prompt => true) %>
-    
-  </div>
-  
-  
-  <!-- citations -->
-  <%= render :partial => "citations_form", :locals => {:f => f} %>
-  
-  <!-- attachment block -->
- <%= render :partial => "attachments_form", :locals => {:f => f} %>
-
-
-	 <div class="field">
-    <%= f.label :keyword_list%><br />
-    <%= f.text_field :keyword_list %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %> <br>
-    <%= link_to_function "Insert Carousel wrapper", "insertCarouselMarkup()", :class=> "insert-carousel-wrapper"%>
-    
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  
+<% if @post.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+	<ul>
+		<% @post.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
+<div class="field">
+	<%= f.label :title %>
+	<br/>
+	<%= f.text_field :title %>
+</div>
+<div class="field">
+	<%= f.label :category_id %>
+	<br/>
+	<%= collection_select(:post, :category_id, Category.all, :id, :category_name, :prompt => true) %>
+</div>
+
+
+<!-- attachment block -->
+<%= render :partial => "attachments_form", :locals => {:f => f} %>
+<div class="field">
+	<%= f.label :keyword_list%>
+	<br />
+	<%= f.text_field :keyword_list %>
+</div>
+
+
+<div class="field">
+	<%= f.label :content %>
+	<br />
+	<%= f.text_area :content %>
+	<br>
+	<%= link_to_function "Insert Carousel wrapper", "insertCarouselMarkup()", :class=> "insert-carousel-wrapper"%> 
+	
+	<br><br>
+	<!-- citations -->
+	<%= render :partial => "citations_form", :locals => {:f => f} %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %> 
