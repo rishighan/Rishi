@@ -8,15 +8,16 @@ function insertCarouselMarkup() {
 }
 
 
-function insertSuperScript(identid)
+function insertSuperScriptMarkup(con)
 {
 	
 	// pattern for matching 
 	// ^(post_citations_attributes_[0-9]{1,3}_extended_description)$
 	var markup = '<sup> </sup>';
-	
-	$(identid).val($(identid).val() + markup);
-	
+    var context = $(con).prevAll('textarea')
+
+    $(context).val($(context).val() + markup)
+
 	
 }
 

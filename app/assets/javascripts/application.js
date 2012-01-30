@@ -8,4 +8,5 @@
 //= require jquery_ujs
 //= require posts
 //= require home
+//= require nested_form
 
