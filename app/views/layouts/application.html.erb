@@ -3,8 +3,12 @@
 <head>
   <title>Rishi</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag :vendor, :cache => false %>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery_ujs" %>
+   <%= javascript_include_tag "vendor", :cache => false %>
+  <%= javascript_include_tag "application", :cache => false %>
+ 
+
   <%= csrf_meta_tags %>
 </head>
 <body>

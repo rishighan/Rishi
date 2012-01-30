@@ -13,8 +13,10 @@
   <% unless attach.object.new_record? %>
   	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
 	<%= attach.object.photo.url(:medium)%><br>	
+	<%= link_to_function "Insert image into post", "insertImageMarkup(this)", :class=> "insert-image-markup"%>
  <%end%>
   
+   
   <%= attach.link_to_remove "Remove this image", {:id=> @post.id} %> <br><br>
   
    <%end %>	
