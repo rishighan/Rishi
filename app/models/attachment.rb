@@ -8,11 +8,18 @@ class Attachment < ActiveRecord::Base
                     :path =>":rails_root/public/pictures/:style/:basename.:extension"
                     
   validates_attachment_content_type :photo, :content_type => ['image/png', 'image/jpg', 'image/jpeg']                  
-  validates_attachment_size :photo, :less_than => 2.megabytes                  
+  validates_attachment_size :photo, :less_than => 2.megabytes         
+
 
 ### End Paperclip ####
+def decide_style
+  
+  category = @post.params[:category_id]
+  
+end
 
-  def resize     
+
+ def resize     
      geo = Paperclip::Geometry.from_file(photo.to_file(:original))
 
      ratio = geo.width/geo.height  

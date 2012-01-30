@@ -12,6 +12,7 @@
 	</ul>
 </div>
 <% end %>
+
 <div class="field">
 	<%= f.label :title %>
 	<br/>
@@ -26,6 +27,7 @@
 
 <!-- attachment block -->
 <%= render :partial => "attachments_form", :locals => {:f => f} %>
+
 <div class="field">
 	<%= f.label :keyword_list%>
 	<br/>
@@ -42,6 +44,8 @@
     <%= link_to_function "Insert Superscript", "insertSuperScriptMarkup(this)", :class=> "insert-super-script"%>
 	
 	<br><br>
+	
+	
 	<!-- citations -->
 	<%= render :partial => "citations_form", :locals => {:f => f} %>
 </div>
