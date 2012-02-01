@@ -12,7 +12,7 @@
 
 <p>
   <b>Content:</b>
-  <%= @post.content.html_safe %>
+  <%= coderay(@post.content) %>
 </p>
 
 <p id="attachments">

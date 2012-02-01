@@ -17,7 +17,6 @@ class Admin::PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @post }
@@ -31,6 +30,8 @@ class Admin::PostsController < ApplicationController
     
     4.times {@post.attachments.build} #attachments
     @post.citations.build #citations
+    
+    catid = params[:category_id]
     
     respond_to do |format|
       format.html # new.html.erb

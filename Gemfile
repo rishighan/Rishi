@@ -9,6 +9,7 @@ gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
 
 gem 'RedCloth', '4.2.8'
+gem 'coderay'
 gem 'kaminari', '0.12.4'
 gem 'devise'
 
@@ -32,6 +33,7 @@ end
 
 gem 'jquery-rails', '>= 1.0.12'
 gem 'therubyracer'
+
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 

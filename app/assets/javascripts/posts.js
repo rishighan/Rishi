@@ -13,7 +13,7 @@ function insertCarouselMarkup() {
 	var textarea = $('#post_content');
 	var markup = '<div class="post-carousel"> </div>';
 
-	textarea.val(textarea.val() + markup);
+	textarea.insertAtCaret(markup)
 
 }
 
@@ -24,7 +24,7 @@ function insertSuperScriptMarkup(con) {
 	var markup = '<sup> </sup>';
 	var context = $(con).prevAll('textarea')
 
-	$(context).val($(context).val() + markup)
+	$(context).insertAtCaret(markup)
 
 }
 
