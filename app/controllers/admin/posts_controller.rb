@@ -22,7 +22,8 @@ class Admin::PostsController < ApplicationController
       format.json { render :json => @post }
     end
   end
-
+  
+    
   # GET /posts/new
   # GET /posts/new.json
   def new
@@ -43,6 +44,8 @@ class Admin::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
+
+
 
   # POST /posts
   # POST /posts.json
@@ -87,4 +90,10 @@ class Admin::PostsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  
+  
+  
+  
 end
+
