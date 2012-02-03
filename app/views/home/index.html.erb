@@ -6,10 +6,9 @@
 <div class="carousel-container">
 
  <% @carousel_posts.each do |carousel|%>
- 	
  	  <% carousel.attachments.each do |attach| %>
  	  <%= image_tag attach.photo.url(:thumb)%>
- <%end%>	
+ <% end %>	
 	
 	
 

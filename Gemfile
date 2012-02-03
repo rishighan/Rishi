@@ -7,9 +7,8 @@ gem 'rails', '3.1.1'
 gem 'mysql2', '>= 0.3'
 gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
-
+gem 'coderay', '1.0.5'
 gem 'RedCloth', '4.2.8'
-gem 'coderay'
 gem 'kaminari', '0.12.4'
 gem 'devise'
 
