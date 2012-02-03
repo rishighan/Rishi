@@ -1,33 +1,51 @@
-function insertImageMarkup(ident) {
+function insertMarkup(objt, markuptype) {
+	switch (markuptype) {
 
-	var context = $(ident).prevAll('a').attr('href')
-	var markup = "<img src='" + context + "' />"
-	
-	// need a better strategy to traverse and select the textarea.
-	var textarea = $("#post_content")
-	textarea.insertAtCaret(markup)
+		// image markup <img>
+		case 'image':
+			var hrefs = $(objt).prevAll('a').attr('href')
+			var markup = "<img src='" + hrefs + "' />"
+
+			// need a better strategy to traverse and select the textarea.
+			var textarea = $("#post_content")
+			textarea.insertAtCaret(markup)
+			break;
+
+		// carousel markup <div class=post-carousel>
+		case 'carousel':
+			var context = $(objt).prevAll('textarea')
+			var markup = '<div class="post-carousel"> </div>';
+
+			$(context).insertAtCaret(markup)
+
+			break;
+
+		// superscript markup <sup>
+		case 'superscript':
+
+			// pattern for matching, poor approach.
+			// thinking out loud, but I may change the name of the attribute and the pattern would
+			// have to change.
+			// ^(post_citations_attributes_[0-9]{1,3}_extended_description)$
+
+			var markup = '<sup> </sup>';
+			var context = $(objt).prevAll('textarea')
+
+			$(context).insertAtCaret(markup)
+
+			break;
+
+		// code markup <code>
+		case 'code':
+			var markup = '<pre><code>  </code></pre>';
+			var context = $(objt).prevAll('textarea')
+
+			$(context).insertAtCaret(markup);
+			
+			break;
+
+	};
 }
-
-function insertCarouselMarkup() {
-
-	var textarea = $('#post_content');
-	var markup = '<div class="post-carousel"> </div>';
-
-	textarea.insertAtCaret(markup)
-
-}
-
-function insertSuperScriptMarkup(con) {
-
-	// pattern for matching
-	// ^(post_citations_attributes_[0-9]{1,3}_extended_description)$
-	var markup = '<sup> </sup>';
-	var context = $(con).prevAll('textarea')
-
-	$(context).insertAtCaret(markup)
-
-}
-
 
 
 $(document).ready(function() {

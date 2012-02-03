@@ -16,7 +16,7 @@
  
  
 
-  <%= link_to_function "Insert Superscript", "insertSuperScriptMarkup(this)", :class=> "insert-super-script"%>
+  <%= link_to_function "Insert Superscript", "insertMarkup(this,'superscript')", :class=> "insert-super-script"%>
   <%= citation.link_to_remove "Remove this citation", {:id=> @post.id} %> <br><br>
   
    <%end %>	
