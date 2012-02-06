@@ -9,7 +9,8 @@ gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
 
 # syntax highlighting
-gem 'albino'  
+#gem 'albino'  
+gem 'pygments.rb'
 gem 'nokogiri'  
 gem 'redcarpet', '1.17.2'
 
