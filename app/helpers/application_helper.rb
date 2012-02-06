@@ -8,7 +8,7 @@ module ApplicationHelper
   def syntax_highlighter(html)  
     doc = Nokogiri::HTML(html)  
     doc.search("//pre[@lang]").each do |pre|  
-       pre.replace Pygments.highlight(pre.text.rstrip, :lexer => pre[:lang])  
+       pre.replace Pygments.highlight(pre.text.rstrip, :lexer => pre[:lang], :options => {:linenos => 'table'})  
     end  
     doc.to_s  
   end  
