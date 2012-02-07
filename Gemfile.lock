@@ -156,7 +156,7 @@ DEPENDENCIES
   nested_form!
   nokogiri
   paperclip (~> 2.4)
-  pygments.rb
+  pygments.rb (= 0.2.4)
   rails (= 3.1.1)
   rails-footnotes (>= 3.7.5.rc4)
   redcarpet (= 1.17.2)
