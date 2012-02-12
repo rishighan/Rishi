@@ -4,8 +4,8 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 
-//= require nested_form
+//= require admin/nested_form
 //= require home
-//= require posts
+//= require admin/posts
 
 
