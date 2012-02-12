@@ -24,7 +24,9 @@
 	<%= collection_select(:product, :product_category_id, ProductCategory.all, :id, :productCategory_title, :prompt => true) %>
 </div>
 
-<%= f.file_field :productshot%>
+
+<%= render :partial=> "shots_form" , :locals =>{:f=> f} %>	
+
 
 <div class="field">
 	<%= f.label :description %>

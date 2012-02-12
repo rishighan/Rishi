@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212015626) do
+ActiveRecord::Schema.define(:version => 20120212183516) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "post_id"
@@ -52,17 +52,23 @@ ActiveRecord::Schema.define(:version => 20120212015626) do
     t.datetime "updated_at"
   end
 
+  create_table "product_shots", :force => true do |t|
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "shot_file_name"
+    t.string   "shot_content_type"
+    t.integer  "shot_file_size"
+    t.datetime "shot_updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "product_category_id"
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",                    :precision => 10, :scale => 0
+    t.decimal  "price",               :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "productshot_file_name"
-    t.string   "productshot_content_type"
-    t.integer  "productshot_file_size"
-    t.datetime "productshot_updated_at"
   end
 
   create_table "taggings", :force => true do |t|

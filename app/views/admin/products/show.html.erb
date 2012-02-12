@@ -16,6 +16,15 @@
 </p>
 
 
+<% @product.productShots.each do |pshot|%>
+<%= image_tag pshot.shot.url(:thumb) %>
+<%end%>
+
+<br><br>
+
+
+
+
 
 
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |

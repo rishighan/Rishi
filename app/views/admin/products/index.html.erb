@@ -1,29 +1,28 @@
 <h1>Listing products</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Price</th>
- 
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul class="listing">
 <% @products.each do |product| %>
-  <tr>
-    <td><%= product.title %></td>
-    <td><%= product.description %></td>
-    <td><%= product.price %></td>
+  
+  <li class=<%= cycle('list_even', 'list_odd')%>>
+    <%= product.title %> <br>
+    <%= product.description %><br>
+    <%= product.price %><br><br>
    
-    <td><%= link_to 'Show', admin_product_path(product) %></td>
-    <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
-    <td><%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+   <!-- product shots -->
+   <% product.productShots.each do |pshot| %>
+   <%= image_tag pshot.shot.url(:thumb) %>
+   <%end%>
+   
+   <br><br>
+    <%= link_to 'Show', admin_product_path(product) %>
+    <%= link_to 'Edit', edit_admin_product_path(product) %>
+    <%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %>
+  
+  </li>
+  
 <% end %>
-</table>
 
+</ul>
 <br />
 
 <%= link_to 'New Product', new_admin_product_path %>
