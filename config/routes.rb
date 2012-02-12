@@ -4,9 +4,10 @@ Rishi::Application.routes.draw do
 
  
   get "home/index"
-  get "admin/index"
+ 
   
   root :to => 'home#index' 
+  
   namespace :admin do
     root :to => "admin#index" #root page defined inside the namespace.
     resources :posts, :categories, :products, :product_categories
