@@ -2,7 +2,7 @@
 
 <h2> Your Cart</h2>
 <% @cart.line_items.each do |item|%>
-<%= item.product.title%> <br>
+<%= item.quantity%> &times; <%= item.product.title%> <br>
 
 <%end%>
 

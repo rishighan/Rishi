@@ -7,4 +7,9 @@ class CreateLineItems < ActiveRecord::Migration
       t.timestamps
     end
   end
+  
+  def self.down
+    remove_column :line_items, :quantity
+  end
+  
 end
