@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private # this makes the cart method available to controllers and prevents it from being used as an action on the Controller          
   
   def current_cart
-    Cart.find(params[:cart_id])
+    Cart.find(session[:cart_id])
   rescue ActiveRecord::RecordNotFound
     cart = Cart.create
     session[:cart_id] = cart.id
