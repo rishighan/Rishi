@@ -1,14 +1,23 @@
 Rishi::Application.routes.draw do
   
+  get "store/index"
+
+  resources :line_items
+  resources :carts
+
   devise_for :users
 
- 
+  # site root
   get "home/index"
   root :to => 'home#index' 
+  
+  # admin root
   match "/admin", :to=>"admin#index"
  
+  # store catalog root
+  match "/store", :to =>"store#index"
+ 
   namespace :admin do
-    
     #root :to => "admin#index" #root page defined inside the namespace.
     resources :posts, :categories, :products, :product_categories
   end
