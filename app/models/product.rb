@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
   
   
   belongs_to :productCategory
-  has_many :productShots
+  has_many :productShots, :dependent => :destroy
   accepts_nested_attributes_for :productShots, :allow_destroy => true,
                                 :reject_if => proc { |attributes| attributes['shot'].blank? } 
   

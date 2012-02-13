@@ -6,7 +6,7 @@
   <li class=<%= cycle('list_even', 'list_odd')%>>
     <%= product.title %> <br>
     <%= product.description %><br>
-    <%= product.price %><br><br>
+    <%= number_to_currency(product.price) %><br><br>
    
    <!-- product shots -->
    <% product.productShots.each do |pshot| %>

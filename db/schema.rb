@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20120212183516) do
     t.string   "product_category_id"
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",               :precision => 10, :scale => 0
+    t.decimal  "price",               :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
