@@ -7,17 +7,21 @@
 	Browse the catalog
 </p>
 <div id="storecontainer">
-	<% @products.each do |product|%> <h2><%= product.title%></h2>
-	<br />
-	<% product.productShots.each do |pshot|%>
-	<%= image_tag pshot.shot.url(:thumb)%>
-	<%end%>
-	<br>
-	<br>
-	<span class="price"> <%= number_to_currency(product.price) %> </span>
-	<%= button_to 'Add to Cart', line_items_path(:product_id => product)%>
-	<br>
-	<%= product.description %>
-	<hr>
+	<%= render @cart %>
+	<% @products.each do |product|%>
+	<div class="store-items">
+		<h2><%= product.title%></h2>
+		<br />
+		<% product.productShots.each do |pshot|%>
+		<%= image_tag pshot.shot.url(:thumb)%>
+		<%end%>
+		<br>
+		<br>
+		<span class="price"> <%= number_to_currency(product.price) %> </span>
+		<%= button_to 'Add to Cart', line_items_path(:product_id => product), :remote=> true%>
+		<br>
+		<%= product.description %>
+		<hr>
+	</div>
 	<%end%>
 </div>

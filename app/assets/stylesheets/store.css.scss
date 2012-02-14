@@ -2,13 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#storecontainer form, #storecontainer form div
+#storecontainer  
 {
-  display:inline;
+  form, form div
+  {
+    display:inline;
+  }
+  
 }
 
 .price
 {
   font-weight:bold;
   font-size:16pt;
+}
+
+
+/* Store items display */
+.store-items 
+{
+  width:190px;
+  float:left;
+  padding:10px;
+}
+
+
+/* Cart */
+.cartcontainer table 
+{
+
+  
+   td.quantity
+    {
+      text-align:left;
+      font-size:14px;
+    }
+
+
+
+    td.price
+    {
+      text-align:left;
+      font-size:14px;
+    }
+
+
+
+    td.total
+    {
+      background:#FFFCCC;
+      font-size:18px;
+      font-weight:bold;
+    }
+  
 }
