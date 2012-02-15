@@ -7,7 +7,10 @@
 	Browse the catalog
 </p>
 <div id="storecontainer">
+	<div id="cart">
 	<%= render @cart %>
+	</div>
+	
 	<% @products.each do |product|%>
 	<div class="store-items">
 		<h2><%= product.title%></h2>
