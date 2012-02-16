@@ -1,6 +1,6 @@
 $('#cart').html("<%= escape_javascript(render(@cart)) %>");
 <% if @cart.total_items == 1%>
-	$("#cart").show("fade", {}, 1000);
+	$("#cart").show("slide", {direction:"down"}, 1000);
 <% end %>
 
 $('#current-item').effect("highlight", {}, 3000);

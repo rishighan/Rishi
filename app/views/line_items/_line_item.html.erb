@@ -2,7 +2,9 @@
 <tr id="current-item">
 	<%else%>
 <tr>
-	<%end%> <td> <%= line_item.product.title %> </td>
-	<td class="quantity"> &times; <%= line_item.quantity%> </td>
+	<%end%> 
+	
+	<td> <%= line_item.product.title %> </td>
+	<td class="quantity"> &times; <%= line_item.quantity %> </td>
 	<td class="price"> <%= number_to_currency(line_item.total_price)%> </td>
 </tr>
