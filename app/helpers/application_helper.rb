@@ -14,4 +14,13 @@ module ApplicationHelper
     end  
     doc.to_s  
   end  
+  
+  #this is a helper method to hide the cart when its empty.
+  def hidden_div_if(condition, attributes= {}, &block)
+    if condition
+      attributes["style"] = "display:none"
+    end
+    content_tag("div", attributes, &block)
+  end
+  
 end
