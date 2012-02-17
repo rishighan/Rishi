@@ -1,5 +1,5 @@
 <% unless cart.line_items.empty? %>
-<div id="cartcontainer">
+
 	<h2> Your Cart</h2>
 	<table>
 		<%= render cart.line_items	 %> <!-- Cart Total -->
@@ -8,7 +8,7 @@
 			<td class="total"><%= number_to_currency(cart.total_price)%></td>
 		</tr>
 	</table>
-</div>
+
 <%= button_to "Empty Cart", cart, :method => :delete, :confirm => "Are you sure?" %>
 
 <!-- <%= link_to 'Edit', edit_cart_path(cart) %> |
