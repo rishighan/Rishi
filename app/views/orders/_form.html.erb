@@ -1,0 +1,67 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "First Name" %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label "Last Name" %><br />
+    <%= f.text_field :lastname %>
+  </div>
+  
+  <!-- address -->
+  <div class="address">
+  
+  <div class="streetaddress">
+    <%= f.label "Street Address" %><br />
+    <%= f.text_field :address1 %>
+  </div>
+  <div class="apartment">
+    <%= f.label "Apartment/Suite/Lobby" %><br />
+    <%= f.text_field :address2 %>
+  </div>
+  <div class="city">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <br>
+  <div class="state">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="zipcode">
+    <%= f.label :zipcode %><br />
+    <%= f.number_field :zipcode %>
+  </div>
+  
+  </div>
+  
+   <!-- personal details -->
+  
+  <div class=".phone">
+    <%= f.label :phone %><br />
+    <%= f.number_field :phone %>
+  </div>
+  <div class="email">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="pay_type">
+    <%= f.label :pay_type %><br />
+    <%= f.text_field :pay_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -9,13 +9,16 @@ gem "paperclip", "~> 2.4"
 gem 'acts-as-taggable-on', '~>2.1.0'
 
 # syntax highlighting
-#gem 'albino'  
+# gem 'albino'  
 gem 'pygments.rb', '0.2.4'
 gem 'nokogiri'  
 gem 'redcarpet', '1.17.2'
 
 gem 'kaminari', '0.12.4'
 gem 'devise'
+
+# e-commerce
+gem 'activemerchant'
 
 # http://damncabbage.github.com/blog/2011/09/20/less-wood-behind-more-arrows-nested-form/
 # Elmatou's fork:
