@@ -31,11 +31,12 @@
     <%= f.label "Apartment/Suite/Lobby" %><br />
     <%= f.text_field :address2 %>
   </div>
+  
   <div class="city">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
   </div>
-  <br>
+  
   <div class="state">
     <%= f.label :state %><br />
     <%= f.text_field :state %>
@@ -48,8 +49,8 @@
   </div>
   
    <!-- personal details -->
-  
-  <div class=".phone">
+  <div class="personaldetails">
+  <div class="phone">
     <%= f.label :phone %><br />
     <%= f.number_field :phone %>
   </div>
@@ -57,6 +58,9 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+  
+  </div>
+  
   <div class="pay_type">
     <%= f.label :pay_type %><br />
     <%= f.text_field :pay_type %>

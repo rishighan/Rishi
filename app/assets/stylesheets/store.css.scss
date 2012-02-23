@@ -60,16 +60,16 @@
 /* Order Form */
 .address
 {
-
-  .streetaddress, .apartment, .city, .state, .zipcode
+  background:#CCC;
+   
+ .streetaddress, .state, .zipcode
   {
     float:left;
-    display:block;
-    
-  }
-  
+       
+  } 
   
 }
+
 
 .phone, .email, .pay_type
 {
