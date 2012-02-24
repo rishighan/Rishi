@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20120217183157) do
     t.string   "city"
     t.string   "state"
     t.integer  "zipcode"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "email"
     t.string   "pay_type"
     t.datetime "created_at"

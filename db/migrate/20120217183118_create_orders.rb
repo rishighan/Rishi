@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.integer :zipcode
-      t.integer :phone
+      t.string :phone
       t.string :email
       t.string :pay_type
 
