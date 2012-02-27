@@ -7,11 +7,12 @@ class CreateOrders < ActiveRecord::Migration
       t.string :address2
       t.string :city
       t.string :state
-      t.integer :zipcode
+      t.string :zipcode
       t.string :phone
       t.string :email
       t.string :pay_type
       t.date   :card_expires_on
+      t.string :ip_address
       t.timestamps
     end
   end
