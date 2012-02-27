@@ -11,18 +11,6 @@ class Order < ActiveRecord::Base
   # for matching:
   # 2154701106 or 215 470 1106 or (215) 470-1106 or 215-470-1106
   validates_format_of :phone, :with => /^[\(?0-9 \)?]{3,6}?-?[0-9]{3} ?-?[0-9]{4}$/,
-<<<<<<< HEAD
-                      :notice => 'Phone numbers can have the following format'
- 
-  before_save :clean_phone_number
-  
-  #zipcodes
-  
- 
- def clean_phone_number
-    self.phone= self.phone.gsub(/\D/, '')
- end 
-=======
                       :msg => 'Phone numbers can have the following format'
 
   before_save :clean_phone_number
@@ -30,7 +18,6 @@ class Order < ActiveRecord::Base
     ph= self.phone.gsub(/([-()])/, '')
   end
   
->>>>>>> Tons of validation, adding Activemerchant and paypal gateway code
   
   # Credit Card Validation
   validate :validate_card, :on =>:create
