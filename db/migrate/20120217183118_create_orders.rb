@@ -11,7 +11,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :phone
       t.string :email
       t.string :pay_type
-
+      t.date   :card_expires_on
       t.timestamps
     end
   end

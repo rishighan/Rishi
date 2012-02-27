@@ -46,11 +46,14 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
-
+    @order.ip_address = request.remote_ip
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, :notice => 'Order was successfully created.' }
-        format.json { render :json => @order, :status => :created, :location => @order }
+        if @order.purchase
+            render :action => "success"
+          else
+            render :action => "failure"
+          end
       else
         format.html { render :action => "new" }
         format.json { render :json => @order.errors, :status => :unprocessable_entity }

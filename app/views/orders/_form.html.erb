@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "First Name" %><br />
+  <div class="firstname">
+    <%= f.label :firstname, "First Name" %><br />
     <%= f.text_field :firstname %>
   </div>
-  <div class="field">
-    <%= f.label "Last Name" %><br />
+  <div class="lastname">
+    <%= f.label :lastname, "Last Name" %><br />
     <%= f.text_field :lastname %>
   </div>
   
@@ -24,11 +24,11 @@
   <div class="address">
   
   <div class="streetaddress">
-    <%= f.label "Street Address" %><br />
+    <%= f.label :address1, "Street Address" %><br />
     <%= f.text_field :address1 %>
   </div>
   <div class="apartment">
-    <%= f.label "Apartment/Suite/Lobby" %><br />
+    <%= f.label :address2, "Apartment/Suite/Lobby" %><br />
     <%= f.text_field :address2 %>
   </div>
   
@@ -61,10 +61,30 @@
   
   </div>
   
+  <!-- payment and credit card details -->
+  <div class="payment_details">
   <div class="pay_type">
     <%= f.label :pay_type %><br />
-    <%= f.text_field :pay_type %>
+    <%= f.select :pay_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
   </div>
+  
+    <div class="card_number">
+    <%= f.label :card_number %><br />
+    <%= f.text_field :card_number %>
+  </div>
+  
+    <div class="card_verification">
+    <%= f.label :card_verification %><br />
+    <%= f.text_field :card_verification %>
+  </div>
+  
+  <div class="card_expires_on">
+  	<%= f.label :card_expires_on %><br />
+    <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+  </div>
+  
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

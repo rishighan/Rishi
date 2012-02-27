@@ -20,6 +20,16 @@ Rishi::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # initialize ActiveMerchant
+  config.after_initialize do
+  ActiveMerchant::Billing::Base.mode = :production
+  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    :login => "frishi_api1.me.com",
+    :password => "H7ERQP7XUH8GFMXK",
+    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A75xWIFboDNeaUd8lTteJeJcRweC"
+  )
+end
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
