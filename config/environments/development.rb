@@ -14,9 +14,9 @@ Rishi::Application.configure do
   config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
   ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-    :login => "frishi_api1.me.com",
-    :password => "H7ERQP7XUH8GFMXK",
-    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A75xWIFboDNeaUd8lTteJeJcRweC"
+    :login => "frishi_1330377565_biz_api1.me.com",
+    :password => "1330377604",
+    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A6exnpjtp5fQk8Lkmb0aqnfB6enT"
    )
   end
 

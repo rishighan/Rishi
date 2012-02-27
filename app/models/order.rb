@@ -17,7 +17,7 @@ class Order < ActiveRecord::Base
 
   before_save :clean_phone_number
   def clean_phone_number
-    ph= self.phone.gsub(/([-()])/, '')
+    ph = self.phone.gsub(/([-()])/, '')
   end
 
   # Credit Card Validation
@@ -59,6 +59,7 @@ class Order < ActiveRecord::Base
     }
   end
 
+  # please dont use hard-coded prices, cos, like, its not the best practice?
   def purchase
     response = GATEWAY.purchase(2000, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
