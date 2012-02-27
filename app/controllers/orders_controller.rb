@@ -46,11 +46,17 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    @order.cart = current_cart
     @order.ip_address = request.remote_ip
+    @order.add_line_items_from_cart(current_cart)
+    
     respond_to do |format|
       if @order.save
         if @order.purchase
+            Cart.destroy(session[:cart_id])
+            session[:cart_id] = nil
             render :action => "success"
+            format.json {render :json => @order, :status => :created, :location=> @order}
           else
             render :action => "failure"
           end

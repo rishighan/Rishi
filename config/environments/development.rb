@@ -10,16 +10,15 @@ Rishi::Application.configure do
 
 
   # initialize ActiveMerchant Gem
-  # using actual credentials
-  # todo: Sandbox mode setup on Paypal
+  # Paypal sandbox mode
   config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
   ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-    :login => "frishi_api1.me.com",
-    :password => "H7ERQP7XUH8GFMXK",
-    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A75xWIFboDNeaUd8lTteJeJcRweC"
-  )
-end
+    :login => "frishi_1330355950_biz_api1.me.com",
+    :password => "1330355974",
+    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A6exnpjtp5fQk8Lkmb0aqnfB6enT"
+   )
+  end
 
   #configuration for devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

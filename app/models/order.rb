@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
             :presence => true
 
   has_many :line_items, :dependent => :destroy
+  belongs_to :cart
+  has_many :transactions, :class_name => "OrderTransaction"
   attr_accessor :card_number, :card_verification, :card_expires_on
 
   # Phone Number Validation
@@ -17,8 +19,7 @@ class Order < ActiveRecord::Base
   def clean_phone_number
     ph= self.phone.gsub(/([-()])/, '')
   end
-  
-  
+
   # Credit Card Validation
   validate :validate_card, :on =>:create
 
@@ -44,6 +45,20 @@ class Order < ActiveRecord::Base
     )
   end
 
+  def purchase_options
+    {
+      :ip => ip_address,
+      :billing_address => {
+        :name     => firstname,
+        :address1 => address1,
+        :city     => city,
+        :state    => state,
+        :country  => "US",
+        :zip      => zipcode
+      }
+    }
+  end
+
   def purchase
     response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
@@ -53,6 +68,13 @@ class Order < ActiveRecord::Base
 
   def price_in_cents
     (cart.total_price*100).round
+  end
+
+  def add_line_items_from_cart(cart)
+    cart.line_items.each do |item|
+      item.cart_id = nil
+      line_items << item
+    end
   end
 
 end
