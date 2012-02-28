@@ -61,7 +61,7 @@ class Order < ActiveRecord::Base
 
   # please dont use hard-coded prices, cos, like, its not the best practice?
   def purchase
-    response = GATEWAY.purchase(2000, credit_card, purchase_options)
+    response = GATEWAY.purchase(1000, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
     #cart.update_attribute(:purchased_at, Time.now) if response.success?
     response.success?
