@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  private # this makes the cart method available to controllers and prevents it from being used as an action on the Controller          
+  private # this makes the cart method available to controllers and prevents it 
+          #from being used as an action on the Controller          
   
   def current_cart
     Cart.find(session[:cart_id])

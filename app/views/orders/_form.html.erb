@@ -79,7 +79,7 @@
   </div>
   
   <div class="card_expires_on">
-  	<%= f.label :card_expires_on %><br />
+  	<%= f.label :card_expires_on, "Card Expiry Date" %><br />
     <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
   </div>
   

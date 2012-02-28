@@ -24,13 +24,13 @@ class OrdersController < ApplicationController
   # GET /orders/new
   # GET /orders/new.json
   def new
-     @cart =current_cart
-        if @cart.line_items.empty? 
-          redirect_to store_url, :notice=>"Your cart is empty"
-          return
-        end
-        
-   @order = Order.new
+    @cart =current_cart
+    if @cart.line_items.empty?
+      redirect_to store_url, :notice=>"Your cart is empty"
+    return
+    end
+
+    @order = Order.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @order }
@@ -46,20 +46,20 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
-    @order.cart = current_cart
+  
     @order.ip_address = request.remote_ip
     @order.add_line_items_from_cart(current_cart)
-    
+
     respond_to do |format|
       if @order.save
         if @order.purchase
-            Cart.destroy(session[:cart_id])
-            session[:cart_id] = nil
-            render :action => "success"
-            format.json {render :json => @order, :status => :created, :location=> @order}
-          else
-            render :action => "failure"
-          end
+          Cart.destroy(session[:cart_id])
+          session[:cart_id] = nil
+          render :action => "success"
+          format.json {render :json => @order, :status => :created, :location=> @order}
+        else
+          render :action => "failure"
+        end
       else
         format.html { render :action => "new" }
         format.json { render :json => @order.errors, :status => :unprocessable_entity }

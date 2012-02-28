@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
             :presence => true
 
   has_many :line_items, :dependent => :destroy
-  belongs_to :cart
+
   has_many :transactions, :class_name => "OrderTransaction"
   attr_accessor :card_number, :card_verification, :card_expires_on
 
@@ -61,14 +61,19 @@ class Order < ActiveRecord::Base
 
   # please dont use hard-coded prices, cos, like, its not the best practice?
   def purchase
-    response = GATEWAY.purchase(1000, credit_card, purchase_options)
+    response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
     #cart.update_attribute(:purchased_at, Time.now) if response.success?
     response.success?
   end
 
+
+  def total_price
+     line_items.to_a.sum {|item| item.total_price}
+  end
+  
   def price_in_cents
-    (cart.total_price*100).round
+    (total_price*100).round
   end
 
   def add_line_items_from_cart(cart)
