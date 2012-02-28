@@ -65,16 +65,16 @@
   <div class="payment_details">
   <div class="pay_type">
     <%= f.label :pay_type %><br />
-    <%= f.select :pay_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+    <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt=> "Select a payment method" %>
   </div>
   
     <div class="card_number">
-    <%= f.label :card_number %><br />
+    <%= f.label :card_number, "Card Number"%><br />
     <%= f.text_field :card_number %>
   </div>
   
     <div class="card_verification">
-    <%= f.label :card_verification %><br />
+    <%= f.label :card_verification, "Card Verification Value (CVV)"%><br />
     <%= f.text_field :card_verification %>
   </div>
   

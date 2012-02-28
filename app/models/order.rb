@@ -16,9 +16,25 @@ class Order < ActiveRecord::Base
                       :msg => 'Phone numbers can have the following format'
 
   before_save :clean_phone_number
+  
+  # E-mail validation
+  # regex ([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})
+  # for matching:
+  # frishi@me.com, frishi@yahoo.co.in
+  validates_format_of :email, :with => /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                              :notice => 'Enter a valid email address'
+  
+  # Payment type validation
+  # This is important to prevent HTML injection
+  validates :pay_type,  :inclusion => PAYMENT_TYPES
+  
   def clean_phone_number
     ph = self.phone.gsub(/([-()])/, '')
   end
+  
+  # payment types
+  PAYMENT_TYPES = ["Visa",  "MasterCard", "Discover", "American Express"]
+  
 
   # Credit Card Validation
   validate :validate_card, :on =>:create
