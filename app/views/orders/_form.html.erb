@@ -1,91 +1,98 @@
 <%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="firstname">
-    <%= f.label :firstname, "First Name" %><br />
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="lastname">
-    <%= f.label :lastname, "Last Name" %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  
-  <!-- address -->
-  <div class="address">
-  
-  <div class="streetaddress">
-    <%= f.label :address1, "Street Address" %><br />
-    <%= f.text_field :address1 %>
-  </div>
-  <div class="apartment">
-    <%= f.label :address2, "Apartment/Suite/Lobby" %><br />
-    <%= f.text_field :address2 %>
-  </div>
-  
-  <div class="city">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  
-  <div class="state">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
-  <div class="zipcode">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode %>
-  </div>
-  
-  </div>
-  
-   <!-- personal details -->
-  <div class="personaldetails">
-  <div class="phone">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="email">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  
-  </div>
-  
-  <!-- payment and credit card details -->
-  <div class="payment_details">
-  <div class="pay_type">
-    <%= f.label :pay_type %><br />
-    <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt=> "Select a payment method" %>
-  </div>
-  
-    <div class="card_number">
-    <%= f.label :card_number, "Card Number"%><br />
-    <%= f.text_field :card_number %>
-  </div>
-  
-    <div class="card_verification">
-    <%= f.label :card_verification, "Card Verification Value (CVV)"%><br />
-    <%= f.text_field :card_verification %>
-  </div>
-  
-  <div class="card_expires_on">
-  	<%= f.label :card_expires_on, "Card Expiry Date" %><br />
-    <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
-  </div>
-  
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% if @order.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+	<ul>
+		<% @order.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
+
+<!-- personal information -->
+<div class="firstname">
+	<%= f.label :firstname, "First Name" %>
+	<br />
+	<%= f.text_field :firstname %>
+</div>
+<div class="lastname">
+	<%= f.label :lastname, "Last Name" %>
+	<br />
+	<%= f.text_field :lastname %>
+</div>
+
+<!-- address -->
+<div class="address">
+	<div class="streetaddress">
+		<%= f.label :address1, "Street Address" %>
+		<br />
+		<%= f.text_field :address1 %>
+	</div>
+	<div class="apartment">
+		<%= f.label :address2, "Apartment/Suite/Lobby" %>
+		<br />
+		<%= f.text_field :address2 %>
+	</div>
+	<div class="city">
+		<%= f.label :city %>
+		<br />
+		<%= f.text_field :city %>
+	</div>
+	<div class="state">
+		<%= f.label :state %>
+		<br />
+		<%= f.text_field :state %>
+	</div>
+	<div class="zipcode">
+		<%= f.label :zipcode %>
+		<br />
+		<%= f.text_field :zipcode %>
+	</div>
+</div>
+
+<!-- personal contact details -->
+<div class="personaldetails">
+	<div class="phone">
+		<%= f.label :phone %>
+		<br />
+		<%= f.text_field :phone %>
+	</div>
+	<div class="email">
+		<%= f.label :email %>
+		<br />
+		<%= f.text_field :email %>
+	</div>
+</div>
+
+<!-- payment and credit card details -->
+<div class="payment_details">
+	<div class="pay_type">
+		<%= f.label :pay_type %>
+		<br />
+		<%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt=> "Select a payment method" %>
+	</div>
+	<div class="card_number">
+		<%= f.label :card_number, "Card Number"%>
+		<br />
+		<%= f.text_field :card_number %>
+	</div>
+	<div class="card_verification">
+		<%= f.label :card_verification, "Card Verification Value (CVV)"%>
+		<br />
+		<%= f.text_field :card_verification %>
+	</div>
+	<div class="card_expires_on">
+		<%= f.label :card_expires_on, "Card Expiry Date" %>
+		<br />
+		<%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+	</div>
+</div>
+
+<div class="actions">
+	<%= f.submit %>
+</div>
+
+<% end %> 

@@ -41,7 +41,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     @cart = current_cart
-    product =Product.find(params[:product_id])
+    product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id)
 
     respond_to do |format|
@@ -61,7 +61,7 @@ class LineItemsController < ApplicationController
   # PUT /line_items/1.json
   def update
     @line_item = LineItem.find(params[:id])
-
+    
     respond_to do |format|
       if @line_item.update_attributes(params[:line_item])
         format.html { redirect_to @line_item, :notice => 'Line item was successfully updated.' }
