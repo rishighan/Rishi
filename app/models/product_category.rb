@@ -1,6 +1,6 @@
 class ProductCategory < ActiveRecord::Base
-  validates :productCategory_title, :productCategory_description , :presence => true
+  validates :title, :description , :presence => true
   
-  has_many :products
+  has_and_belongs_to_many :products
   
 end

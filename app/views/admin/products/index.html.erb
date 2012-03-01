@@ -9,7 +9,7 @@
     <%= number_to_currency(product.price) %><br><br>
    
    <!-- product shots -->
-   <% product.productShots.each do |pshot| %>
+   <% product.product_shots.each do |pshot| %>
    <%= image_tag pshot.shot.url(:thumb) %>
    <%end%>
    

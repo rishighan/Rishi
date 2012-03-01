@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product_variant_id: 1
+  product_attribute_id: 1
+  value: MyString
+
+two:
+  product_variant_id: 1
+  product_attribute_id: 1
+  value: MyString

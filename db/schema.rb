@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227193308) do
+ActiveRecord::Schema.define(:version => 20120301221600) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "post_id"
@@ -88,9 +88,15 @@ ActiveRecord::Schema.define(:version => 20120227193308) do
     t.datetime "updated_at"
   end
 
+  create_table "product_attributes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "product_categories", :force => true do |t|
-    t.string   "productCategory_title"
-    t.text     "productCategory_description"
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -105,13 +111,29 @@ ActiveRecord::Schema.define(:version => 20120227193308) do
     t.datetime "shot_updated_at"
   end
 
+  create_table "product_variants", :force => true do |t|
+    t.integer  "product_id"
+    t.decimal  "price",       :precision => 10, :scale => 0
+    t.integer  "quantity"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "product_category_id"
     t.string   "title"
     t.text     "description"
     t.decimal  "price",               :precision => 8, :scale => 2
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "products_product_categories", :id => false, :force => true do |t|
+    t.integer "product_category_id"
+    t.integer "product_id"
   end
 
   create_table "taggings", :force => true do |t|
@@ -149,5 +171,13 @@ ActiveRecord::Schema.define(:version => 20120227193308) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "variant_attributes", :force => true do |t|
+    t.integer  "product_variant_id"
+    t.integer  "product_attribute_id"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
