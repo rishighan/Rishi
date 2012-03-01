@@ -1,7 +1,9 @@
 class CombineItemsInCart < ActiveRecord::Migration
   
   def self.up
-    #replace multiples of a certain product in the cart with a single product
+    # replace multiples of a certain product in the cart with a single product
+    # TODO: if product variants are present, combine them into a single product variant
+    
     Cart.all.each do |cart|
       sums= cart.line_items.group(:product_id).sum(:quantity)
 
