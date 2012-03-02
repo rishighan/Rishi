@@ -21,7 +21,7 @@
 	<br/>
 	<!-- form object, in this case, product, and then the parameters required to build the  <select> </select> -->
 	<!-- the nested field model, in this case, ProductCategory , the id, product_category_id and the value, product_category_title	-->
-	<%= collection_select(:product, :product_category_id, ProductCategory.all, :id, :productCategory_title, :prompt => true) %>
+	<%= collection_select(:product, :product_category_id, ProductCategory.all, :id, :title, :prompt => true) %>
 </div>
 
 
@@ -35,7 +35,7 @@
 </div>
 
 <div class="field">
-	<%= f.label :quantity, "Inventory Stock" %>
+	<%= f.label :quantity, "Inventory Stock"%>
 	<br />
 	<%= f.text_field :quantity %>
 </div>

@@ -25,7 +25,7 @@ class Admin::ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @product = Product.new
-    4.times{@product.productShots.build}
+    4.times{@product.product_shots.build}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @product }

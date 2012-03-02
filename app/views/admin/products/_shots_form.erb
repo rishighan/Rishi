@@ -2,7 +2,7 @@
   <div class="field" id="attachments">
   <%= f.label "Product Shots" %>  <br>	
  
-  <%= f.fields_for :productShots do |pshot| %>
+  <%= f.fields_for :product_shots do |pshot| %>
   
   <% if pshot.object.new_record? %>
   <%= pshot.file_field :shot %>
@@ -21,5 +21,5 @@
   
    <%end %>	
   
-  <%= f.link_to_add "Add another image", :productShots %>  
+  <%= f.link_to_add "Add another image", :product_shots %>  
   </div>

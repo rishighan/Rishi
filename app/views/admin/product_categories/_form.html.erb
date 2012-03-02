@@ -13,15 +13,15 @@
 
  
   <div class="field">
-    <%= f.label "Product Category Title" %><br />
-    <%= f.text_field :productCategory_title %>
+    <%= f.label  :title, "Category Name" %><br />
+    <%= f.text_field :title %>
   </div>
   
  
   
   <div class="field">
-    <%= f.label "Description" %><br />
-    <%= f.text_area :productCategory_description %>
+    <%= f.label :description, "Description" %><br />
+    <%= f.text_area :description %>
   </div>
   <div class="actions">
     <%= f.submit %>

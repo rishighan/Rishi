@@ -12,8 +12,8 @@
 <% @product_categories.each do |product_category| %>
   <tr>
    
-    <td><%= product_category.productCategory_title %></td>
-    <td><%= product_category.productCategory_description %></td>
+    <td><%= product_category.title %></td>
+    <td><%= product_category.description %></td>
     <td><%= link_to 'Show', admin_product_category_path(product_category) %></td>
     <td><%= link_to 'Edit', edit_admin_product_category_path(product_category) %></td>
     <td><%= link_to 'Destroy', admin_product_category_path(product_category), :confirm => 'Are you sure?', :method => :delete %></td>

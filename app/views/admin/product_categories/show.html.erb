@@ -2,19 +2,19 @@
 
 <p>
   <b>Product:</b>
-  <%= @product_category.product_id %>
+  <%= @product_category.id %>
 </p>
 
 <p>
-  <b>Productcategory title:</b>
-  <%= @product_category.productCategory_title %>
+  <b>Title:</b>
+  <%= @product_category.title %>
 </p>
 
 <p>
-  <b>Productcategory description:</b>
-  <%= @product_category.productCategory_description %>
+  <b>Description:</b>
+  <%= @product_category.description %>
 </p>
 
 
-<%= link_to 'Edit', edit_product_category_path(@product_category) %> |
-<%= link_to 'Back', product_categories_path %>
+<%= link_to 'Edit', edit_admin_product_category_path(@product_category)%> |
+<%= link_to 'Back', admin_product_categories_path %>
