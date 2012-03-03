@@ -1,4 +1,7 @@
 class ProductShot < ActiveRecord::Base
+
+  belongs_to :attachable, :polymorphic => true
+
   belongs_to :product, :dependent =>:destroy
   belongs_to :product_variant, :dependent => :destroy
   
