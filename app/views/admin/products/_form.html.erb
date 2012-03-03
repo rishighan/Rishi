@@ -24,6 +24,7 @@
 	<%= collection_select(:product, :product_category_id, ProductCategory.all, :id, :title, :prompt => true) %>
 </div>
 
+<%= hidden_field(:product, :id)%>
 
 <%= render :partial=> "shots_form" , :locals =>{:f=> f} %>	
 
