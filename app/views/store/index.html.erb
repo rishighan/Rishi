@@ -14,7 +14,7 @@
 	<div class="store-items">
 		<h2><%= product.title%></h2>
 		<br />
-		<% product.productShots.each do |pshot|%>
+		<% product.product_shots.each do |pshot|%>
 		<%= image_tag pshot.shot.url(:thumb)%>
 		<%end%>
 		<br>

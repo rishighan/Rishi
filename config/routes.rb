@@ -1,18 +1,13 @@
 Rishi::Application.routes.draw do
   
-  get "attributes/index"
-
-  get "attributes/new"
-
-  get "attributes/update"
-
-  get "attributes/destroy"
-
-  get "store/index"
-  resources :orders
-  resources :line_items
-  resources :carts
-
+  # store catalog root
+  # get "store/index"
+  match "/store", :to => "store#index"
+  
+  # shopping cart and checkout process
+  resources :orders, :line_items, :carts
+  
+  # user authentication for admin
   devise_for :users
 
   # site root
@@ -21,10 +16,8 @@ Rishi::Application.routes.draw do
   
   # admin root
   match "/admin", :to=>"admin#index"
- 
-  # store catalog root
-  match "/store", :to =>"store#index"
- 
+  
+  # admin section
   namespace :admin do
     #root :to => "admin#index" #root page defined inside the namespace.
     resources :posts, :categories, :products, :product_categories, :attributes
