@@ -7,6 +7,11 @@
     <%= product.title %> <br>
     <%= product.description %><br>
     <%= number_to_currency(product.price) %><br><br>
+    
+    Categories:<br>
+    <% product.product_categories.each do |cat|%>
+	<%= cat.title%><br>
+	<%end%>
    
    <!-- product shots -->
    <% product.product_shots.each do |pshot| %>

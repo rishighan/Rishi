@@ -19,9 +19,12 @@
 <div class="field">
 	<%= f.label :product_category_id %>
 	<br/>
-	<!-- form object, in this case, product, and then the parameters required to build the  <select> </select> -->
-	<!-- the nested field model, in this case, ProductCategory , the id, product_category_id and the value, product_category_title	-->
-	<%= collection_select(:product, :product_category_id, ProductCategory.all, :id, :title, :prompt => true) %>
+	<% for category in ProductCategory.find(:all) %>
+<div>
+  <%= check_box_tag "product[product_category_ids][]", category.id, @product.product_categories.include?(category) %>
+  <%= category.title %>
+</div>
+<% end %>
 </div>
 
 
