@@ -58,8 +58,9 @@ class Admin::ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
+    params[:product][:product_category_ids] ||= [] 
     @product = Product.find(params[:id])
-
+    
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to admin_products_url, :notice => 'Product was successfully updated.' }

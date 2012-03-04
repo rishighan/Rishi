@@ -1,9 +1,15 @@
 Rishi::Application.routes.draw do
   
-  resources :orders
+  get "attributes/index"
+
+  get "attributes/new"
+
+  get "attributes/update"
+
+  get "attributes/destroy"
 
   get "store/index"
-
+  resources :orders
   resources :line_items
   resources :carts
 
@@ -21,7 +27,7 @@ Rishi::Application.routes.draw do
  
   namespace :admin do
     #root :to => "admin#index" #root page defined inside the namespace.
-    resources :posts, :categories, :products, :product_categories
+    resources :posts, :categories, :products, :product_categories, :attributes
   end
  
  

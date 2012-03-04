@@ -9,9 +9,11 @@ class Product < ActiveRecord::Base
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
   
+  #categories
   has_and_belongs_to_many :product_categories
   accepts_nested_attributes_for :product_categories
   
+  #variants
   has_many :product_variants, :dependent => :destroy
   accepts_nested_attributes_for :product_variants, :allow_destroy => true
   

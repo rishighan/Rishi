@@ -9,9 +9,11 @@
     <%= number_to_currency(product.price) %><br><br>
     
     Categories:<br>
+    <ul>
     <% product.product_categories.each do |cat|%>
-	<%= cat.title%><br>
+	<li><%= cat.title%></li>
 	<%end%>
+	</ul>
    
    <!-- product shots -->
    <% product.product_shots.each do |pshot| %>

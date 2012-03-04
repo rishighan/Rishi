@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301221600) do
+ActiveRecord::Schema.define(:version => 20120304020013) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "post_id"
@@ -18,6 +18,21 @@ ActiveRecord::Schema.define(:version => 20120301221600) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attributes", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attributions", :force => true do |t|
+    t.integer  "product_variant_id"
+    t.integer  "attribute_id"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,21 +103,21 @@ ActiveRecord::Schema.define(:version => 20120301221600) do
     t.datetime "updated_at"
   end
 
-  create_table "product_attributes", :force => true do |t|
-    t.string   "name"
+  create_table "product_categories", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "product_categories", :force => true do |t|
-    t.string   "productCategory_title"
-    t.text     "productCategory_description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "product_categories_products", :id => false, :force => true do |t|
+    t.integer "product_category_id"
+    t.integer "product_id"
   end
 
   create_table "product_shots", :force => true do |t|
-    t.integer  "product_id"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shot_file_name"
@@ -126,13 +141,9 @@ ActiveRecord::Schema.define(:version => 20120301221600) do
     t.string   "title"
     t.text     "description"
     t.decimal  "price",               :precision => 8, :scale => 2
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "products_product_categories", :id => false, :force => true do |t|
-    t.integer "product_category_id"
-    t.integer "product_id"
   end
 
   create_table "taggings", :force => true do |t|
