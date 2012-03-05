@@ -14,7 +14,7 @@ Rishi::Application.routes.draw do
   get "home/index"
   root :to => 'home#index' 
   
-  # admin root
+  # admin roo
   match "/admin", :to=>"admin#index"
   
   # admin section
