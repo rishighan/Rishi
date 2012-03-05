@@ -27,7 +27,7 @@ gem 'nested_form', :git => 'git://github.com/elmatou/nested_form.git', :branch =
 gem 'json'
 
 group :development, :test do
-  gem 'rails-footnotes', '>= 3.7.5.rc4'
+  #gem 'rails-footnotes', '>= 3.7.5.rc4'
 end
 
 # Gems used only for assets and not required
@@ -36,6 +36,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails', '>= 1.0.12'

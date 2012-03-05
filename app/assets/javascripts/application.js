@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require admin/nested_form
 //= require home
 //= require admin/posts

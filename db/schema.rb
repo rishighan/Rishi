@@ -110,14 +110,9 @@ ActiveRecord::Schema.define(:version => 20120304020013) do
     t.datetime "updated_at"
   end
 
-  create_table "product_categories_products", :id => false, :force => true do |t|
-    t.integer "product_category_id"
-    t.integer "product_id"
-  end
-
   create_table "product_shots", :force => true do |t|
     t.integer  "attachable_id"
-    t.string   "attachable_type"
+    t.integer  "attachable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shot_file_name"
@@ -144,6 +139,11 @@ ActiveRecord::Schema.define(:version => 20120304020013) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "products_product_categories", :id => false, :force => true do |t|
+    t.integer "product_category_id"
+    t.integer "product_id"
   end
 
   create_table "taggings", :force => true do |t|

@@ -14,7 +14,15 @@ Rishi::Application.routes.draw do
   get "home/index"
   root :to => 'home#index' 
   
-  # admin roo
+  # setting up a post detail URL accessible via something like /blog/post/2
+  namespace :blog do
+    resource :post 
+  end        
+  match '/blog' => 'admin/posts#index'
+  match '/blog/post/:id' => 'admin/posts#show' #todo: create a new view for the blog index view.
+  
+  
+  # admin root
   match "/admin", :to=>"admin#index"
   
   # admin section
