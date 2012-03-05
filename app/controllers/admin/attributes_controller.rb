@@ -9,6 +9,10 @@ class Admin::AttributesController < ApplicationController
       format.html {} #new.html.erb
     end
   end
+  
+  def create
+    @attribute = params[:id]
+  end
 
   def update
   end

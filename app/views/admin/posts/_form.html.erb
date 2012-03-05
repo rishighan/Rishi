@@ -12,7 +12,6 @@
 	</ul>
 </div>
 <% end %>
-
 <div class="field">
 	<%= f.label :title %>
 	<br/>
@@ -23,30 +22,23 @@
 	<br/>
 	<%= collection_select(:post, :category_id, Category.all, :id, :category_name, :prompt => true) %>
 </div>
-
-
 <!-- attachment block -->
 <%= render :partial => "attachments_form", :locals => {:f => f} %>
-
 <div class="field">
 	<%= f.label :keyword_list%>
 	<br/>
 	<%= f.text_field :keyword_list %>
 </div>
-
-
 <div class="field">
 	<%= f.label :content %>
 	<br/>
 	<%= f.text_area :content %>
 	<br>
-	<%= link_to_function "Insert Carousel wrapper", "insertMarkup(this, 'carousel')", :class=> "insert-carousel-wrapper"%> 
-    <%= link_to_function "Insert Superscript", "insertMarkup(this,'superscript')", :class=> "insert-super-script"%>
+	<%= link_to_function "Insert Carousel wrapper", "insertMarkup(this, 'carousel')", :class=> "insert-carousel-wrapper"%>
+	<%= link_to_function "Insert Superscript", "insertMarkup(this,'superscript')", :class=> "insert-super-script"%>
 	<%= link_to_function "Insert Code", "insertMarkup(this,'code')", :class=> "insert-code"%>
-
-	<br><br>
-	
-	
+	<br>
+	<br>
 	<!-- citations -->
 	<%= render :partial => "citations_form", :locals => {:f => f} %>
 </div>
