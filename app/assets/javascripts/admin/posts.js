@@ -37,7 +37,7 @@ function insertMarkup(objt, markuptype) {
 
 		// code markup <code>
 		case 'code':
-			var markup = '~~~ lang     ~~~';
+			var markup = '<pre lang="">     </pre>';
 			var context = $(objt).prevAll('textarea')
 
 			$(context).insertAtCaret(markup);

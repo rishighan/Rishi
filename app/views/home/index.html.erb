@@ -2,36 +2,31 @@
 <p>
 	is working on his new website, check back soon!
 </p>
-     <div id="nav"></div>
-	<div class="carousel-container">
-		<% @carousel_posts.each do |carousel|%>
-		<% carousel.attachments.each do |attach| %>
-		<%= image_tag attach.photo.url(:original)%>
-		<% end %>
+<div id="nav"></div>
+<div class="carousel-container">
+	<% @carousel_posts.each do |carousel|%>
+	<% carousel.attachments.each do |attach| %>
+	<%= image_tag attach.photo.url(:original)%>
+	<% end %>
 
-		<%end%>
-	</div>
-	
-	<div class="row">
-		<span class="span6">
-	This that and the other.
-	</span>
-	<span class="span6">
-		<%= paginate @posts %>
-	<% @posts.each do |post| %> 
-	<h3><%= post.title %></h3>
-	filed under <%= post.category.category_name %>
-	<p>
-		<!--
-		<% post.attachments.each do |attach| %>
-		<%= image_tag attach.photo.url(:thumb)%>
-		<% end%>
-		-->
-	</p>
-	<p>
-		<%= markdown post.content %>
-	</p>
-	<hr>
 	<%end%>
-		</span>
-	</div>
+</div>
+<div class="row">
+	<span class="span6" > This that and the other. </span>
+	<span class="span6"> <%= paginate @posts %>
+		<% @posts.each do |post| %> 
+		<h3><%= post.title %></h3> 
+		filed under <%= post.category.category_name %>
+		<p>
+			<!--
+			<% post.attachments.each do |attach| %>
+			<%= image_tag attach.photo.url(:thumb)%>
+			<% end%>
+			-->
+		</p>
+		<p>
+			<%= markdown post.content %>
+		</p>
+		<hr>
+		<%end%> </span>
+</div>
