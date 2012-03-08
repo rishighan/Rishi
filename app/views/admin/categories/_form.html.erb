@@ -1,27 +1,38 @@
-<%= form_for([:admin, @category]) do |f| %>
-  <% if @category.errors.any? %>
-    <div class="alert alert-error">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<%= form_for [:admin,@category], :html => { :class => 'form-horizontal' } do |f| %>
 
-      <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<% if @category.errors.any? %>
+<div class="alert alert-error">
+	<h2><%= pluralize(@category.errors.count, "error") %> prohibited this product from being saved:</h2>
+	<ul>
+		<% @category.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Categories</legend>
+
+    <div class="control-group">
+      <%= f.label :category_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :category_name, :class => 'text_field' %>
+      </div>
     </div>
-  <% end %>
 
- 
-  <div class="field">
-    <%= f.label :category_name %><br />
-    <%= f.text_field :category_name %>
-  </div>
-  <div class="field">
-    <%= f.label :category_description %><br />
-    <%= f.text_field :category_description %>
-  </div>
-  
-    <%= f.submit :class=>"btn"%>
+    <div class="control-group">
+      <%= f.label :category_description, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :category_description, :class => 'text_field' %>
+      </div>
+    </div>
 
-  
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', admin_categories_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

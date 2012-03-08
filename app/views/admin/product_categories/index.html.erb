@@ -1,26 +1,26 @@
-<h1>Listing product_categories</h1>
-
-<table>
-  <tr>
-    <th>Product Category Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @product_categories.each do |product_category| %>
-  <tr>
-   
-    <td><%= product_category.title %></td>
-    <td><%= product_category.description %></td>
-    <td><%= link_to 'Show', admin_product_category_path(product_category) %></td>
-    <td><%= link_to 'Edit', edit_admin_product_category_path(product_category) %></td>
-    <td><%= link_to 'Destroy', admin_product_category_path(product_category), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<h1>Product Categories</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product_categories.each do |product_category| %>
+      <tr>
+        <td><%= product_category.id %></td>
+        <td><%= link_to product_category.title, admin_product_category_path(product_category) %></td>
+        <td><%= product_category.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_admin_product_category_path(product_category), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', admin_product_category_path(product_category), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Product category', new_admin_product_category_path %>
+<%= link_to 'New', new_admin_product_category_path, :class => 'btn btn-primary' %>

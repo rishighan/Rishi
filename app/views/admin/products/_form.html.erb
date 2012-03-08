@@ -19,7 +19,7 @@
 <div class="field">
 	<%= f.label :product_category_id %>
 	<br/>
-	<% for category in ProductCategory.find(:all) %>
+<% for category in ProductCategory.find(:all) %>
 <div>
   <%= check_box_tag "product[product_category_ids][]", category.id, @product.product_categories.include?(category) %>
   <%= category.title %>
@@ -27,8 +27,10 @@
 <% end %>
 </div>
 
+<!-- product variant -->
+<%= render :partial=> "variant_form" , :locals =>{:f=> f} %>	
 
-
+<!-- attached photo -->
 <%= render :partial=> "shots_form" , :locals =>{:f=> f} %>	
 
 
@@ -49,7 +51,7 @@
 	<br />
 	<%= f.text_field :price %>
 </div>
-<div class="actions">
-	<%= f.submit %>
-</div>
+
+	<%= f.submit :class=>"btn btn-primary"%>
+
 <% end %> 

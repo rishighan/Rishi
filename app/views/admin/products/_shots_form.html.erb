@@ -7,7 +7,6 @@
   <% if pshot.object.new_record? %>
   <%= pshot.file_field :shot %>
   <%end%>
-    
 
   
   <% unless pshot.object.new_record? %>
@@ -19,7 +18,7 @@
    
   <%= pshot.link_to_remove "Remove this image", {:id=> @product.id} %> <br><br>
   
-   <%end %>	
+  <%end %>	
   
   <%= f.link_to_add "Add another image", :product_shots %>  
   </div>

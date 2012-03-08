@@ -4,7 +4,8 @@ class ProductVariant < ActiveRecord::Base
   
   #attributes
   has_many :attributions
-  has_many :attributes, :through => :attribution
+  has_many :attributes, :through => :attributions
+
   
   #attached photos
   has_many :product_shots, :as => :attachable, :dependent => :destroy

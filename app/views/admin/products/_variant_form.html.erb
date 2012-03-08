@@ -1,0 +1,44 @@
+<div class="field" id="variants">
+  <%= f.label "Product Variants" %>  <br>	
+ 
+  <%= f.fields_for :product_variants do |variant| %>
+  
+  <div class="field">
+  <%=variant.label :name, "Name"%>
+  <%= variant.text_field :name %>
+  </div>
+  
+  <div class="field">
+  <%=variant.label :description, "Description"%>
+  <%= variant.text_area :description %>
+  </div>
+  
+  
+  <% attributes.each do |attr|%>
+  <div class="field">
+  <%= attr.collection_select(:attribute, :id, Attribute.all, :name, :name)%>
+  </div>
+  
+  <div class="field">
+  <%= attr.text_field :value %>
+  </div>
+  
+  <%end%>
+  
+  <div class="field">
+  <%=variant.label :price, "Price"%>
+  <%= variant.text_field :price %>
+  </div>
+  
+  
+  <div class="field">
+  <%=variant.label :quantity, "Quantity"%>
+  <%= variant.text_field :quantity %>
+  </div>
+   
+
+  
+  <%end %>	
+  
+  <%= f.link_to_add "Add another image", :product_variants %>  
+  </div>
