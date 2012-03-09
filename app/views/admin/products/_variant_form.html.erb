@@ -14,7 +14,7 @@
   </div>
   
   
-  <% attributes.each do |attr|%>
+  <% variant.fields_for :attributes do |attr|%>
   <div class="field">
   <%= attr.collection_select(:attribute, :id, Attribute.all, :name, :name)%>
   </div>

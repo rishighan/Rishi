@@ -4,4 +4,7 @@ class Attribute < ActiveRecord::Base
   
   has_many :attributions
   has_many :product_variants, :through => :attributions
+  
+  belongs_to :product
+ 
 end
