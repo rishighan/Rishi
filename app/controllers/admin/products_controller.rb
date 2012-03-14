@@ -26,8 +26,8 @@ class Admin::ProductsController < ApplicationController
   def new
     @product = Product.new
     4.times{@product.product_shots.build}
-    variant = @product.variants.build
-    trait = variant.traits.build
+    @variant = @product.variants.new
+    @trait = @variant.traits.new
     
         
     respond_to do |format|
@@ -45,7 +45,7 @@ class Admin::ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-
+    
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_products_url, :notice => 'Product was successfully created.' }

@@ -21,6 +21,8 @@
    <%end%>
    
    <br><br>
+    <%= link_to 'Add a variant', new_admin_variant_path %>
+    
     <%= link_to 'Show', admin_product_path(product) %>
     <%= link_to 'Edit', edit_admin_product_path(product) %>
     <%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %>

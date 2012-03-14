@@ -25,10 +25,15 @@ Rishi::Application.routes.draw do
   # admin root
   match "/admin", :to=>"admin#index"
   
+  match "/admin/products/:id/variant/new" => "admin/variants#new"
   # admin section
   namespace :admin do
     #root :to => "admin#index" #root page defined inside the namespace.
-    resources :posts, :categories, :products, :product_categories, :traits
+    resources :posts, :categories, :product_categories, :traits, :variants
+    resources :products do 
+      resource :variant
+    end
+    
   end
  
  

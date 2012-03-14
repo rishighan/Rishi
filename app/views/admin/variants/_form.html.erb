@@ -1,0 +1,53 @@
+<%= form_for([:admin,@variant]) do |f| %>
+  <% if @variant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@variant.errors.count, "error") %> prohibited this attribute from being saved:</h2>
+
+      <ul>
+      <% @variant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="field" id="variants">
+	<%= f.label "Product Variants" %>
+	<br>
+	
+
+	<div class="field">
+		<%= f.label :name, "Name"%>
+		<%= f.text_field :name %>
+	</div>
+	
+	<div class="field">
+		<%= f.label :description, "Description"%>
+		<%= f.text_area :description %>
+	</div>
+	
+	<%= f.fields_for :traits do |tr|%>
+	<div class="field">
+		<%= tr.collection_select( :id, Trait.all, :name, :name)%>
+	</div>
+	<%= tr.label :description , "Trait description"%>
+	<%= tr.text_field :description %>
+
+	<%end%>
+	
+	<div class="field">
+		<%= f.label :price, "Price"%>
+		<%= f.text_field :price %>
+	</div>
+	
+	<div class="field">
+		<%= f.label :quantity, "Quantity"%>
+		<%= f.text_field :quantity %>
+	</div>
+	
+
+
+		<%= f.submit :class=>"btn btn-primary"%>
+</div>
+
+<%end%>

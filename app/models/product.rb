@@ -15,9 +15,7 @@ class Product < ActiveRecord::Base
   
   #variants
   has_many :variants, :dependent => :destroy
-  accepts_nested_attributes_for :variants, :allow_destroy => true
   
-
   #attached photos
   has_many :product_shots, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :product_shots, :allow_destroy => true,
