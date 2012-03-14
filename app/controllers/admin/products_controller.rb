@@ -26,8 +26,10 @@ class Admin::ProductsController < ApplicationController
   def new
     @product = Product.new
     4.times{@product.product_shots.build}
-    @product.product_variants.build
-   
+    variant = @product.variants.build
+    trait = variant.traits.build
+    
+        
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @product }

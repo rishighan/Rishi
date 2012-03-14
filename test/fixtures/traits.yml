@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  variant_id: 1
-  trait_id: 1
-  value: MyString
+  name: MyString
+  description: MyText
 
 two:
-  variant_id: 1
-  trait_id: 1
-  value: MyString
+  name: MyString
+  description: MyText

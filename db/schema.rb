@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308194552) do
+ActiveRecord::Schema.define(:version => 20120314145014) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "post_id"
@@ -22,16 +22,9 @@ ActiveRecord::Schema.define(:version => 20120308194552) do
     t.datetime "updated_at"
   end
 
-  create_table "attributes", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "attributions", :force => true do |t|
-    t.integer  "product_variant_id"
-    t.integer  "attribute_id"
+    t.integer  "variant_id"
+    t.integer  "trait_id"
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -126,16 +119,6 @@ ActiveRecord::Schema.define(:version => 20120308194552) do
     t.datetime "shot_updated_at"
   end
 
-  create_table "product_variants", :force => true do |t|
-    t.integer  "product_id"
-    t.decimal  "price",       :precision => 10, :scale => 0
-    t.integer  "quantity"
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "products", :force => true do |t|
     t.string   "product_category_id"
     t.string   "title"
@@ -163,6 +146,13 @@ ActiveRecord::Schema.define(:version => 20120308194552) do
     t.string "name"
   end
 
+  create_table "traits", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -182,10 +172,12 @@ ActiveRecord::Schema.define(:version => 20120308194552) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "variant_attributes", :force => true do |t|
-    t.integer  "product_variant_id"
-    t.integer  "product_attribute_id"
-    t.string   "value"
+  create_table "variants", :force => true do |t|
+    t.integer  "product_id"
+    t.decimal  "price",       :precision => 10, :scale => 0
+    t.integer  "quantity"
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

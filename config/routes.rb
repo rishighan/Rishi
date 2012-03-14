@@ -28,7 +28,7 @@ Rishi::Application.routes.draw do
   # admin section
   namespace :admin do
     #root :to => "admin#index" #root page defined inside the namespace.
-    resources :posts, :categories, :products, :product_categories, :attributes
+    resources :posts, :categories, :products, :product_categories, :traits
   end
  
  

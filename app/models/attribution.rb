@@ -1,6 +1,6 @@
 class Attribution < ActiveRecord::Base
   
-  belongs_to :product_variant
-  belongs_to :attribute
+  belongs_to :variant
+  belongs_to :trait
   
 end
