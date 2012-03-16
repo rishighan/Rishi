@@ -1,10 +1,12 @@
 class Admin::VariantsController < ApplicationController
   def index
+    @variant = Variant.find(:all)
   end
 
   def new
-    @variant = Variant.new
-    @trait = @variant.traits.new
+    @product = Product.find(params[:product_id])
+    @variant = Variant.new(params[:product])
+    trait =  @variant.traits.build
    respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @variant }
@@ -13,9 +15,12 @@ class Admin::VariantsController < ApplicationController
   
   def create
     @variant = Variant.new(params[:variant])
-     respond_to do |format|
+    pid = params[:product_id]
+    @variant.product_id = pid
+    
+         respond_to do |format|
       if @variant.save
-        format.html { redirect_to admin__products_variants_url, :notice => 'Trait was successfully created.' }
+        format.html { redirect_to admin_variants_url, :notice => 'Trait was successfully created.' }
         format.json { render :json => @variant, :status => :created, :location => @variant }
       else
         format.html { render :action => "new" }

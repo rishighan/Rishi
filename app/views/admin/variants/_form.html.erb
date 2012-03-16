@@ -12,6 +12,8 @@
   <% end %>
   
 <div class="field" id="variants">
+	
+	<%=hidden_field_tag(:product_id, @product.id)%>
 	<%= f.label "Product Variants" %>
 	<br>
 	
@@ -26,14 +28,7 @@
 		<%= f.text_area :description %>
 	</div>
 	
-	<%= f.fields_for :traits do |tr|%>
-	<div class="field">
-		<%= tr.collection_select( :id, Trait.all, :name, :name)%>
-	</div>
-	<%= tr.label :description , "Trait description"%>
-	<%= tr.text_field :description %>
 
-	<%end%>
 	
 	<div class="field">
 		<%= f.label :price, "Price"%>

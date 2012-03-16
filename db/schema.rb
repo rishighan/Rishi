@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20120314145014) do
 
   create_table "product_shots", :force => true do |t|
     t.integer  "attachable_id"
-    t.integer  "attachable_type"
+    t.string   "attachable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shot_file_name"
