@@ -15,6 +15,8 @@ class Admin::ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
+    @variant = @product.variants.find(params[:id])
+    @attribution = @variant.attributions.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

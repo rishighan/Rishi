@@ -11,5 +11,5 @@
 //= require admin/nested_form
 //= require home
 //= require admin/posts
-
+//= require orders
 

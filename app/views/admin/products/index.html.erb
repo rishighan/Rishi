@@ -19,6 +19,23 @@
    <% product.product_shots.each do |pshot| %>
    <%= image_tag pshot.shot.url(:thumb) %>
    <%end%>
+   <br><br>
+   <!-- variants -->
+   <div class="submodule">
+   Variants:
+   <ul>
+   
+   <% product.variants.each do |variant| %>
+   <li>
+   <%= variant.name %>
+   	<% variant.attributions.each do |attr|%>
+   	   <%= attr.value%> 
+   	<%end %>
+   	</li>
+   <%end%>
+   
+   </ul>
+   </div>
    
    <br><br>
     <%= link_to 'Add a variant', new_admin_product_variant_path(product) %>
