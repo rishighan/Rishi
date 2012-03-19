@@ -23,6 +23,11 @@
 		<%= f.text_field :name %>
 	</div>
 	
+	<%= f.fields_for :attributions do |attr|%>
+	<%= attr.collection_select(:trait_id, Trait.find(:all), :id, :name)%>
+	<%= attr.text_field :value%>
+	<%end %>
+	
 	<div class="field">
 		<%= f.label :description, "Description"%>
 		<%= f.text_area :description %>
