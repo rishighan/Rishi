@@ -1,55 +1,44 @@
 <%= form_for([:admin,@variant]) do |f| %>
-  <% if @variant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@variant.errors.count, "error") %> prohibited this attribute from being saved:</h2>
-
-      <ul>
-      <% @variant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
+<% if @variant.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@variant.errors.count, "error") %> prohibited this attribute from being saved:</h2>
+	<ul>
+		<% @variant.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 <div class="field" id="variants">
-	
-	<%=hidden_field_tag(:product_id, @product.id)%>
+	<%= hidden_field_tag(:product_id, @product.id)%>
 	<%= f.label "Product Variants" %>
 	<br>
-	
-
 	<div class="field">
 		<%= f.label :name, "Name"%>
 		<%= f.text_field :name %>
 	</div>
 	
+	<!-- attributions fields: trait_id and it's corresponding value -->
 	<%= f.fields_for :attributions do |attr|%>
-		
-		<%= attr.collection_select(:trait_id, Trait.all, :id, :name)%>
-		
+	<%= attr.collection_select(:trait_id, Trait.all, :id, :name)%>
 	<%= attr.text_field :value%>
 	<%end %>
+	
 	
 	<div class="field">
 		<%= f.label :description, "Description"%>
 		<%= f.text_area :description %>
 	</div>
-	
-
-	
 	<div class="field">
 		<%= f.label :price, "Price"%>
 		<%= f.text_field :price %>
 	</div>
-	
 	<div class="field">
 		<%= f.label :quantity, "Quantity"%>
 		<%= f.text_field :quantity %>
 	</div>
-	
-
-
-		<%= f.submit :class=>"btn btn-primary"%>
+	<%= f.submit :class=>"btn btn-primary"%>
 </div>
-
-<%end%>
+<%end%> 
