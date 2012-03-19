@@ -24,7 +24,9 @@
 	</div>
 	
 	<%= f.fields_for :attributions do |attr|%>
-	<%= attr.collection_select(:trait_id, Trait.find(:all), :id, :name)%>
+		
+		<%= attr.collection_select(:trait_id, Trait.all, :id, :name)%>
+		
 	<%= attr.text_field :value%>
 	<%end %>
 	

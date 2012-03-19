@@ -4,6 +4,6 @@ class Variant < ActiveRecord::Base
   has_many :attributions, :dependent => :destroy
   has_many :traits, :through=> :attributions
   
-  accepts_nested_attributes_for :traits, :allow_destroy =>true
+  accepts_nested_attributes_for :attributions, :allow_destroy =>true
   
 end

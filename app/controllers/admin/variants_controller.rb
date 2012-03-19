@@ -6,8 +6,8 @@ class Admin::VariantsController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
     @variant = Variant.new(params[:product])
-    attribution = @variant.attributions.build
-    trait =  @variant.traits.build
+    attribution = @variant.attributions.build.build_trait
+
    
    respond_to do |format|
       format.html # new.html.erb
@@ -20,7 +20,7 @@ class Admin::VariantsController < ApplicationController
     pid = params[:product_id]
     @variant.product_id = pid
        
-    @attribution = @variant.attributions.new(params[:attribution])
+    #@attribution = @variant.attributions.new(params[:attribution])
     
          respond_to do |format|
       if @variant.save
