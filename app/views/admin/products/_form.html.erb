@@ -19,36 +19,30 @@
 <div class="field">
 	<%= f.label :product_category_id %>
 	<br/>
-<% for category in ProductCategory.find(:all) %>
-<div>
-  <%= check_box_tag "product[product_category_ids][]", category.id, @product.product_categories.include?(category) %>
-  <%= category.title %>
+	<% for category in ProductCategory.find(:all) %>
+	<div>
+		<%= check_box_tag "product[product_category_ids][]", category.id, @product.product_categories.include?(category) %>
+		<%= category.title %>
+	</div>
+	<% end %>
 </div>
-<% end %>
-</div>
-
 <!-- attached photo -->
-<%= render :partial=> "shots_form", :locals =>{:f=> f} %>	
-
-
+<%= render :partial=> "shots_form", :locals =>{:f=> f} %>
 <div class="field">
 	<%= f.label :description %>
 	<br />
 	<%= f.text_area :description %>
 </div>
-
 <div class="field">
 	<%= f.label :quantity, "Inventory Stock"%>
 	<br />
 	<%= f.text_field :quantity %>
 </div>
-
 <div class="field">
 	<%= f.label :price %>
 	<br />
 	<%= f.text_field :price %>
 </div>
-
-	<%= f.submit :class=>"btn btn-primary"%>
+<%= f.submit :class=>"btn btn-primary"%>
 
 <% end %> 

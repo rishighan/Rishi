@@ -1,4 +1,4 @@
-<%= form_for([:admin,@variant]) do |f| %>
+<%= nested_form_for([:admin,@variant]) do |f| %>
 <% if @variant.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@variant.errors.count, "error") %> prohibited this attribute from being saved:</h2>
@@ -25,6 +25,7 @@
 	<%= attr.collection_select(:trait_id, Trait.all, :id, :name)%>
 	<%= attr.text_field :value%>
 	<%end %>
+	<%=f.link_to_add "Add another trait", :attributions%>
 	
 	
 	<div class="field">
