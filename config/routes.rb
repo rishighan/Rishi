@@ -7,6 +7,10 @@ Rishi::Application.routes.draw do
   # shopping cart and checkout process
   resources :orders, :line_items, :carts
   
+  resource :store do
+  get 'update_pricebox', :on => :member
+  end
+  
   # user authentication for admin
   devise_for :users
 
