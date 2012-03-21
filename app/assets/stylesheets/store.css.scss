@@ -24,13 +24,26 @@
   width:190px;
   float:left;
   padding:10px;
+  
+  ul
+  {
+   
+    width:229px;
+   
+  }
+  
+ 
 }
 
 
 /* Cart */
 #cart table 
 {
- 
+    td
+    {
+      padding:10px;
+    }
+
    td.quantity
     {
       text-align:left;
