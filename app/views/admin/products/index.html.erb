@@ -4,9 +4,9 @@
 <% @products.each do |product| %>
   
   <li class=<%= cycle('list_even', 'list_odd')%>>
-    <%= product.title %> <br>
+    <%= product.name %> <br>
     <%= product.description %><br>
-    <%= number_to_currency(product.price) %><br><br>
+   
     
     Categories:<br>
     <ul>

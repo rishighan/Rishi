@@ -51,12 +51,11 @@ ActiveRecord::Schema.define(:version => 20120314145014) do
   end
 
   create_table "line_items", :force => true do |t|
-    t.integer  "product_id"
+    t.integer  "variant_id"
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity",   :default => 1
-    t.integer  "order_id"
   end
 
   create_table "order_transactions", :force => true do |t|
@@ -110,7 +109,7 @@ ActiveRecord::Schema.define(:version => 20120314145014) do
 
   create_table "product_shots", :force => true do |t|
     t.integer  "attachable_id"
-    t.string   "attachable_type"
+    t.integer  "attachable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shot_file_name"
@@ -120,11 +119,8 @@ ActiveRecord::Schema.define(:version => 20120314145014) do
   end
 
   create_table "products", :force => true do |t|
-    t.string   "product_category_id"
-    t.string   "title"
+    t.string   "name"
     t.text     "description"
-    t.decimal  "price",               :precision => 8, :scale => 2
-    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -174,7 +170,7 @@ ActiveRecord::Schema.define(:version => 20120314145014) do
 
   create_table "variants", :force => true do |t|
     t.integer  "product_id"
-    t.decimal  "price",       :precision => 10, :scale => 0
+    t.decimal  "price",       :precision => 8, :scale => 2
     t.integer  "quantity"
     t.string   "name"
     t.text     "description"

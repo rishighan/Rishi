@@ -24,6 +24,8 @@
 	<%= f.fields_for :attributions do |attr|%>
 	<%= attr.collection_select(:trait_id, Trait.all, :id, :name)%>
 	<%= attr.text_field :value%>
+	
+	<%= attr.link_to_remove "Remove this trait", {:id=>@product.id}%>
 	<%end %>
 	<%=f.link_to_add "Add another trait", :attributions%>
 	
