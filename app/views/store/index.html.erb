@@ -20,22 +20,26 @@
 		<%end%>
 		<br>
 		<br>
+		<!--Price of the first variant -->
 		
 		<br>
 		<%= product.description %>
-		
-		
-		 <!-- product variants -->
-		 <ul>
+	
+	
+		<ul>
+		<%if product.variant %>
 		<% product.variants.each do |variant| %>
 		<li>
 			<%= variant.name %>
 			<% variant.attributions.each do |attr|%>
-			<%= attr.value%>
-			<%end %> <%= button_to 'Add to cart', line_items_path(:variant_id=> variant), :remote=>true, :class=>"btn-primary btn-mini btn"%>
+			<%= attr.value%> 
+			<%end %> 
+			<%= button_to 'Add to cart', line_items_path(:variant_id=> variant), :remote=>true, :class=>"btn-primary btn-mini btn"%>
 		</li>
 		<%end%>
+		<%end%>
 		</ul>
+		
 		<hr>
 	</div>
 	<%end%>

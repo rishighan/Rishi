@@ -1,6 +1,7 @@
 class Variant < ActiveRecord::Base
 
   belongs_to :product
+ 
   has_many :attributions, :dependent => :destroy
   has_many :traits, :through=> :attributions
 
@@ -10,6 +11,7 @@ class Variant < ActiveRecord::Base
 
   #line_items
   has_many :line_items
+
   before_destroy :ensure_not_referenced_by_any_line_item
 
   private
