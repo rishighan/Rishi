@@ -14,7 +14,10 @@ gem 'pygments.rb', '0.2.4'
 gem 'nokogiri'  
 gem 'redcarpet', '1.17.2'
 
+#pagination
 gem 'kaminari', '0.12.4'
+
+#user authentication
 gem 'devise'
 
 # e-commerce

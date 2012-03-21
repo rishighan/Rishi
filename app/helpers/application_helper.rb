@@ -1,4 +1,6 @@
 module ApplicationHelper
+  
+  
     def markdown(text)  
     options = [:hard_wrap, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]  
     syntax_highlighter(Redcarpet.new(text, *options).to_html).html_safe  
@@ -22,6 +24,8 @@ module ApplicationHelper
     end
     content_tag("div", attributes, &block)
   end
+  
+
   
 end
 
