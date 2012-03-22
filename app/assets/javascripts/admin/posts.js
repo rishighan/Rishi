@@ -51,7 +51,7 @@ function insertMarkup(objt, markuptype) {
 $(document).ready(function() {
 	$('#post_category_id').change(function() {
 
-		if($(this).val() == '1')
+		if($(this).val() == '2')
 			$('#citations').fadeIn(300);
 		
 else {

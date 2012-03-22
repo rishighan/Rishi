@@ -9,19 +9,25 @@
   <br><br>
    <%= post.content %><br><br>
    
+   		<%unless post.attachments.empty? %>
     	<% post.attachments.each do |at|%>
 		<%= image_tag at.photo.url(:thumb)%>
 		<%end%>
+		<%end%>
 		
-		<br/></br/>
-		<div class="citations-list">
+		
+		<%unless post.citations.empty? %>
+		<div class="well">
 		<% post.citations.each do |citations| %>
-		<i><b><%= citations.source_name %></b></i> <br />
-		<%= citations.extended_description %>	<br />
+		<%= citations.source_name %><br>
+		<%= citations.extended_description %><br><br>
 		<% end%>
 		</div>
+		
+		<%end%>
+		
     	
-   <br><br>
+   <br>
    <div class="btn-group">
     <%= link_to 'Show', admin_post_path(post), :class => "btn btn-small"%>
     <%= link_to 'Edit', edit_admin_post_path(post), :class => "btn btn-small" %>

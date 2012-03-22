@@ -23,5 +23,7 @@
 	<%end%>
 </p>
 
-<%= link_to 'Edit', edit_admin_post_path(@post) %> |
-<%= link_to 'Back', admin_posts_path %>
+<div class="btn-group">
+<%= link_to 'Edit', edit_admin_post_path(@post), :class => "btn btn-mini" %>
+<%= link_to 'Back', admin_posts_path , :class => "btn btn-mini"%>
+</div>
