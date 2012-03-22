@@ -1,6 +1,6 @@
 <h1>Listing orders</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Firstname</th>
     <th>Lastname</th>
@@ -29,9 +29,13 @@
     <td><%= order.phone %></td>
     <td><%= order.email %></td>
     <td><%= order.pay_type %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td></td>
+    <td></td>
+    <td>
+    	<div class="btn-group">
+    	<%= link_to 'Show', order, :class=>"btn btn-mini" %>
+    	<%= link_to 'Edit', edit_order_path(order), :class=>"btn btn-mini" %>
+    	<%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete, :class=>"btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>

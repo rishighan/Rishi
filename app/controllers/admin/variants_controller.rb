@@ -33,6 +33,14 @@ class Admin::VariantsController < ApplicationController
     end
     
   end
+  
+  def who_bought
+    @variant = Variant.find(params[:id])
+    respond_to do |format|
+      format.atom
+      format.xml {render :xml => @variant}
+    end
+  end
 
   def update
   end
