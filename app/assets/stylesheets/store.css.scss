@@ -69,31 +69,4 @@
 
 
 /* Order Form */
-.address
-{
-  border:1px solid #CCC;
-  height:130px; 
-    
-  .streetaddress, .state, .zipcode
-  {
-    float:left;
-       
-  } 
-  
-}
-.firstname
-{
-  float:left;
-}
-
-.phone, .email, .pay_type
-{
-  clear:both;
-}
-
-.payment_details
-{
-  border:1px solid #CCC;
-  background:#FFFFFC;
-}
 
