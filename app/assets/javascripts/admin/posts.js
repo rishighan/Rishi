@@ -13,9 +13,9 @@ function insertMarkup(objt, markuptype) {
 
 		// carousel markup <div class=post-carousel>
 		case 'carousel':
-			var context = $(objt).prevAll('textarea')
+			var context = $(objt).nextAll('textarea')
 			var markup = '<div class="post-carousel"> </div>';
-
+			
 			$(context).insertAtCaret(markup)
 
 			break;
@@ -29,7 +29,7 @@ function insertMarkup(objt, markuptype) {
 			// ^(post_citations_attributes_[0-9]{1,3}_extended_description)$
 
 			var markup = '<sup> </sup>';
-			var context = $(objt).prevAll('textarea')
+			var context = $(objt).nextAll('textarea')
 
 			$(context).insertAtCaret(markup)
 
@@ -38,7 +38,7 @@ function insertMarkup(objt, markuptype) {
 		// code markup <code>
 		case 'code':
 			var markup = '<pre lang="">     </pre>';
-			var context = $(objt).prevAll('textarea')
+			var context = $(objt).nextAll('textarea')
 
 			$(context).insertAtCaret(markup);
 			

@@ -3,20 +3,21 @@
 	Browse the catalog
 </p>
 
-	
+ <div class="row">		
+ 	<span class="span12">
 	<div id="cart">
-		<span class="span8">
+		
 		<%if @cart%>
 		<%= hidden_div_if(@cart.line_items.empty?, :id=> "cart") do %>
 		<%= render @cart %>
 		<%end%>
 		<%end%>
-		</span>
+		
 
 	</div>
-	
+	</span>
 
- <div class="row">	
+
 	<% @product.each do |product|%>
 	<span class="span6">
 		<h2><%= product.name%></h2>

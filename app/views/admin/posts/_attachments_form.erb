@@ -1,5 +1,5 @@
 	  
-  <div class="field" id="attachments">
+  <div class="well span8" id="attachments">
   <%= f.label :attachments %>  <br>	
  
   <%= f.fields_for :attachments do |attach| %>
@@ -13,7 +13,7 @@
   <% unless attach.object.new_record? %>
   	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
 	<%= attach.object.photo.url(:original)%><br>	
-	<%= link_to_function "Insert image into post", "insertMarkup(this,'image')", :class=> "insert-image-markup"%>
+	<%= link_to_function "Insert image into post", "insertMarkup(this,'image')", :class=> "btn btn-mini"%>
  <%end%>
   
    
@@ -21,5 +21,5 @@
   
    <%end %>	
   
-  <%= f.link_to_add "Add another image", :attachments %>  
+  <%= f.link_to_add "Add another image", :attachments, :class=> "btn btn-mini" %>  
   </div>
