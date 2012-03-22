@@ -1,25 +1,25 @@
  
-  <div class="field" id="citations">
-  <%= f.label :citations %>  <br>	
+  <div class="well form-horizonal" id="citations">
+  <%= f.label :citations %>
   
   <%= f.fields_for :citations do |citation| %>
   
 
-  <%= f.label :source_name%><br>
+  <%= f.label :source_name%>
   <%= citation.text_field :source_name %> 
   
   <br><br>
   
-  <%= f.label :extended_description%><br>
-  <%= citation.text_area :extended_description %>
+  <%= f.label :extended_description%>
+  <%= citation.text_area :extended_description, :class=> "span6" %>
   <br>
  
  
 
-  <%= link_to_function "Insert Superscript", "insertMarkup(this,'superscript')", :class=> "insert-super-script"%>
-  <%= citation.link_to_remove "Remove this citation", {:id=> @post.id} %> <br><br>
+  <%= link_to_function "Insert Superscript", "insertMarkup(this,'superscript')", :class=> "insert-super-script", :class => "btn btn-mini"%>
+  <%= citation.link_to_remove "Remove this citation", {:id=> @post.id, :class=>"btn btn-mini btn-danger"} %> <br><br>
   
    <%end %>	
   
-  <%= f.link_to_add "Add another citation", :citations %>  
+  <%= f.link_to_add "Add another citation", :citations, :class=> "btn btn-mini" %>  
   </div>

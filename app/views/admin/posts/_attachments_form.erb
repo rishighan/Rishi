@@ -7,17 +7,18 @@
   <% if attach.object.new_record? %>
   <%= attach.file_field :photo %>
   <%end%>
-    
 
-  
   <% unless attach.object.new_record? %>
   	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
-	<%= attach.object.photo.url(:original)%><br>	
+	<span class="label">
+	<%= attach.object.photo.url(:original)%>
+	</span>
+	<br>	
 	<%= link_to_function "Insert image into post", "insertMarkup(this,'image')", :class=> "btn btn-mini"%>
  <%end%>
   
    
-  <%= attach.link_to_remove "Remove this image", {:id=> @post.id} %> <br><br>
+  <%= attach.link_to_remove "Remove this image", {:id=> @post.id, :class=> "btn btn-mini btn-danger"} %> <br><br>
   
    <%end %>	
   

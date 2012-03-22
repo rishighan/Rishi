@@ -1,4 +1,4 @@
-<div class="field" id="attachments">
+<div class="well span8" id="attachments">
 	<%= f.label "Product Shots" %>
 	<br>
 	<%= f.fields_for :product_shots do |pshot| %>
@@ -12,13 +12,13 @@
 	<br>
 	<%= pshot.object.shot.url(:medium)%>
 	<br>
-	<%= link_to_function "Insert image into description", "insertMarkup(this,'image')", :class=> "insert-image-markup"%>
+	<%= link_to_function "Insert image into description", "insertMarkup(this,'image')", :class=> "btn btn-mini"%>
 	<%end%>
 
-	<%= pshot.link_to_remove "Remove this image", {:id=> @product.id} %>
+	<%= pshot.link_to_remove "Remove this image", {:id=> @product.id, :class=> "btn btn-mini btn-danger"} %>
 	<br>
 	<br>
 	<%end %>
 
-	<%= f.link_to_add "Add another image", :product_shots %>
+	<%= f.link_to_add "Add another image", :product_shots, :class=> "btn btn-mini" %>
 </div>
