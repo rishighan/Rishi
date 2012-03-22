@@ -11,33 +11,23 @@
 .list_even
 {
  
-  background:#CCC;
-  padding:10px;
+  background:#FFFFFC;
+
+  float:left;
 }
 
 .list_odd
 {
   background:#FFFFFC;
-  padding:10px;
+ 
+  float:left;
  
 }
 
 
 .submodule
 {
-  background:#99CCFF;
 
-  border-left:3px solid gray;
-  padding:10px;
-  
-  ul
-  {
-    list-style:none;
-     
-  }
-  
-  ul li
-  {
-   
-  }
+ 
+
 }

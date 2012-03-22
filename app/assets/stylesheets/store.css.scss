@@ -33,6 +33,10 @@
 /* Cart */
 #cart table 
 {
+    input
+    {
+      display:inline;
+    }
     td
     {
       padding:10px;
@@ -41,7 +45,7 @@
    td.quantity
     {
       text-align:left;
-      font-size:14px;
+      font-size:87.78%;
     }
 
 
@@ -49,7 +53,7 @@
     td.price
     {
       text-align:left;
-      font-size:14px;
+      font-size:87.78%;
     }
 
 
@@ -57,7 +61,7 @@
     td.total
     {
       background:#FFFCCC;
-      font-size:18px;
+      font-size:110%;
       font-weight:bold;
     }
   

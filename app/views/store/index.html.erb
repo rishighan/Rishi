@@ -2,17 +2,23 @@
 <p>
 	Browse the catalog
 </p>
-<div id="storecontainer">
+
+	
 	<div id="cart">
+		<span class="span8">
 		<%if @cart%>
 		<%= hidden_div_if(@cart.line_items.empty?, :id=> "cart") do %>
 		<%= render @cart %>
 		<%end%>
 		<%end%>
+		</span>
+
 	</div>
 	
+
+ <div class="row">	
 	<% @product.each do |product|%>
-	<div class="store-items">
+	<span class="span6">
 		<h2><%= product.name%></h2>
 		<br />
 		<% product.product_shots.each do |pshot|%>
@@ -26,21 +32,36 @@
 		<%= product.description %>
 	
 	
-		<ul>
-		<%if product.variant %>
-		<% product.variants.each do |variant| %>
-		<li>
-			<%= variant.name %>
-			<% variant.attributions.each do |attr|%>
-			<%= attr.value%> 
-			<%end %> 
-			<%= button_to 'Add to cart', line_items_path(:variant_id=> variant), :remote=>true, :class=>"btn-primary btn-mini btn"%>
-		</li>
-		<%end%>
-		<%end%>
-		</ul>
 		
-		<hr>
-	</div>
+		<table class="table table-striped">
+		<% product.variants.each do |variant| %>
+		
+			<tr>
+			<td><%= variant.name %></td>
+			<% variant.attributions.each do |attr|%>
+			<td>
+				<h6>
+				<%= attr.value%> 
+				</h6>
+			</td>	
+			<%end%> 
+			
+			<td>
+			<h4>
+			<%= number_to_currency(variant.price)%>	
+			</h4>
+			</td>
+			
+			<td>
+			<%= button_to 'Add to cart', line_items_path(:variant_id=> variant), :remote=>true, :class=>"btn-primary btn-mini btn"%>
+			</td>
+			</tr>
+		
+		<%end%>
+		</table>
+	
+		
+	
+	</span>
 	<%end%>
 </div>

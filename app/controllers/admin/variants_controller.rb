@@ -24,7 +24,7 @@ class Admin::VariantsController < ApplicationController
     
          respond_to do |format|
       if @variant.save
-        format.html { redirect_to admin_variants_url, :notice => 'Trait was successfully created.' }
+        format.html { redirect_to admin_products_url, :notice => 'Variant successfully created.' }
         format.json { render :json => @variant, :status => :created, :location => @variant }
       else
         format.html { render :action => "new" }
@@ -37,7 +37,14 @@ class Admin::VariantsController < ApplicationController
   def update
   end
 
-  def destroy
+   def destroy
+    @variant = Variant.find(params[:id])
+    @variant.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_products_url }
+      format.json { head :ok }
+    end
   end
 
 end

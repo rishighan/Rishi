@@ -1,54 +1,68 @@
-<h1>Listing products</h1>
+<h1>Manage Catalog</h1>
+<br>
+<div class="row">
+<span class="span6">
+		<%= link_to 'New Product', new_admin_product_path, :class=>"btn"%>
+</span>	
+</div>
+<br>
+<div class="row">
+	
+	<% @products.each do |product| %> 
+	<span class="span6"> 
+		
+		<h2><%= product.name %></h2> 
+		<%= product.description %>
+		<br>
+		<% product.product_categories.each do |cat|%> <h4><%= cat.title%></h4> <%end%>
+		<hr>
+		
+		<!-- product shots --> 
+		<% product.product_shots.each do |pshot| %>
+		<%= image_tag pshot.shot.url(:thumb) %>
+		<%end%>
+		<br>
+		<br>
+		
+		<!-- variants -->
+		<div class="submodule">
+			Variants:
+			<table class="table table-striped">
+				<% product.variants.each do |variant| %>
+				<tr>
+					<td><h4><%= variant.name %></h4></td>
+					<td> 
+					<% variant.attributions.each do |attr|%> 
+					
+					<h6>
+					<%= attr.trait.name%>:
+					<%= attr.value%>
+					</h6> 
+					
+					<%end %> 
+					</td>
+					
+					<td>
+					<div class="btn-group">
+						<%= link_to 'Edit', edit_admin_product_path(product) , :class=>"btn btn-mini"%>
+						<%= link_to 'Destroy', admin_variant_path(variant), :confirm => 'Are you sure?', :method => :delete, :class=>"btn btn-mini btn-danger" %>
+					</div>
+					</td>
+					<%end%>
+				</tr>
+			</table>
+		</div>
+		
+		
+		
+		<div class="btn-group">
+			<%= link_to 'Add a variant', new_admin_product_variant_path(product), :class=>"btn btn-small"%>
 
-<ul class="listing">
-<% @products.each do |product| %>
-  
-  <li class=<%= cycle('list_even', 'list_odd')%>>
-    <%= product.name %> <br>
-    <%= product.description %><br>
-   
-    
-    Categories:<br>
-    <ul>
-    <% product.product_categories.each do |cat|%>
-	<li><%= cat.title%></li>
-	<%end%>
-	</ul>
-   
-   <!-- product shots -->
-   <% product.product_shots.each do |pshot| %>
-   <%= image_tag pshot.shot.url(:thumb) %>
-   <%end%>
-   <br><br>
-   <!-- variants -->
-   <div class="submodule">
-   Variants:
-   <ul>
-   
-   <% product.variants.each do |variant| %>
-   <li>
-   <%= variant.name %>
-   	<% variant.attributions.each do |attr|%>
-   	   <%= attr.value%> 
-   	<%end %>
-   	</li>
-   <%end%>
-   
-   </ul>
-   </div>
-   
-   <br><br>
-    <%= link_to 'Add a variant', new_admin_product_variant_path(product) %>
-    
-    <%= link_to 'Show', admin_product_path(product) %>
-    <%= link_to 'Edit', edit_admin_product_path(product) %>
-    <%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %>
-  
-  </li>
-  
-<% end %>
-
-</ul>
+			<%= link_to 'Show', admin_product_path(product), :class=>"btn btn-small" %>
+			<%= link_to 'Edit', edit_admin_product_path(product) , :class=>"btn btn-small"%>
+			<%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete, :class=>"btn btn-small btn-danger" %>
+		</div> 
+	</span>
+	<% end %>
+</div>
 <br />
-
-<%= link_to 'New Product', new_admin_product_path %>
