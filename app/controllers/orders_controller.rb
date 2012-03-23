@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
-  
+
     @order.ip_address = request.remote_ip
     @order.add_line_items_from_cart(current_cart)
 
@@ -55,11 +55,17 @@ class OrdersController < ApplicationController
         if @order.purchase
           Cart.destroy(session[:cart_id])
           session[:cart_id] = nil
-          render :action => "success"
-          format.json {render :json => @order, :status => :created, :location=> @order}
+          Notifier.order_received(@order).deliver
+          #render :action => "success"
+          format.html {redirect_to store_url, :notice=>'Thank you. Your order has been recieved.'}
+          format.xml {render :xml => @order, :status =>:created, :location=> @order}
+
         else
-          render :action => "failure"
+          format.html {redirect_to store_url, :alert=>"Error"}
+
+          #render :action => "failure"
         end
+
       else
         format.html { render :action => "new" }
         format.json { render :json => @order.errors, :status => :unprocessable_entity }

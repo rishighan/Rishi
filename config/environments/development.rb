@@ -33,16 +33,16 @@ Rishi::Application.configure do
   config.action_mailer.smtp_settings = {
     :address  => "smtp.gmail.com",
     :port     => 587,
-    :domain   => "domain.of.sender.net",
+    :domain   => "gmail.com",
     :authentication => "plain",
-    :user_name => "rishi.ghan",
+    :user_name => "rishi.ghan@gmail.com",
     :password => "number9ttr",
     :enable_starttls_auto => true
     
   }
   
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true 
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

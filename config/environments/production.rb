@@ -30,6 +30,21 @@ Rishi::Application.configure do
   )
 end
 
+  #action mailer
+  config.action_mailer.delivery_method = :test
+  
+  config.action_mailer.smtp_settings = {
+    :address  => "smtp.gmail.com",
+    :port     => 587,
+    :domain   => "gmail.com",
+    :authentication => "plain",
+    :user_name => "rishi.ghan@gmail.com",
+    :password => "number9ttr",
+    :enable_starttls_auto => true
+    
+  }
+  
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
