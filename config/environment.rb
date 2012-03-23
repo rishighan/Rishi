@@ -4,4 +4,3 @@ require File.expand_path('../application', __FILE__)
 # Initialize the rails application
 Rishi::Application.initialize!
 
-config.action_mailer.delivery_method = :smtp | :sendmail | :test

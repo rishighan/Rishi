@@ -7,7 +7,7 @@ Rishi::Application.configure do
   config.cache_classes = false
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
-
+ 
 
   # initialize ActiveMerchant Gem
   # Paypal sandbox mode
@@ -27,6 +27,20 @@ Rishi::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  #action mailer
+  config.action_mailer.delivery_method = :test
+  
+  config.action_mailer.smtp_settings = {
+    :address  => "smtp.gmail.com",
+    :port     => 587,
+    :domain   => "domain.of.sender.net",
+    :authentication => "plain",
+    :user_name => "rishi.ghan",
+    :password => "number9ttr",
+    :enable_starttls_auto => true
+    
+  }
+  
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
