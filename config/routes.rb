@@ -10,6 +10,7 @@ Rishi::Application.routes.draw do
   
   # user authentication for admin
   devise_for :users
+  resources :users
 
   # site root
   get "home/index"
