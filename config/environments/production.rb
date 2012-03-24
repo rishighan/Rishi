@@ -32,7 +32,6 @@ Rishi::Application.configure do
 
   #action mailer
   config.action_mailer.delivery_method = :smtp
-
   #try to force sending in development
   config.action_mailer.perform_deliveries = true 
 
