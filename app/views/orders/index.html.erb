@@ -1,12 +1,12 @@
 <h1>Listing orders</h1>
-
+<br><br>
 <table class="table table-striped">
   <tr>
     <th>Firstname</th>
     <th>Lastname</th>
-    <th>Address1</th>
-    <th>Address2</th>
-    <th>City</th>
+    <th>Address</th>
+    
+    
     <th>State</th>
     <th>Zipcode</th>
     <th>Phone</th>
@@ -21,9 +21,9 @@
   <tr>
     <td><%= order.firstname %></td>
     <td><%= order.lastname %></td>
-    <td><%= order.address1 %></td>
-    <td><%= order.address2 %></td>
-    <td><%= order.city %></td>
+    <td><%= order.address1 %><br>
+    	<%= order.address2 %><br>
+    	<%= order.city %></td>
     <td><%= order.state %></td>
     <td><%= order.zipcode %></td>
     <td><%= order.phone %></td>
@@ -40,6 +40,3 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Order', new_order_path %>

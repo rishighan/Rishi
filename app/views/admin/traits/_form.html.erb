@@ -1,4 +1,4 @@
-<%= form_for([:admin,@trait]) do |f| %>
+<%= form_for([:admin,@trait], :html=>{:class=>"form-horizontal"}) do |f| %>
   <% if @trait.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trait.errors.count, "error") %> prohibited this attribute from being saved:</h2>
