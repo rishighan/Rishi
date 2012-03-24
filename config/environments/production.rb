@@ -1,7 +1,7 @@
 Rishi::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
-  
-  # Code is not reloaded between requests
+# Settings specified here will take precedence over those in config/application.rb
+
+# Code is not reloaded between requests
   config.cache_classes = true
 
   # Full error reports are disabled and caching is turned on
@@ -22,28 +22,30 @@ Rishi::Application.configure do
 
   # initialize ActiveMerchant
   config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :production
-  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    ActiveMerchant::Billing::Base.mode = :production
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
     :login => "frishi_api1.me.com",
     :password => "H7ERQP7XUH8GFMXK",
     :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A75xWIFboDNeaUd8lTteJeJcRweC"
-  )
-end
+    )
+  end
 
   #action mailer
-  config.action_mailer.delivery_method = :test
-  
+  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
     :address  => "smtp.gmail.com",
     :port     => 587,
-    :domain   => "gmail.com",
+    #:domain   => "gmail.com",
     :authentication => "plain",
     :user_name => "rishi.ghan@gmail.com",
     :password => "number9ttr",
     :enable_starttls_auto => true
-    
+
   }
   
+  #try to force sending in development
+  config.action_mailer.perform_deliveries = true 
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
@@ -68,7 +70,7 @@ end
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-   config.assets.precompile += ['vendor.js']
+  config.assets.precompile += ['vendor.js']
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
