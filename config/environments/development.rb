@@ -7,7 +7,7 @@ Rishi::Application.configure do
   config.cache_classes = false
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
- 
+ ::SITE_DOMAIN = 'localhost:3000'
 
   # initialize ActiveMerchant Gem
   # Paypal sandbox mode

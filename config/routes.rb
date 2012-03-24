@@ -9,7 +9,9 @@ Rishi::Application.routes.draw do
 
   
   # user authentication for admin
-  devise_for :users
+  devise_for :users do
+   match '/user' => "users#index", :as => :user_root, :constraints => { :domain => SITE_DOMAIN}
+  end
 
   # site root
   get "home/index"
