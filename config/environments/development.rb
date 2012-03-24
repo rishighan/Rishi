@@ -30,17 +30,6 @@ Rishi::Application.configure do
   #action mailer
   config.action_mailer.delivery_method = :smtp
   
-  config.action_mailer.smtp_settings = {
-    :address  => "smtp.gmail.com",
-    :port     => 587,
-    #:domain   => "gmail.com",
-    :authentication => "plain",
-    :user_name => "rishi.ghan@gmail.com",
-    :password => "number9ttr",
-    :enable_starttls_auto => true
-    
-  }
-  
   # Don't care if the mailer can't send
   config.action_mailer.perform_deliveries = true #try to force sending in development 
   config.action_mailer.raise_delivery_errors = true 

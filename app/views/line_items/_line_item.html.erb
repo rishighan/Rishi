@@ -3,7 +3,6 @@
 	<%else%>
 <tr>
 	<%end%> 
-	
 	<td> <%= line_item.variant.name %> </td>
 	<td class="quantity"> &times; <%= line_item.quantity  %>  </td>
 	<td class="price"> <%= number_to_currency(line_item.total_price)%> </td>
