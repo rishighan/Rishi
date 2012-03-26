@@ -49,6 +49,9 @@ class OrdersController < ApplicationController
 
     @order.ip_address = request.remote_ip
     @order.add_line_items_from_cart(current_cart)
+    @variant = @order.variants.build
+    
+    
 
     respond_to do |format|
       if @order.save
