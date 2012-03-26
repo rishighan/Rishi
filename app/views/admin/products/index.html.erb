@@ -37,6 +37,9 @@
 					<h6>
 					<%= attr.trait.name%>:
 					<%= attr.value%>
+					<% variant.digitalfiles.each do |df|%>
+					<%= df.authenticated_url%>
+					<%end %>
 					</h6> 
 					
 					<%end %> 
