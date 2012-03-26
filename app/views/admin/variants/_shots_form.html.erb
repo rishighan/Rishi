@@ -1,0 +1,9 @@
+<div class="well span8" id="attachments">
+	<%= f.label "File Uploads" %>
+	<br>
+	<%= f.fields_for :digitalfiles do |pack| %>
+	
+	<%= pack.file_field :pack %>
+	<%end%>
+
+</div>

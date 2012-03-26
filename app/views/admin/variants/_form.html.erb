@@ -34,14 +34,16 @@
 	<%=f.link_to_add "Add another trait", :attributions, :class=> "btn btn-mini"%>
 	
 	</div>
-
+	<!-- file uploads to S3 -->
+	<%= render :partial=> "shots_form", :locals=>{:f=>f}%>
+    
 	<div class="well span8">	
-
+		
 		<%= f.label :price, "Price"%>
-		<span class="input-prepend">
+		<div class="input-prepend">
 		<span class="add-on">$</span>
 		<%= f.text_field :price %>
-		</span>
+		</div>
 
 		<%= f.label :quantity, "Quantity"%>
 		<%= f.text_field :quantity %>

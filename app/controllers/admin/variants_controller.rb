@@ -7,7 +7,9 @@ class Admin::VariantsController < ApplicationController
     @product = Product.find(params[:product_id])
     @variant = Variant.new(params[:product])
     attribution = @variant.attributions.build.build_trait
-
+    #file uploads
+     @variant.digitalfiles.new
+    
    
    respond_to do |format|
       format.html # new.html.erb

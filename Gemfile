@@ -5,8 +5,13 @@ gem 'rails', '3.1.1'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', '>= 0.3'
-gem "paperclip", "~> 2.4"
-gem 'acts-as-taggable-on', '~>2.1.0'
+gem "paperclip", "~> 2.7"
+
+#paperclip's S3 storage
+gem 'aws-sdk', '~> 1.3.4'
+
+gem 'acts-as-taggable-on', '~>2.1.0' 
+
 
 # syntax highlighting
 # gem 'albino'  

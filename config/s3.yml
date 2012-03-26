@@ -1,0 +1,8 @@
+development:
+  bucket: 'DigitalPayload'
+  access_key_id: AKIAJK3GZ77UZ5EQABDA
+  secret_code: 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
+
+production:
+  access_key_id: AKIAJTIBHJ55FJ4ZY7ZQ
+  secret_code: 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

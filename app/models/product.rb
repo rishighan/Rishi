@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
   has_many :variants, :dependent => :destroy
   
   #attached photos
-  has_many :product_shots, :as => :attachable, :dependent => :destroy
+  has_many :product_shots, :dependent => :destroy
   accepts_nested_attributes_for :product_shots, :allow_destroy => true,
                                 :reject_if => proc { |attributes| attributes['shot'].blank? } 
   
