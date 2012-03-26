@@ -1,7 +1,7 @@
 class ProductShot < ActiveRecord::Base
 
   belongs_to :attachable, :polymorphic => true
-   
+
   has_attached_file :shot, :styles => { :medium => "637x471>", 
                     :thumb => Proc.new { |instance| instance.resize }},
                     :url => "/shots/:style/:basename.:extension",
