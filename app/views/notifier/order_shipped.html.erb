@@ -1,11 +1,13 @@
 Dear <%= @order.firstname %>,
 <br><br>
 
-Here's the download link for your order: <%= @order.line_items %>
+Here's the download link for your order:
+<br><br>
 
 	 <% @order.line_items.each do |item|%>	
+	   <%= item.variant.name %> :
 	 	<% item.variant.digitalfiles.each do |df| %>
-	 		<%= link_to "S3 LINK", df.authenticated_url, :class=>"label label-info"%>
+	 		<%= link_to "S3 LINK", df.authenticated_url, :class=>"label label-info"%> <br>
 	 <%end%> 
 	 <% end %>
 <br><br>

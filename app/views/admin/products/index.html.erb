@@ -38,7 +38,7 @@
 					<%= attr.trait.name%>:
 					<%= attr.value%><br>
 					<% variant.digitalfiles.each do |df|%>
-					<%= link_to "S3 Link", df.authenticated_url, :class=>"label label-info"%>
+					<%= link_to "S3 Link", df.authenticated_url(10), :class=>"label label-info"%>
 					<%end %>
 					</h6> 
 					
