@@ -6,6 +6,7 @@ class Variant < ActiveRecord::Base
   has_many :traits, :through=> :attributions
 
   validates :price, :numericality =>{:greater_than_or_equal_to => 0.01}
+  validates :name , :description, :price, :quantity, :presence => true
 
   accepts_nested_attributes_for :attributions, :allow_destroy =>true
 

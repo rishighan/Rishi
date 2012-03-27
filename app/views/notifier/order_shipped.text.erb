@@ -1,3 +1,13 @@
-Notifier#order_shipped
+Dear <%= @order.firstname %>,
+<br><br>
 
-<%= @greeting %>, find me in app/views/app/views/notifier/order_shipped.text.erb
+Here's the download link for your order: <%= @order.line_items %>
+
+	 <% @order.line_items.each do |item|%>	
+	 	<% item.variant.digitalfiles.each do |df| %>
+	 		<%= link_to "S3 LINK", df.authenticated_url, :class=>"label label-info"%>
+	 <%end%> 
+	 <% end %>
+<br><br>
+We hope that your shopping experience was pleasant.
+For any questions or concerns contact  storedispatch@rishighan.com 

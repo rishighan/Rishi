@@ -49,16 +49,15 @@ class OrdersController < ApplicationController
 
     @order.ip_address = request.remote_ip
     @order.add_line_items_from_cart(current_cart)
-    @variant = @order.variants.build
+  
     
-    
-
-    respond_to do |format|
+      respond_to do |format|
       if @order.save
         if @order.purchase
           Cart.destroy(session[:cart_id])
           session[:cart_id] = nil
           Notifier.order_received(@order).deliver
+          Notifier.order_shipped(@order).deliver
           #render :action => "success"
           format.html {redirect_to store_url, :notice=>'Thank you. Your order has been recieved.'}
           format.xml {render :xml => @order, :status =>:created, :location=> @order}

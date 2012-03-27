@@ -45,6 +45,7 @@ class LineItemsController < ApplicationController
     variant = Variant.find(params[:variant_id])
     @line_item = @cart.add_variant(variant.id)
     
+   
 
     respond_to do |format|
       if @line_item.save
