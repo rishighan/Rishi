@@ -1,4 +1,5 @@
-<%= form_for [:admin,@category], :html => { :class => 'form-horizontal' } do |f| %>
+ 
+<%= form_for [:admin,@category], :html => { :class => 'form-horizontal span12' } do |f| %>
 
 <% if @category.errors.any? %>
 <div class="alert alert-error">
@@ -13,26 +14,22 @@
 </div>
 <% end %>
 
-  <fieldset>
+  
+    
+    <div class="well">
     <legend><%= controller.action_name.capitalize %> Categories</legend>
+      <%= f.label :category_name %>
+      <%= f.text_field :category_name %>
+      <br><br>
 
-    <div class="control-group">
-      <%= f.label :category_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :category_name, :class => 'text_field' %>
-      </div>
-    </div>
+      <%= f.label :category_description %>
+      <%= f.text_area :category_description,  :rows=>10, :class=>"span8" %>
+      
+      <br><br>
 
-    <div class="control-group">
-      <%= f.label :category_description, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :category_description, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="form-actions">
+    
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', admin_categories_path, :class => 'btn' %>
-    </div>
-  </fieldset>
+     </div>
+ 
 <% end %>

@@ -1,4 +1,4 @@
-class Cart < ActiveRecord::Base
+  class Cart < ActiveRecord::Base
   has_many :line_items, :dependent => :destroy
   
   

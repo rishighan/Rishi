@@ -1,4 +1,4 @@
-<%= nested_form_for([:admin,@product], :remote=>true, :html => {:multipart => true, :class=>"row"}) do |f| %>
+<%= nested_form_for([:admin,@product], :remote=>true, :html => {:multipart => true, :class=>"span12"}) do |f| %>
 <% if @product.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -12,7 +12,8 @@
 </div>
 <% end %>
 
-<div class="well span8">
+<div class="well">
+<legend><%=controller.action_name.capitalize %> Product</legend>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
@@ -29,12 +30,12 @@
 <!-- attached photo -->
 <%= render :partial=> "shots_form", :locals =>{:f=> f} %>
 
-<div class="well span8">
+<div class="well">
 
 	<%= f.label :description %>
 	<%= f.text_area :description, :class=> "span8", :rows=>10 %>
 
-
+<br><br>
 <%= f.submit :class=>"btn btn-primary"%>
 </div>
 <% end %> 

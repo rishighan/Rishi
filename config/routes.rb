@@ -7,7 +7,6 @@ Rishi::Application.routes.draw do
   # shopping cart and checkout process
   resources :orders, :line_items, :carts
 
-  
   # user authentication for admin
   devise_for :users
 
@@ -22,11 +21,9 @@ Rishi::Application.routes.draw do
   match '/blog' => 'admin/posts#index'
   match '/blog/post/:id' => 'admin/posts#show' #todo: create a new view for the blog index view.
   
-  
   # admin root
   match "/admin", :to=>"admin#index"
-  
-  
+
   
   # admin section
   namespace :admin do
@@ -37,9 +34,7 @@ Rishi::Application.routes.draw do
     end
     
   end
- 
 
- 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

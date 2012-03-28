@@ -1,4 +1,4 @@
-<%= nested_form_for([:admin, @post],  :html => { :multipart => true }) do |f| %>
+<%= nested_form_for([:admin, @post],  :html => { :multipart => true, :class=>" form-horizontal span12" }) do |f| %>
 
 <% if @post.errors.any? %>
 <div class="control-group error">
@@ -13,8 +13,8 @@
 </div>
 <% end %>
 
-		<div class="well span8">
-			
+		<div class="well">
+		 <legend><%= controller.action_name.capitalize %> Post</legend>
 			<%= f.label :title%>
 			<%= f.text_field :title %>
 		
@@ -33,7 +33,7 @@
 		
 		<%= render :partial => "attachments_form", :locals => {:f => f} %> 
 		
-		<div class="well span8">
+		<div class="well">
 			<%= f.label :content %>
 		
 			
@@ -44,12 +44,11 @@
 			<br><br>
 			<%= f.text_area :content, :class=>"span8"%>
 		
-			
-		
+
 			<br>
-			<!-- citations -->
-			<%= render :partial => "citations_form", :locals => {:f => f} %>
-			
+		<!-- citations -->
+		<%= render :partial => "citations_form", :locals => {:f => f} %>
+
 			
 			<%= f.submit :class=> "btn btn-primary"%>
 		
