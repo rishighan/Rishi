@@ -1,5 +1,4 @@
-<h1>Manage Catalog</h1>
-<br>
+<legend>Manage Catalog</legend>
 <div class="row">
 <span class="span6">
 		<%= link_to 'New Product', new_admin_product_path, :class=>"btn"%>
@@ -11,10 +10,10 @@
 	<% @products.each do |product| %> 
 	<span class="span6"> 
 		
-		<h2><%= product.name %></h2> 
+		<h3><%= product.name %></h3> 
 		<%= product.description %>
 		<br>
-		<% product.product_categories.each do |cat|%> <h4><%= cat.title%></h4> <%end%>
+		<% product.product_categories.each do |cat|%> <h5><%= cat.title%></h5> <%end%>
 		<hr>
 		
 		<!-- product shots --> 

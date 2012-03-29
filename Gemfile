@@ -10,8 +10,12 @@ gem "paperclip", "~> 2.7"
 #paperclip's S3 storage
 gem 'aws-sdk', '~> 1.3.4'
 
+#for tags
 gem 'acts-as-taggable-on', '~>2.1.0' 
 
+#for searches
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 
 # syntax highlighting
 # gem 'albino'  
