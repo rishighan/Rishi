@@ -1,11 +1,14 @@
 <legend>Manage Posts</legend>
 <%= link_to 'New Post', new_admin_post_path, :class=> "btn btn-primary" %>
 <p>
-	
+
 
 <% @posts.each do |post| %>
   <h2><%= post.title %></h2>
-  filed under: <%= post.category_id %>
+  filed under: 
+  <% post.categories.each do |cat| %>
+  <%= cat.name %><br>
+  <% end -%>
   <br><br>
    <%= post.content %><br><br>
    
