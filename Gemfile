@@ -13,6 +13,9 @@ gem 'aws-sdk', '~> 1.3.4'
 #for tags
 gem 'acts-as-taggable-on', '~>2.1.0' 
 
+#text-based search using elasticsearch
+gem 'tire'
+
 # syntax highlighting
 # gem 'albino'  
 gem 'pygments.rb', '0.2.4'
