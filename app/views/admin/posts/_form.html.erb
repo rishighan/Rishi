@@ -22,7 +22,8 @@
 			
 			<%= f.label "Category" %>
 			<% for cat in Category.find(:all) %>
-			<li><%= check_box_tag "post[category_ids][]", cat.id, post_categories?(category) -%> <%= language.english_name -%></li>			<%= cat.category_name %>
+			<li><%= check_box_tag "post[category_ids][]", cat.id, post_categories?(cat) %>
+			<%= cat.category_name %> </li>
 			<%end %>
 			
 			</p>

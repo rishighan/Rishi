@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(:version => 20120330182615) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.integer  "category_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
