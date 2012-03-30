@@ -35,6 +35,9 @@ Rishi::Application.routes.draw do
     
   end
 
+  # matching the order route under admin
+  match 'admin/orders' => "orders#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

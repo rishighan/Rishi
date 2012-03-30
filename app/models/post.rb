@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
   
   belongs_to :category
   has_many :attachments, :dependent => :destroy
