@@ -6,6 +6,7 @@ class Admin::PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    #@post = Post.search(params)
     @attachment =Attachment.all
     respond_to do |format|
       format.html # index.html.erb
@@ -31,8 +32,7 @@ class Admin::PostsController < ApplicationController
     
     4.times {@post.attachments.build} #attachments
     @post.citations.build #citations
-    
-    catid = params[:category_id]
+
     
     respond_to do |format|
       format.html # new.html.erb

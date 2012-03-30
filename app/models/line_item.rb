@@ -9,4 +9,5 @@ class LineItem < ActiveRecord::Base
     variant.price * quantity
   end
  
+ 
 end

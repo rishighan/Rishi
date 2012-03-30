@@ -18,19 +18,21 @@
 			<%= f.label :title%>
 			<%= f.text_field :title %>
 		
+			<p>
 			
-		
-			<%= f.label :category_id %>
-			<%= collection_select(:post, :category_id, Category.all, :id, :category_name, :prompt => true) %>
+			<%= f.label "Category" %>
+			<% for cat in Category.find(:all) %>
+			<li><%= check_box_tag "post[category_ids][]", cat.id, post_categories?(category) -%> <%= language.english_name -%></li>			<%= cat.category_name %>
+			<%end %>
 			
+			</p>
 			<%= f.label :keyword_list%>
 			<%= f.text_field :keyword_list %>
 			
 			
 		</div> 
 
-		<!-- attachment block -->
-		
+		<!-- attachment block -->	
 		<%= render :partial => "attachments_form", :locals => {:f => f} %> 
 		
 		<div class="well">
@@ -48,9 +50,8 @@
 			<br>
 		<!-- citations -->
 		<%= render :partial => "citations_form", :locals => {:f => f} %>
-
-			
-			<%= f.submit :class=> "btn btn-primary"%>
+		<br><br>
+		<%= f.submit :class=> "btn btn-primary"%>
 		
 		</div> 
 
