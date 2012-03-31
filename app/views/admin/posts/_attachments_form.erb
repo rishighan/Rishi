@@ -11,7 +11,7 @@
   <% unless attach.object.new_record? %>
   	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
 	<span class="label">
-	<%= attach.object.photo.url(:original)%>
+	<%= attach.object.photo.url(:original)%><br/>
 	</span>
 	<br>	
 	<%= link_to_function "Insert image into post", "insertMarkup(this,'image')", :class=> "btn btn-mini"%>

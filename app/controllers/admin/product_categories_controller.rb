@@ -1,6 +1,9 @@
 class Admin::ProductCategoriesController < ApplicationController
   # GET /product_categories
   # GET /product_categories.json
+  before_filter :authenticate_user!
+  layout 'admin_layout'
+  
   def index
     @product_categories = ProductCategory.all
 

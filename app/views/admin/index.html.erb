@@ -1,12 +1,25 @@
 <div class="well">
 <h1>Admin</h1>
+<hr>
 
 <div class="row">
-	
-<span class="span8">
+<span class="span6">
+<h3>Recent Activity</h3>
+<% unless @posts.empty? %>
+<% @posts.each do |post| %>
+  <%= post.title %> published at <%= post.created_at.to_s(:short) %><br/>
+<%end%>
+<% @orders.each do |order| %>
+  <%= order.firstname %> <%= order.lastname %> placed an order on <%= order.created_at.to_s(:short) %><br/>
+<%end%>
 
-</span>	
-		
+<hr>
+<%end%>
+</span>
+</div>
+
+<div class="row">
+
 <span class="span3">
 <h2>Posts</h2>
 

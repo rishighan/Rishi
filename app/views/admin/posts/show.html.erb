@@ -7,7 +7,11 @@
 
 <p>
   <b>Category:</b>
-  <%= @post.category_id %>
+ <ul>
+  <% @post.categories.each do |cat| %>
+  <li> <%= cat.category_name %> </li>
+  <% end -%>
+</ul>
 </p>
 
 <p>

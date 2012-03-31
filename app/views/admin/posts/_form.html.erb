@@ -1,7 +1,7 @@
-<%= nested_form_for([:admin, @post],  :html => { :multipart => true, :class=>" form-horizontal span12" }) do |f| %>
+<%= nested_form_for([:admin, @post], :html => { :multipart => true, :class=>"span12" }) do |f| %>
 
 <% if @post.errors.any? %>
-<div class="control-group error">
+<div class="error">
 	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 	<ul>
 		<% @post.errors.full_messages.each do |msg| %>
@@ -13,25 +13,40 @@
 </div>
 <% end %>
 
-		<div class="well">
-		 <legend><%= controller.action_name.capitalize %> Post</legend>
-			<%= f.label :title%>
-			<%= f.text_field :title %>
+	<div class="btn-group">
+	<%= link_to 'Back', admin_path, :class=>"btn btn-mini" %>
+	<%= link_to 'Manage Posts', admin_posts_path, :class=>"btn btn-mini" %> 
+	
+	</div>
+
+	<br/>
+	
+	<!-- title, categories and keywords -->
+	<div class="well">
+	<legend><%= controller.action_name.capitalize %> Post</legend>
+	<%= f.label :title%>
+	<%= f.text_field :title %>
+	
+	
+	
+	<%= f.label :category_id %>
+	<%=hidden_field_tag "post[category_ids][]" , nil%>
+	
+	<div class="form-inline">
+	<% Category.all.each do |cat| %>
 		
-			<p>
-			
-			<%= f.label "Category" %>
-			<% for cat in Category.find(:all) %>
-			<li><%= check_box_tag "post[category_ids][]", cat.id, post_categories?(cat) %>
-			<%= cat.category_name %> </li>
-			<%end %>
-			
-			</p>
-			<%= f.label :keyword_list%>
-			<%= f.text_field :keyword_list %>
+		<%= check_box_tag "post[category_ids][]", cat.id, @post.category_ids.include?(cat.id), :id=> dom_id(cat)%>	
+		<%= label_tag dom_id(cat), cat.category_name %> <br>
+	
+	<%end %>
+	</div>
+	
+	<br>	
+	<%= f.label :keyword_list%>
+	<%= f.text_field :keyword_list %>
 			
 			
-		</div> 
+	</div> 
 
 		<!-- attachment block -->	
 		<%= render :partial => "attachments_form", :locals => {:f => f} %> 
@@ -46,15 +61,14 @@
 			
 			<br><br>
 			<%= f.text_area :content, :class=>"span8"%>
+		</div> 
 		
-
-			<br>
 		<!-- citations -->
 		<%= render :partial => "citations_form", :locals => {:f => f} %>
 		<br><br>
 		<%= f.submit :class=> "btn btn-primary"%>
 		
-		</div> 
+		
 
 
 	

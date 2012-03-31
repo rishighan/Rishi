@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
 
   validates :firstname, :lastname, :address1, :address2, :city, :state, :zipcode, :phone, :email, :pay_type,
-            :presence => true
+  :presence => true
 
   has_many :line_items, :dependent => :destroy
 
@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
   # for matching:
   # 2154701106 or 215 470 1106 or (215) 470-1106 or 215-470-1106
   validates_format_of :phone, :with => /^[\(?0-9 \)?]{3,6}?-?[0-9]{3} ?-?[0-9]{4}$/,
-                      :notice => 'Phone numbers can have the following format'
+  :notice => 'Phone numbers can have the following format'
 
   before_save :clean_phone_number
 
@@ -22,7 +22,7 @@ class Order < ActiveRecord::Base
   # for matching:
   # frishi@me.com, frishi@yahoo.co.in
   validates_format_of :email, :with => /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                              :notice => 'Enter a valid email address'
+  :notice => 'Enter a valid email address'
 
   # payment types
   PAYMENT_TYPES = ["Visa",  "MasterCard", "Discover", "American Express"]

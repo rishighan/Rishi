@@ -1,38 +1,36 @@
 <legend>Manage Posts</legend>
-<%= link_to 'New Post', new_admin_post_path, :class=> "btn btn-primary" %>
 
+<%= link_to 'New Post', new_admin_post_path, :class=> "btn btn-primary" %><br/><br/>
 <%= form_tag admin_posts_path, :method=> :get do  %>
-<%= text_field :query,  params[:query], :class=> "form-search"%>
-<%= submit_tag "search" %>
+
+
+<%= text_field :query, params[:query], :class=>"input-medium search-query"%>
+<%= submit_tag "search", :name=>nil, :class=>"btn"%>
+
 <%end%>
-
-
+<hr>
 
 <% @post.each do |post| %>
   <h2><%= post.title %></h2>
   filed under: 
   <% post.categories.each do |cat| %>
-  <%= cat.name %><br>
+  <%= cat.category_name %><br>
   <% end -%>
-  <br><br>
-   <%= post.content %><br><br>
+   <p>
+   <%= post.content %>
+  </p>
    
    		<%unless post.attachments.empty? %>
+        <div class="well">
     	<% post.attachments.each do |at|%>
 		<%= image_tag at.photo.url(:thumb)%>
 		<%end%>
+    </div>
 		<%end%>
 		
-		
-		<%unless post.citations.empty? %>
-		<div class="well">
-		<% post.citations.each do |citations| %>
-		<%= citations.source_name %><br>
-		<%= citations.extended_description %><br><br>
-		<% end%>
-		</div>
-		
-		<%end%>
+  <%unless post.citations.empty? %>  
+	<%= render :partial=>'citations', :locals => {:post => post} %>
+	<%end %>
 		
     	
    <br>

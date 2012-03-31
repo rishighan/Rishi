@@ -4,20 +4,15 @@
 </p>
 <div id="nav"></div>
 <div class="carousel-container">
-	<% @carousel_posts.each do |carousel|%>
-	<% carousel.attachments.each do |attach| %>
-	<%= image_tag attach.photo.url(:original)%>
-	<% end %>
 
-	<%end%>
 </div>
 <div class="row">
 	<span class="span4" >Featured Product from the store!</span>
 	<span class="span2" > This that and the other.This that and the otherThis that and the other </span>
-	<span class="span6"> <%= paginate @posts %>
+	<span class="span6"> 
 		<% @posts.each do |post| %> 
 		<h3><%= post.title %></h3> 
-		filed under <%= post.category.category_name %>
+		filed under 
 		<p>
 			<!--
 			<% post.attachments.each do |attach| %>

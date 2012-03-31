@@ -1,11 +1,22 @@
 class Admin::PostsController < ApplicationController
  
  before_filter :authenticate_user!
- 
+ layout 'admin_layout'
   # GET /posts
   # GET /posts.json
+
+  rescue_from Tire::Search::SearchRequestFailed do |error|
+    # Indicate incorrect query to the user
+    if error.message =~ /SearchParseException/ && params[:query]
+      flash[:alert] = "Sorry, your query '#{params[:query]}' is invalid..."
+    else
+      # ... handle other possible situations ...
+    end
+    redirect_to admin_posts_url
+  end
+
   def index
-    @posts = Post.all
+    @post = Post.search(params)
     #@post = Post.search(params)
     @attachment =Attachment.all
     respond_to do |format|
@@ -32,6 +43,7 @@ class Admin::PostsController < ApplicationController
     
     4.times {@post.attachments.build} #attachments
     @post.citations.build #citations
+    @post.categories.build
 
     
     respond_to do |format|
@@ -51,9 +63,10 @@ class Admin::PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-    
+
     respond_to do |format|
       if @post.save
+        @post.categories.create(params[:post_category_id]) 
         format.html { redirect_to admin_posts_url, :notice => 'Post was successfully created.' }
         format.json { render :json => @post, :status => :created, :location => @post }
       else

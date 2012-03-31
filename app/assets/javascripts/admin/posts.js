@@ -29,7 +29,7 @@ function insertMarkup(objt, markuptype) {
 			// ^(post_citations_attributes_[0-9]{1,3}_extended_description)$
 
 			var markup = '<sup> </sup>';
-			var context = $(objt).nextAll('textarea')
+			var context = $(objt).prevAll('textarea')
 
 			$(context).insertAtCaret(markup)
 
@@ -49,17 +49,7 @@ function insertMarkup(objt, markuptype) {
 
 
 $(document).ready(function() {
-	$('#post_category_id').change(function() {
 
-		if($(this).val() == '2')
-			$('#citations').fadeIn(300);
-		
-else {
-			$('#citations :input').val('')
-			$('#citations').fadeOut(300);
-
-		}
-	})
 	// insert at cursor position
 
 	$.fn.extend({

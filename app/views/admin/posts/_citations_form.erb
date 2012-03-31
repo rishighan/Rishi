@@ -1,5 +1,5 @@
  
-  <div class="well form-horizonal" id="citations">
+  <div class="well">
   <%= f.label :citations %>
   
   <%= f.fields_for :citations do |citation| %>
@@ -11,7 +11,7 @@
   <br><br>
   
   <%= f.label :extended_description%>
-  <%= citation.text_area :extended_description, :class=> "span6" %>
+  <%= citation.text_area :extended_description, :class=>"span8", :rows=>5 %>
   <br>
  
  

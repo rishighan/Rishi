@@ -1,5 +1,8 @@
 class Admin::CategoriesController < ApplicationController
 
+before_filter :authenticate_user!
+layout 'admin_layout'
+
  #authenticate user
  before_filter :authenticate_user!
 
