@@ -5,25 +5,32 @@ class Admin::PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
 
-  # rescue_from Tire::Search::SearchRequestFailed do |error|
-  #   # Indicate incorrect query to the user
-  #   if error.message =~ /SearchParseException/ && params[:query]
-  #     flash[:alert] = "Sorry, your query '#{params[:query]}' is invalid..."
-  #   else
-  #     # ... handle other possible situations ...
-  #   end
-  #   redirect_to admin_posts_url
-  # end
+  rescue_from Tire::Search::SearchRequestFailed do |error|
+    # Indicate incorrect query to the user
+    if error.message =~ /SearchParseException/ && params[:query]
+      flash[:alert] = "Sorry, your query '#{params[:query]}' is invalid..."
+    else
+      # ... handle other possible situations ...
+    end
+    redirect_to admin_posts_url
+  end
 
   def index
-    @post = Post.search(params)
-    #@post = Post.search(params)
+    @post = Post.all  
     @attachment =Attachment.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @posts }
     end
   end
+
+
+    # GET /articles/search
+  def search
+    @post = Post.search params[:q], :load =>true
+    render :action => "index"
+  end
+
 
   # GET /posts/1
   # GET /posts/1.json

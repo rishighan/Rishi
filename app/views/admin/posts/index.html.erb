@@ -1,13 +1,14 @@
 <legend>Manage Posts</legend>
 
 <%= link_to 'New Post', new_admin_post_path, :class=> "btn btn-primary" %><br/><br/>
-<%= form_tag admin_posts_path, :method=> :get do  %>
+
+<%= form_tag '/admin/posts/search', :method => 'get' do %>
+  <%= label_tag :query %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag :search %>
+<% end %>
 
 
-<%= text_field :query, params[:query], :class=>"input-medium search-query"%>
-<%= submit_tag "search", :name=>nil, :class=>"btn"%>
-
-<%end%>
 <hr>
 
 <% @post.each do |post| %>

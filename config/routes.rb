@@ -17,22 +17,29 @@ Rishi::Application.routes.draw do
   # setting up a post detail URL accessible via something like /blog/post/2
   namespace :blog do
     resource :post 
-  end        
+  end  
+
   match '/blog' => 'admin/posts#index'
   match '/blog/post/:id' => 'admin/posts#show' #todo: create a new view for the blog index view.
   
   # admin root
   match "/admin", :to=>"admin#index"
-
   
   # admin section
   namespace :admin do
     #root :to => "admin#index" #root page defined inside the namespace.
-    resources :posts, :categories, :product_categories, :traits, :variants
+    resources :categories, :product_categories, :traits, :variants
+
+    resources :posts do
+      collection do
+        get "/search", :action => "search"
+      end
+    end
+
     resources :products do 
       resources :variants
     end
-    
+     
   end
 
   # matching the order route under admin

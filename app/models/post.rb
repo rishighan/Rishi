@@ -17,12 +17,4 @@ class Post < ActiveRecord::Base
                                 :reject_if => proc { |attributes| attributes['photo'].blank? }
   accepts_nested_attributes_for :citations, :allow_destroy=>true
   
-
-
-  def self.search(params)
-  tire.search(:load =>true) do
-    query { string params[:query]} if params[:query].present?
-  end
- end
-
 end
