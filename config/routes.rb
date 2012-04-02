@@ -27,15 +27,17 @@ Rishi::Application.routes.draw do
   
   # admin section
   namespace :admin do
-    #root :to => "admin#index" #root page defined inside the namespace.
+  
     resources :categories, :product_categories, :traits, :variants
 
+    # to implement /admin/posts/search
     resources :posts do
       collection do
         get "/search", :action => "search"
       end
     end
 
+    # to add variants from within a product
     resources :products do 
       resources :variants
     end

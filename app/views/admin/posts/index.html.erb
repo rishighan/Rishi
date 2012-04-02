@@ -2,11 +2,12 @@
 
 <%= link_to 'New Post', new_admin_post_path, :class=> "btn btn-primary" %><br/><br/>
 
+<!-- TODO: change the sloppy approach to hard coding the path right into the form tag -->
 <%= form_tag '/admin/posts/search', :method => 'get', :class=>"form-search" do %>
   <%= text_field_tag :q, params[:q], :class=>" input-medium search-query", :placeholder=>"Search" %>
   <%= submit_tag :search, :class=>"btn" %>
 <% end %>
-
+  
 
 <hr>
 
@@ -42,8 +43,3 @@
     <hr>
   
 <% end %>
-
-
-
-
-

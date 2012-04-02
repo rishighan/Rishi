@@ -1,4 +1,4 @@
-function insertMarkup(objt, markuptype) {
+function insertMarkup(objt, markuptype, position) {
 	switch (markuptype) {
 
 		// image markup <img>
@@ -29,8 +29,9 @@ function insertMarkup(objt, markuptype) {
 			// ^(post_citations_attributes_[0-9]{1,3}_extended_description)$
 
 			var markup = '<sup> </sup>';
-			var context = $(objt).prevAll('textarea')
-
+			//to check for the position of the textarea, before the button or after.
+			position==0? context = $(objt).prevAll('textarea') : context =$(objt).nextAll('textarea')
+			console.log(context)
 			$(context).insertAtCaret(markup)
 
 			break;
