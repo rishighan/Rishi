@@ -1,0 +1,27 @@
+<h1>Rishi Ghan</h1>
+
+<div id="nav"></div>
+
+<div class="row">
+
+	<span class="span8"> 
+
+
+		<h3><%= @post.title %></h3> 
+		filed under 
+		<% @post.categories.each do |cat|%>
+			<%= cat.category_name %>
+		<%end%>
+		<p>
+			<!--
+			<% @post.attachments.each do |attach| %>
+			<%= image_tag attach.photo.url(:thumb)%>
+			<% end%>
+			-->
+		</p>
+		<p>
+			<%= markdown @post.content %>
+		</p>
+		<hr>
+		</span>
+</div>

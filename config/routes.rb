@@ -1,26 +1,23 @@
 Rishi::Application.routes.draw do
   
+  # site root
+  get "pages/index"
+  root :to => 'pages#index'
+  
+  #blog
+  #todo: create a new view for the posts by category view. 
+  get '/blog' => 'pages#blog'
+  match '/blog/post/:id' => 'pages#post'  
+  
   # store catalog root
   # get "store/index"
   match "/store", :to => "store#index"
-  
+    
   # shopping cart and checkout process
   resources :orders, :line_items, :carts
 
   # user authentication for admin
   devise_for :users
-
-  # site root
-  get "home/index"
-  root :to => 'home#index' 
-  
-  # setting up a post detail URL accessible via something like /blog/post/2
-  namespace :blog do
-    resource :post 
-  end  
-
-  match '/blog' => 'admin/posts#index'
-  match '/blog/post/:id' => 'admin/posts#show' #todo: create a new view for the blog index view.
   
   # admin root
   match "/admin", :to=>"admin#index"
