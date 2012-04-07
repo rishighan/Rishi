@@ -21,5 +21,13 @@
 			<%= markdown post.content %>
 		</p>
 		<hr>
-		<%end%> </span>
+		<%end%>
+	</span>
+
+	<span class="span2">
+		<h5>Sidebar</h5>
+		<% @categories.each  do |cat|%>
+		<%= cat.category_name %><br>
+		<% end -%>
+	</span>	
 </div>
