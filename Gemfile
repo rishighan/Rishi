@@ -13,6 +13,12 @@ gem 'aws-sdk', '~> 1.3.4'
 #for tags
 gem 'acts-as-taggable-on', '~>2.1.0' 
 
+#pagination
+gem 'will_paginate'
+
+#slugs and permalinks
+gem "friendly_id", "~> 4.0.1"
+
 #text-based search using elasticsearch
 gem 'tire'
 
@@ -22,8 +28,6 @@ gem 'pygments.rb', '0.2.4'
 gem 'nokogiri'  
 gem 'redcarpet', '1.17.2'
 
-#pagination
-gem 'will_paginate'
 
 #user authentication
 gem 'devise'

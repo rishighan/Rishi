@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   
   def index
-    @posts = Post.all
+    @posts = Post.all.sort.reverse
   end
   
   def blog
@@ -24,6 +24,9 @@ class PagesController < ApplicationController
   
   def post
     @post =Post.find(params[:id])
+    if request.path!= blog_post_path(@post)
+      redirect_to blog_post_path(@post), :status =>:moved_permanently
+    end
 
   end
   

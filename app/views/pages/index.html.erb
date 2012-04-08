@@ -11,7 +11,7 @@
 
 	<span class="span6"> 
 		<% @posts.each do |post| %> 
-		<h3><%= post.title %></h3> 
+		<h3><%=link_to post.title, blog_post_path(post) %></h3> 
 		filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
 		<p>
 			<!--
@@ -27,5 +27,6 @@
 		<%= render (:partial=>'citations_snippets' ,:locals=>{:post=>post}) unless post.citations.blank? %>
 		
 		<hr>
-		<%end%> </span>
+		<%end%> 
+		</span>
 </div>

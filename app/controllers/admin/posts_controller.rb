@@ -36,10 +36,13 @@ class Admin::PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @post }
-    end
+     if request.path!= admin_post_path(@post)
+        redirect_to admin_post_path(@post), :status =>:moved_permanently
+      end
+    # respond_to do |format|
+    #   format.html # show.html.erb
+    #   format.json { render :json => @post }
+    # end
   end
   
     

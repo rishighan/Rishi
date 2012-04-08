@@ -1,4 +1,3 @@
-
 <div id="nav"></div>
 
 <div class="row">
@@ -9,18 +8,15 @@
 		<% @post_months.keys.sort.reverse.each do |month| %>
 		<span class="span3">
 			<h3><%= month.strftime('%B %Y')%></h3>
-			
-			<% for post in @post_months[month] %>
-				<h5><%= link_to	post.title , blog_post_path(:id=>post.id) %> </h5>			
+			<hr>
+			<% @post_months[month].each do |post| %>
+				<h4><%= link_to	post.title , blog_post_path(:id=>post.id) %> / 
+				<%= post.created_at.strftime('%d %B') %></h4>			
 			<%end%>
 			
 		</span>
 		<% end -%>
 		
 	</span>	
-			
-
-		
-	
 
 </div>
