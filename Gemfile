@@ -23,7 +23,7 @@ gem 'nokogiri'
 gem 'redcarpet', '1.17.2'
 
 #pagination
-gem 'kaminari', '0.12.4'
+gem 'will_paginate'
 
 #user authentication
 gem 'devise'

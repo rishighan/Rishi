@@ -17,7 +17,12 @@
 <p>
   <b>Content:</b>
   <%= markdown @post.content %><br>
- 
+ <hr>
+  <% @post.citations.each do |citation| %>
+  <h6><%= markdown citation.source_name %></h6>
+  <%= markdown citation.extended_description %>
+
+  <%end %> 
 </p>
 
 <p id="attachments">

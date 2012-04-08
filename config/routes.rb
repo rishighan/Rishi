@@ -7,7 +7,10 @@ Rishi::Application.routes.draw do
   #blog
   #todo: create a new view for the posts by category view. 
   get '/blog' => 'pages#blog'
-  match '/blog/post/:id' => 'pages#post'  
+  get '/blog/post/:id' => 'pages#post', :as => :blog_post
+ 
+  #archive
+  get 'blog/archive' => 'pages#archive'
   
   # store catalog root
   # get "store/index"

@@ -16,5 +16,6 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :attachments, :allow_destroy => true, 
                                 :reject_if => proc { |attributes| attributes['photo'].blank? }
   accepts_nested_attributes_for :citations, :allow_destroy=>true
+
   
 end

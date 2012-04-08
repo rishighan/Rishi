@@ -4,7 +4,7 @@
 
 <div class="row">
 
-	<span class="span8"> 
+	<span class="span7"> 
 		<!-- TODO: comma separated categories -->
 		<% @posts.each do |post| %> 
 		<h3><%= post.title %></h3> 
@@ -24,10 +24,20 @@
 		<%end%>
 	</span>
 
-	<span class="span2">
-		<h5>Sidebar</h5>
+	<span class="span3">
+
+		<%= form_tag '/admin/posts/search', :method => 'get', :class=>"form-search" do %>
+ 		<%= text_field_tag :q, params[:q], :class=>" input-medium search-query", :placeholder=>"Search" %>
+ 		<%= submit_tag :search, :class=>"btn" %>
+		<% end %>
+
+		<h5>Browse by:</h5>
 		<% @categories.each  do |cat|%>
 		<%= cat.category_name %><br>
 		<% end -%>
+
+		<h5><%=link_to "ARCHIVE", blog_archive_path %></h5>
+
+		
 	</span>	
 </div>

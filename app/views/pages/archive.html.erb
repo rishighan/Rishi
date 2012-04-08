@@ -1,0 +1,26 @@
+
+<div id="nav"></div>
+
+<div class="row">
+	<span class="span10">
+		<h2>Archive</h2>
+	
+	
+		<% @post_months.keys.sort.reverse.each do |month| %>
+		<span class="span3">
+			<h3><%= month.strftime('%B %Y')%></h3>
+			
+			<% for post in @post_months[month] %>
+				<h5><%= link_to	post.title , blog_post_path(:id=>post.id) %> </h5>			
+			<%end%>
+			
+		</span>
+		<% end -%>
+		
+	</span>	
+			
+
+		
+	
+
+</div>
