@@ -2,13 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.post-carousel img
+.post-carousel
+{
+
+
+}
+ .post-carousel img
 {
   display:block;
-  height:368px;
-  width:473px;
+max-width:100%;
   
 }
+
 
 #nav a 
 { 

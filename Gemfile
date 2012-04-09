@@ -17,7 +17,10 @@ gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'will_paginate'
 
 #slugs and permalinks
-gem "friendly_id", "~> 4.0.1"
+gem 'friendly_id', "~> 4.0.1"
+
+#intelligent HTML/Markdown truncating
+gem 'truncate_html'
 
 #text-based search using elasticsearch
 gem 'tire'

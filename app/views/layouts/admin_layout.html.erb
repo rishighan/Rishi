@@ -38,10 +38,11 @@
 	<%= notice %>
 </p>
 <%end%>
-
+<% unless alert.blank?%>
 <span class="alert alert-error">
 <%= alert %>
  </span>
+<%end%>
 
 
 
