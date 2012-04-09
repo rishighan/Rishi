@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 
 	$('.post-carousel').each(function() {
-	   	var $nav = $('<div id="nav"></div>').insertAfter(this);
+	   	var $nav = $('<div id="carousel-nav"></div>').insertAfter(this);
 			    	
 			    	
 	   	$(this).cycle({

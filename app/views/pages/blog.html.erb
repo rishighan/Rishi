@@ -6,6 +6,7 @@
 
 	<span class="span7"> 
 		<!-- TODO: comma separated categories -->
+		<%= will_paginate @posts, :class=>"pagination", :container => false%>
 		<% @posts.each do |post| %> 
 		<h3><%= post.title %></h3> 
 		filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>

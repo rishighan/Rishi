@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
   
   def blog
-    @posts = Post.all
+    @posts = Post.paginate(:page=>params[:page],:per_page=>5)
     @categories = Category.all
   end
 
