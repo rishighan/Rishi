@@ -8,7 +8,7 @@ class Attachment < ActiveRecord::Base
                     :path =>":rails_root/public/pictures/:style/:basename.:extension"
                     
                     
-  validates_attachment_content_type :photo, :content_type => ['image/png', 'image/jpg', 'image/jpeg', 'image/gif  ']                  
+  validates_attachment_content_type :photo, :content_type => ['image/png', 'image/jpg', 'image/jpeg', 'image/gif']                  
   validates_attachment_size :photo, :less_than => 2.megabytes         
 
 

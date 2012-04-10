@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20120408133919) do
     t.string   "phone"
     t.string   "email"
     t.string   "pay_type"
+    t.date     "card_expires_on"
     t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -115,11 +116,14 @@ ActiveRecord::Schema.define(:version => 20120408133919) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
+    t.integer  "category_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
   end
+
+  add_index "posts", ["slug"], :name => "index_posts_on_slug"
 
   create_table "product_categories", :force => true do |t|
     t.string   "title"

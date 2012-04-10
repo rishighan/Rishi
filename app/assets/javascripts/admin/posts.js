@@ -4,7 +4,7 @@ function insertMarkup(objt, markuptype, position) {
 		// image markup <img>
 		case 'image':
 			var hrefs = $(objt).prevAll('a').attr('href')
-			var markup = "<img src='" + hrefs + "' />"
+			var markup = '<img src="'+ hrefs +'" class="slide" />'
 
 			// need a better strategy to traverse and select the textarea.
 			var textarea = $("#post_content")
@@ -13,8 +13,12 @@ function insertMarkup(objt, markuptype, position) {
 
 		// carousel markup <div class=post-carousel>
 		case 'carousel':
-			var context = $(objt).nextAll('textarea')
-			var markup = '<div class="post-carousel"> </div>';
+			// hacking jQuery Cycle to insert a dummy GIF as the first slide to 
+			// set the width and the height.
+			// TODO: set the dimensions for dummy.gif dynamically
+			var dummygif = 'dummy.gif';
+			var context = $(objt).nextAll('textarea');
+			var markup = '<div class="post-carousel"> <img src="/assets/'+dummygif+'" /></div>';
 			
 			$(context).insertAtCaret(markup)
 
