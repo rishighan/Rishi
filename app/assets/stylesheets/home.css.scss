@@ -18,35 +18,39 @@
 
 { 
 
+top:-50px;
 position:relative;
-top:-40px;
 text-align:center;
 z-index:99;
+
+
 
 a
 {
 
   	background: url('/assets/navdot.png') 0 0 no-repeat; 
-	padding:10px 10px 0 5px;
+	padding:3px 18px 0 0;
 	text-decoration:none;
 	margin:0 0 0 4px;
-	width:24px;
-	height:14px;
+	width:18px;
+	height:8px;
 	
 	
 	&:visited {background:#CCC;}
   	&:hover
 	{
-	background:url('/assets/navdot.png') 0 -24px no-repeat;
+	background:url('/assets/navdot.png') 0 -18px no-repeat;
 	}
 	
-	.activeSlide 
-	{ 
-	  background:url('/assets/navdot.png') 0 -24px no-repeat;
-	}
-	
+
 	
 }
+
+	.activeSlide 
+	{ 
+  		background:url('/assets/navdot.png') 0 -18px no-repeat;
+	}
+
 	
 
 }

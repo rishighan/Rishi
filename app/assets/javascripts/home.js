@@ -11,7 +11,11 @@ $(document).ready(function(){
 			slideResize: 0,
 			speed:   300,
 	        timeout: 0,
-	        pager:   $nav
+	        pager:   $nav,
+		  
+			pagerAnchorBuilder: function() {
+		        return '<a href="#" class="activeSlide"></a>';
+		    }
 			
 	   	});
 	 });

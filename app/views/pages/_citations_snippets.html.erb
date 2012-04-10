@@ -1,5 +1,5 @@
-&not;
+Sources &not; <br/>
 <% post.citations.each do |citation| %>
-	<h6><%=markdown citation.source_name %></h6>
+	<strong><%= citation.source_name %></strong>
 	<%=markdown citation.extended_description %>	
 <%end %>
