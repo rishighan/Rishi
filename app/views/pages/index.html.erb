@@ -8,18 +8,19 @@
 </div>
 <div class="row">
 	<div class="hero-unit span9 hero-module">
-		<h1>Birds and Friends</h1>
-		<p>How Instagram has helped my sanity</p>
+			<%@carousel_posts.each do |photo|%>
+				<% photo.attachments.each do |link|%>
+				  <%= image_tag link.photo.url(:thumb), :class => "heroimages" %>
+				<%end%>
+			<%end%>
 	</div>
+	<div id="mitra">
+		</div>
 	
 	<span class="span4" >
 	
 		<div class="well">
-			<%@carousel_posts.each do |photo|%>
-				<% photo.attachments.each do |link|%>
-					<%= link.photo.url(:thumb)%>
-				<%end%>
-			<%end%>
+		Some interesting information about thesis, Github projects or recent news.
 		
 		</div>
 	</span>
