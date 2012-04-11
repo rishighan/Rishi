@@ -15,7 +15,10 @@ $(document).ready(function(){
 		  
 			pagerAnchorBuilder: function() {
 		        return '<a href="#" class="activeSlide"></a>';
-		    }
+		    },
+			beforeFunction:function(){
+				alert('hi!');
+			}
 			
 	   	});
 	 });

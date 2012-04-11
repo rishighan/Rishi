@@ -17,7 +17,8 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :categories, :allow_destroy => true
   accepts_nested_attributes_for :attachments, :allow_destroy => true, 
                                 :reject_if => proc { |attributes| attributes['photo'].blank? }
-  accepts_nested_attributes_for :citations, :allow_destroy=>true
+  accepts_nested_attributes_for :citations, :allow_destroy=>true,
+                                :reject_if => proc { |attributes| attributes['citations'].blank? }
   
   # def should_generate_new_friendly_id?
   #     new_record?    
