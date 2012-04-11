@@ -116,7 +116,6 @@ ActiveRecord::Schema.define(:version => 20120408133919) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.integer  "category_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -138,13 +137,13 @@ ActiveRecord::Schema.define(:version => 20120408133919) do
   end
 
   create_table "product_shots", :force => true do |t|
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shot_file_name"
     t.string   "shot_content_type"
     t.integer  "shot_file_size"
     t.datetime "shot_updated_at"
-    t.integer  "product_id"
   end
 
   create_table "products", :force => true do |t|

@@ -7,21 +7,18 @@
 
 </div>
 <div class="row">
-	<div class="hero-unit span9 hero-module">
+	<div id="hero" class="hero-unit span9 hero-module">
 			<%@carousel_posts.each do |photo|%>
 				<% photo.attachments.each do |link|%>
-				  <%= image_tag link.photo.url(:thumb), :class => "heroimages" %>
+				  <%= image_tag link.photo.url(:original) ,:style=>"display:none;" %>
 				<%end%>
 			<%end%>
 	</div>
-	<div id="mitra">
-		</div>
+	
 	
 	<span class="span4" >
-	
 		<div class="well">
 		Some interesting information about thesis, Github projects or recent news.
-		
 		</div>
 	</span>
 

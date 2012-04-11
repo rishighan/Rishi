@@ -15,10 +15,13 @@ class Post < ActiveRecord::Base
   acts_as_taggable_on :keywords
   
   accepts_nested_attributes_for :categories, :allow_destroy => true
+
+  #reject_if nested attributes are empty, dont write them to database.
   accepts_nested_attributes_for :attachments, :allow_destroy => true, 
                                 :reject_if => proc { |attributes| attributes['photo'].blank? }
   accepts_nested_attributes_for :citations, :allow_destroy=>true,
-                                :reject_if => proc { |attributes| attributes['citations'].blank? }
+                                :reject_if => proc { |attributes| attributes['source_name'].blank? }
+
   
   # def should_generate_new_friendly_id?
   #     new_record?    

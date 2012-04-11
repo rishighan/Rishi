@@ -20,29 +20,25 @@ $(document).ready(function(){
 	 });
         
            
-        	var $nav = $('<div id="hero-nav"></div>').insertAfter(this);
         	
-        	
-        	$('.hero-module').cycle({
-        	        fx:     'fade',
-        	        speed:   300,
-        	        timeout: 0,
-        	        pager:   $nav,
-					before: populateBGImages()
-        	});
-
-			function populateBGImages(){
-				$('.hero-module img').each(function(index)
-				{
+        
+		$('#hero img').each(function(){
 					
-					//alert(index+': '+ $(this).attr('src'));
-					$('#mitra').replace('<span id= "'+index+'" style="background:url("'+$(this).attr('src')+'") 0 0 no-repeat;" ></span>');
-					$('#mitra').append('adas');
-				});
-			}
-				
-			
-      
- 
+			//alert(index+': '+ $(this).attr('src'));
+			var something = '<span style="background:url('+$(this).attr('src')+') 0 0 no-repeat; width:100%; height:300px;" class="slides" ></span>';
+			$('#hero').append(something);
+			console.log('this is reached');
+			return true;
+					
+		});
+
+		$('#hero').cycle({
+
+			fx:'scrollRight',
+			slideExpr:'span',
+			timeout:0,
+			speed:100
+		})
+
     
  });
