@@ -8,15 +8,15 @@
 </div>
 <div class="row">
 	<div id="hero" class="hero-module span10">
-		<span class="tleft"></span>
-		<span class="tright"></span>
+		<span class="roundedcorners tleft"></span>
+		<span class="roundedcorners tright"></span>
 			<%@carousel_posts.each do |photo|%>
 				<% photo.attachments.each do |link|%>
 				  <%= image_tag link.photo.url(:original) %>
 				<%end%>
 			<%end%>
-		<span class="bleft"></span>
-		<span class="bright"></span>
+		<span class="roundedcorners bleft"></span>
+		<span class="roundedcorners bright"></span>
 	</div>
 	
 	
