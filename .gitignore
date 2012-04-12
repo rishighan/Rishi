@@ -5,3 +5,5 @@ tmp/
 .sass-cache/
 .DS_STORE
 public/.DS_Store
+
+.DS_Store
