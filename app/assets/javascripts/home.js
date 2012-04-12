@@ -28,8 +28,15 @@ $(document).ready(function(){
 		$('#hero').cycle({
 			slideExpr:'img',
 			fx:'fade',
+			slideResize:1,
+			fit:0,
 			// timeout:0,
-			speed:200
+			speed:200,
+			
+			after: function(slide){
+				var caption = slide.attr('alt');
+				console.log(caption);
+			}
 			// pager:$nav,
 			// 		pagerAnchorBuilder: function(slide) {
 			// 	        return '<a href="#" class="activeSlide">'+slide+'</a>';

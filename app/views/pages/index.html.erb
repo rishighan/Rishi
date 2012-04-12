@@ -7,16 +7,14 @@
 
 </div>
 <div class="row">
-	<div id="hero" class="hero-module span10">
-		<span class="roundedcorners tleft"></span>
-		<span class="roundedcorners tright"></span>
+	<div id="hero" class="span10 hero-module">
+		
 			<%@carousel_posts.each do |photo|%>
 				<% photo.attachments.each do |link|%>
 				  <%= image_tag link.photo.url(:original) %>
 				<%end%>
 			<%end%>
-		<span class="roundedcorners bleft"></span>
-		<span class="roundedcorners bright"></span>
+	
 	</div>
 	
 	
