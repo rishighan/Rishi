@@ -62,3 +62,84 @@ a
 }   
 
 
+// For the home page hero carousel
+// Rishi Ghan 
+// OM SHREE DATATTRAYA NAMAHA
+.hero-module
+{
+	height:304px;
+	max-width:100%;
+	margin-bottom:30px;
+
+		//images
+		img
+		{
+		max-width:100%;
+		}
+		
+		//top left corner
+		.tleft
+		{
+			z-index:99;
+			position:absolute;
+			width:13px; 
+			height:13px;
+			top:0;
+			left:0;
+			background:url('/assets/corners/tl.png') 0 0 no-repeat;
+		}
+
+		//top right corner
+		.tright
+		{
+			z-index:99;
+			position:absolute;
+			width:13px; 
+			height:13px;
+	     	top:0;
+			right:0;
+		 	background:url('/assets/corners/tr.png') 0 0 no-repeat;
+		}
+		
+		//bottom right corner
+		.bright
+		{
+			z-index:99;
+			position:absolute;
+			bottom:0;
+			width:13px; 
+			height:13px;
+		    bottom:0;
+			right:0;
+			
+		    background:url('/assets/corners/br.png') 0 0 no-repeat;
+		}
+		
+			//bottom left corner
+			.bleft
+			{
+				z-index:99;
+				position:absolute;
+				width:13px; 
+				height:13px;
+			    bottom:0;
+				left:0;
+				
+			    background:url('/assets/corners/bl.png') 0 0 no-repeat;
+			}
+		
+	
+	
+
+}
+
+
+.hero-carousel-nav
+{
+position:relative;
+border:1px solid red;
+width:300px;
+
+
+}
+

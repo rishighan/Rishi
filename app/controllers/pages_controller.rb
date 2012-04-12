@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   
   def index
     @posts = Post.all.sort.reverse
-    @carousel_posts = Post.includes(:categories).where('categories.category_name = "General"')
+    @carousel_posts = Post.includes(:categories).where('categories.category_name = "Development"')
   end
   
   def blog

@@ -24,16 +24,16 @@ $(document).ready(function(){
         
 
 		
-		var $nav = $('<div id="hero-carousel-nav"></div>').insertAfter('#hero');
+		//var $nav = $('<div id="hero-carousel-nav"></div>').insertAfter('#hero');
 		$('#hero').cycle({
 			slideExpr:'img',
 			fx:'fade',
-			timeout:0,
-			speed:500,
-			pager:$nav,
-			pagerAnchorBuilder: function(slide) {
-		        return '<a href="#" class="activeSlide">'+slide+'</a>';
-		    }
+			// timeout:0,
+			speed:200
+			// pager:$nav,
+			// 		pagerAnchorBuilder: function(slide) {
+			// 	        return '<a href="#" class="activeSlide">'+slide+'</a>';
+			// 	    }
 		})
 
     
