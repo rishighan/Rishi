@@ -22,26 +22,29 @@ $(document).ready(function(){
            
         	
         
-
-		
+	
 		//var $nav = $('<div id="hero-carousel-nav"></div>').insertAfter('#hero');
 		$('#hero').cycle({
-			slideExpr:'img',
-			fx:'fade',
-			slideResize:1,
-			fit:0,
+			slideExpr:'span',
+			fx:'fade',	
 			// timeout:0,
 			speed:200,
+			before: function setheight(slide){
+
+					var ht = $(this).parent().find('.current').height();
+					console.log(ht);
+					$('#hero').css('height',ht)
+					
+				}
 			
-			after: function(slide){
-				var caption = slide.attr('alt');
-				console.log(caption);
-			}
 			// pager:$nav,
 			// 		pagerAnchorBuilder: function(slide) {
 			// 	        return '<a href="#" class="activeSlide">'+slide+'</a>';
 			// 	    }
 		})
+		
+	
+		
 
     
  });

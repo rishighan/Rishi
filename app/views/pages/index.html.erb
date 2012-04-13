@@ -10,9 +10,13 @@
 	<div id="hero" class="span10 hero-module">
 		
 			<%@carousel_posts.each do |photo|%>
+			
 				<% photo.attachments.each do |link|%>
-				  <%= image_tag link.photo.url(:original) %>
+				<span> 
+				 <%= image_tag link.photo.url(:original) %>
+				</span>
 				<%end%>
+				
 			<%end%>
 	
 	</div>
