@@ -68,15 +68,16 @@ a
 .hero-module
 {
 	
-	clear:both;
-	max-width:100%;
+	width:100%;
 	margin-bottom:30px;
     border-bottom:1px solid #999;
 
 		//images
-		span, img
+		 img
 		{
 		max-width:100%;
+		height:auto;
+		width:auto;
 		}
 		
 		//general rounded corner properties

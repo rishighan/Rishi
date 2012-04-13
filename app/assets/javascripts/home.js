@@ -29,13 +29,8 @@ $(document).ready(function(){
 			fx:'fade',	
 			// timeout:0,
 			speed:200,
-			before: function setheight(slide){
-
-					var ht = $(this).parent().find('.current').height();
-					console.log(ht);
-					$('#hero').css('height',ht)
-					
-				}
+			slideResize:0,
+			
 			
 			// pager:$nav,
 			// 		pagerAnchorBuilder: function(slide) {
