@@ -8,15 +8,15 @@
 </div>
 <div class="row">
 	<span class="span10">
-	<div id="hero" class="hero-module">
+	<div id="hero" class="hero-module hidden-phone">
 	 <%=image_tag "/assets/herodummy.gif" %>	
-			<%@carousel_posts.each do |photo|%>
+			<%@carousel_posts.each do |post|%>
 			
-				<% photo.attachments.each do |link|%>
+			
 				<span> 
-				 <%= image_tag link.photo.url(:original) %>
+				 <%= markdown post.content %>
 				</span>
-				<%end%>
+				
 				
 			<%end%>
 	
