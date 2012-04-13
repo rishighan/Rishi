@@ -29,7 +29,7 @@ $(document).ready(function(){
 			fx:'fade',	
 			// timeout:0,
 			speed:200,
-			//slideResize:0,
+			slideResize:0,
 			
 			
 			// pager:$nav,
