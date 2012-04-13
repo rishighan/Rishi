@@ -76,7 +76,7 @@ class Admin::PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        @post.categories.create(params[:post_category_id]) 
+        #@post.categories.create(params[:post_category_id]) 
         format.html { redirect_to admin_posts_url, :notice => 'Post was successfully created.' }
         format.json { render :json => @post, :status => :created, :location => @post }
       else
