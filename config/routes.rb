@@ -28,14 +28,7 @@ Rishi::Application.routes.draw do
   # admin section
   namespace :admin do
   
-    resources :categories, :product_categories, :traits, :variants
-
-    # to implement /admin/posts/search
-    resources :posts do
-      collection do
-        get "/search", :action => "search"
-      end
-    end
+    resources :categories, :product_categories, :traits, :variants, :posts
 
     # to add variants from within a product
     resources :products do 

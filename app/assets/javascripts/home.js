@@ -1,3 +1,8 @@
+// Rishi Ghan
+// rishighan.com
+// carousels running on jQuery Cycle
+
+
 $(document).ready(function(){
 	
 

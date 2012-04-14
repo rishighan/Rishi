@@ -16,19 +16,13 @@ class Admin::PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all
+    @post = Post.search(params) #defined in the model
     @attachment =Attachment.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @posts }
     end
-  end
-
-
-    # GET /articles/search
-  def search
-    @post = Post.search params[:q], :load =>true
-    render :action => "index"
   end
 
 
