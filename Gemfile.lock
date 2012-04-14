@@ -210,4 +210,4 @@ DEPENDENCIES
   truncate_html
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-  will_paginate
+  will_paginate (= 3.0.3)

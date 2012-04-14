@@ -14,7 +14,7 @@ gem 'aws-sdk', '~> 1.3.4'
 gem 'acts-as-taggable-on', '~>2.1.0' 
 
 #pagination
-gem 'will_paginate'
+gem 'will_paginate', '3.0.3'
 
 #slugs and permalinks
 gem 'friendly_id', "~> 4.0.1"
