@@ -46,7 +46,7 @@ class PagesController < ApplicationController
 
    def projects
     @posts = Post.include_category(["Projects"])
-    @posts.paginate(:page=>params[:page],:per_page=>1)
+    @posts = @posts.paginate(:page=>params[:page],:per_page=>1)
     @categories = Category.all
     render :blog, :layout => 'posts_layout'
    
