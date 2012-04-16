@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+ <%= content_for :title, controller.action_name.capitalize %>	
+  <%= stylesheet_link_tag  "application" %>
+ 
+  <%= javascript_include_tag "application", :cache => false %>
+  <%= javascript_include_tag :vendor, :cache => false %>
+
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+
+<div class="container">
+
+
+<%unless notice.blank? %>
+<p class="alert alert-info">
+  <%= notice %>
+    <span class="current-user">
+  <% if user_signed_in? %>
+  Signed in as <%=current_user.email %>  <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class=>"btn btn-mini" )%> 
+  <%end%>
+</span>
+</p>
+<%end%>
+
+<% unless alert.blank? %>
+<p class="alert alert-error">
+<%= alert %>
+ </p>
+<br/>
+<%end%>
+
+<div class="row">
+<span class="span7">	
+
+<%= yield %>
+</span>
+
+<!-- sidebar -->
+<span class="span3">
+
+	<%= form_tag '/admin/posts/search', :method => 'get', :class=>"form-search" do %>
+	<%= text_field_tag :q, params[:q], :class=>" input-medium search-query", :placeholder=>"Search" %>
+	
+	<% end %>
+
+	<h5>Browse by:</h5>
+	<% @categories.each  do |cat|%>
+	<%= cat.category_name %><br>
+	<% end -%>
+	<hr>
+	<h5><%=link_to "ARCHIVE", blog_archive_path %></h5>
+
+	
+</span>
+
+</div>
+
+</div>
+
+</body>
+</html>

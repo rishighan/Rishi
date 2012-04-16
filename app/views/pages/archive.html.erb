@@ -10,8 +10,9 @@
 			<h3><%= month.strftime('%B %Y')%></h3>
 			<hr>
 			<% @post_months[month].each do |post| %>
-				<h4><%= link_to	post.title , blog_post_path(:id=>post.id) %> / 
-				<%= post.created_at.strftime('%d %B') %></h4>			
+			 		<h4><%= link_to	post.title , blog_post_path(:id=>post.id) %> / 
+					<%= post.created_at.strftime('%d %B') %></h4>	
+				
 			<%end%>
 			
 		</span>

@@ -14,6 +14,7 @@
 <hr>
 
 <%=will_paginate @post, :container=>false, :class=>"pagination"%>
+
 <% @post.each do |post| %>
   <h2><%= post.title %></h2>
   filed under: 

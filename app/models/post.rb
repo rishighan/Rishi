@@ -10,8 +10,7 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => [:slugged, :history]
   
- 
-  
+
   validates :title, :content, :presence =>true
   acts_as_taggable_on :keywords
   
@@ -28,7 +27,12 @@ class Post < ActiveRecord::Base
   #     new_record?    
   #   end
   
+  # filtering by category
+  def self.filter_category(category)
+    where("categories.category_name != ?",category)
+  end
   
+  # Elasticsearch
   def self.search(params)
     tire.search(:load=>true, :page => params[:page], :per_page=>5) do
       query { string params[:query], :default_operator => "AND" } if params[:query].present?
@@ -42,6 +46,7 @@ class Post < ActiveRecord::Base
     to_json(:methods=> [:citation_names,:category_names])
   end
   
+  #associations have to be looped over.
   def citation_names
     citations.each do |snames|
       snames.source_name
@@ -54,4 +59,5 @@ class Post < ActiveRecord::Base
       cat.category_name
     end
   end
+  
 end

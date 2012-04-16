@@ -11,13 +11,9 @@
 	<div id="hero" class="hero-module">
 	 <%=image_tag "/assets/herodummy.gif" %>	
 			<%@carousel_posts.each do |post|%>
-			
-			
 				<span> 
 				 <%= markdown post.content %>
 				</span>
-				
-				
 			<%end%>
 	
 	</div>
@@ -34,13 +30,7 @@
 		<% @posts.each do |post| %> 
 		<h3><%=link_to post.title, blog_post_path(post) %></h3> 
 		filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
-		<p>
-			<!--
-			<% post.attachments.each do |attach| %>
-			<%= image_tag attach.photo.url(:thumb)%>
-			<% end%>
-			-->
-		</p>
+	
 		<p>
 			<%= markdown post.content %>
 		</p>

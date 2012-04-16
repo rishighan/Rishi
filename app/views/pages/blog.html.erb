@@ -1,43 +1,16 @@
+<!-- paginated blog posts -->
+	<%= will_paginate @posts, :class=>"pagination", :container => false %>
+	<% @posts.each do |post| %> 
+	<h3><%= post.title %></h3> 
+	filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
 
-<div id="nav"></div>
+	<p>
+		<%= markdown post.content %>
+	</p>
+	<%= render (:partial=>'citations_snippets' ,:locals=>{:post=>post}) unless post.citations.blank? %>		
+	<hr>
+<%end%>
+	
 
-<div class="row">
+	
 
-	<span class="span7"> 
-		<!-- TODO: comma separated categories -->
-		<%= will_paginate @posts, :class=>"pagination", :container => false %>
-		<% @posts.each do |post| %> 
-		<h3><%= post.title %></h3> 
-		filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
-		
-		<p>
-			<!--
-			<% post.attachments.each do |attach| %>
-			<%= image_tag attach.photo.url(:thumb)%>
-			<% end%>
-			-->
-		</p>
-		<p>
-			<%= markdown post.content %>
-		</p>
-		<hr>
-		<%end%>
-	</span>
-
-	<span class="span3">
-
-		<%= form_tag '/admin/posts/search', :method => 'get', :class=>"form-search" do %>
- 		<%= text_field_tag :q, params[:q], :class=>" input-medium search-query", :placeholder=>"Search" %>
- 		
-		<% end %>
-
-		<h5>Browse by:</h5>
-		<% @categories.each  do |cat|%>
-		<%= cat.category_name %><br>
-		<% end -%>
-
-		<h5><%=link_to "ARCHIVE", blog_archive_path %></h5>
-
-		
-	</span>	
-</div>

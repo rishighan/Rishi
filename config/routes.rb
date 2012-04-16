@@ -8,7 +8,13 @@ Rishi::Application.routes.draw do
   #todo: create a new view for the posts by category view. 
   get '/blog' => 'pages#blog'
   get '/blog/post/:id' => 'pages#post', :as => :blog_post
- 
+  
+  # thesis section
+  get '/thesis' => 'pages#thesis'
+  
+  # projects
+  get '/projects' => 'pages#projects'
+  
   #archive
   get 'blog/archive' => 'pages#archive'
   
