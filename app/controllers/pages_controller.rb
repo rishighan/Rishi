@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   layout 'posts_layout'
 
   def index
-    @posts = Post.includes(:categories).where('categories.category_name!= "Home Carousel"')
-    @carousel_posts = Post.includes(:categories).where('categories.category_name = "Home Carousel"')
+    @posts = Post.exclude_category(["Home Carousel", "Projects"])
+    @carousel_posts = Post.include_category(["Home Carousel"])
     render :layout => 'application'
   end
   
@@ -17,6 +17,7 @@ class PagesController < ApplicationController
   def archive
   	@posts = Post.all
   	@post_months = @posts.group_by {|post| post.created_at.beginning_of_month}
+    render :layout => "application"
 
   end
 
@@ -37,8 +38,17 @@ class PagesController < ApplicationController
   end
   
   def thesis
-    @post = Post.includes(:categories).where('categories.category_name = "Thesis"')
+    @posts = Post.include_category(["Thesis"])
     @categories = Category.all
+    render :blog, :layout => 'posts_layout'
+   
+  end
+
+   def projects
+    @posts = Post.include_category(["Projects"])
+    @posts.paginate(:page=>params[:page],:per_page=>1)
+    @categories = Category.all
+    render :blog, :layout => 'posts_layout'
    
   end
   

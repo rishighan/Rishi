@@ -28,9 +28,14 @@ class Post < ActiveRecord::Base
   #   end
   
   # filtering by category
-  def self.filter_category(category)
-    where("categories.category_name != ?",category)
+  def self.exclude_category(cats)
+    joins(:categories).where('categories.category_name NOT IN (?)', cats)
   end
+
+  def self.include_category(cats)
+    joins(:categories).where('categories.category_name IN (?)', cats)
+  end
+
   
   # Elasticsearch
   def self.search(params)
