@@ -3,13 +3,15 @@ class PagesController < ApplicationController
   layout 'posts_layout'
 
   def index
-    @posts = Post.exclude_category(["Home Carousel", "Projects"])
+    @posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis"])
     @carousel_posts = Post.include_category(["Home Carousel"])
+    @thesis_posts = Post.include_category(["Thesis"])
     render :layout => 'application'
   end
   
   def blog
-    @posts = Post.paginate(:page=>params[:page],:per_page=>5)
+    @posts = Post.exclude_category(["Projects", "Home Carousel", "Thesis"])
+    @posts = @posts.paginate(:page=>params[:page],:per_page=>5)
     @categories = Category.all
     
   end
@@ -24,7 +26,7 @@ class PagesController < ApplicationController
     # GET /articles/search
   def search
     @post = Post.search params[:q], :load =>true
-    render :action => "archive"
+    render :action => blog
   end
 
   
@@ -39,8 +41,9 @@ class PagesController < ApplicationController
   
   def thesis
     @posts = Post.include_category(["Thesis"])
+    @posts = @posts.paginate(:page=>params[:page],:per_page=>6)
     @categories = Category.all
-    render :blog, :layout => 'posts_layout'
+    render :blog
    
   end
 
@@ -48,7 +51,7 @@ class PagesController < ApplicationController
     @posts = Post.include_category(["Projects"])
     @posts = @posts.paginate(:page=>params[:page],:per_page=>1)
     @categories = Category.all
-    render :blog, :layout => 'posts_layout'
+    render :blog
    
   end
   

@@ -24,6 +24,13 @@
 		<div class="well">
 		Some interesting information about thesis, Github projects or recent news.
 		</div>
+		
+		 <span>
+		<% @thesis_posts.each do |thesis|%>
+			<h2><%= thesis.title%></h2>
+			<%= markdown thesis.content%>
+		<%end%>
+		</span>
 	</span>
 
 	<span class="span6"> 
