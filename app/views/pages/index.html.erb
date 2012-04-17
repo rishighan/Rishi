@@ -27,7 +27,7 @@
 	</span>
 		
 	<hr>
-	
+
 	<!-- Store -->
 	<% unless @product.blank? %>
 	<span>	
@@ -42,12 +42,13 @@
 	
 	</span>
 	<%end%>	
+</span>	
 
-	<!-- Posts pane -->
-	<span class="span6"> 
-		<% @posts.each do |post| %> 
-		<h3><%=link_to post.title, blog_post_path(post) %></h3> 
-		filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
+<!-- Posts pane -->
+<span class="span6"> 
+	<% @posts.each do |post| %> 
+	<h3><%=link_to post.title, blog_post_path(post) %></h3> 
+	filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
 	
 		<p>
 			<%= markdown post.content %>
@@ -55,7 +56,6 @@
 		
 		<%= render (:partial=>'citations_snippets' ,:locals=>{:post=>post}) unless post.citations.blank? %>
 		
-		<hr>
-		<%end%> 
-	</span>
-
+	<hr>
+	<%end%> 
+</span>

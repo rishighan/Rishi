@@ -1,4 +1,5 @@
 class Admin::TraitsController < ApplicationController
+  layout 'admin_layout'
   def index
   end
 
@@ -14,7 +15,7 @@ class Admin::TraitsController < ApplicationController
     @trait = Trait.new(params[:trait])
      respond_to do |format|
       if @trait.save
-        format.html { redirect_to admin_traits_url, :notice => 'Trait was successfully created.' }
+        format.html { redirect_to admin_path, :notice => 'Trait was successfully created.' }
         format.json { render :json => @trait, :status => :created, :location => @trait }
       else
         format.html { render :action => "new" }
