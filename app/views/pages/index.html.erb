@@ -7,6 +7,7 @@
 
 </div>
 <div class="row">
+	<!-- hero carousel-->
 	<span class="span10">
 	<div id="hero" class="hero-module">
 	 <%=image_tag "/assets/herodummy.gif" %>	
@@ -34,14 +35,21 @@
 		</span>
 		
 		<hr>
-		<!-- store -->
+		<!-- Store -->
 		<span>
-		<%= @product.variants.name%>	
+		<% @product.product_shots.each do |pic|%>
+			<%= image_tag pic.shot.url(:thumb)%>
+		<%end%>
+		
+		<% @product.variants.each do |variant| %>
+			<h4><%= variant.name%></h4>
+			<h2><%= number_to_currency(variant.price)%></h2>
+		<%end%>	
 			
 		</span>
 		
 	</span>
-
+	<!-- Posts pane -->
 	<span class="span6"> 
 		<% @posts.each do |post| %> 
 		<h3><%=link_to post.title, blog_post_path(post) %></h3> 
