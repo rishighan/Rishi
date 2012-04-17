@@ -25,12 +25,21 @@
 		Some interesting information about thesis, Github projects or recent news.
 		</div>
 		
+		<!--Thesis -->
 		 <span>
 		<% @thesis_posts.each do |thesis|%>
-			<h2><%= thesis.title%></h2>
+			<h3><%= thesis.title%></h3>
 			<%= markdown thesis.content%>
 		<%end%>
 		</span>
+		
+		<hr>
+		<!-- store -->
+		<span>
+		<%= @product.variants.name%>	
+			
+		</span>
+		
 	</span>
 
 	<span class="span6"> 

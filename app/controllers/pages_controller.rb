@@ -6,6 +6,8 @@ class PagesController < ApplicationController
     @posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis"])
     @carousel_posts = Post.include_category(["Home Carousel"])
     @thesis_posts = Post.include_category(["Thesis"])
+    
+    @product = Product.first #just a test
     render :layout => 'application'
   end
   
