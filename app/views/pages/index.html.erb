@@ -1,21 +1,13 @@
-<h1>Rishi Ghan</h1>
-<p>
-	is working on his new website, check back soon!
-</p>
-<div id="nav"></div>
-<div class="carousel-container">
 
-</div>
-<div class="row">
 	<!-- hero carousel-->
 	<span class="span10">
 	<div id="hero" class="hero-module">
 	 <%=image_tag "/assets/herodummy.gif" %>	
-			<%@carousel_posts.each do |post|%>
-				<span> 
+		<%@carousel_posts.each do |post|%>
+			<span> 
 				 <%= markdown post.content %>
-				</span>
-			<%end%>
+			</span>
+		<%end%>
 	
 	</div>
 	</span>
@@ -26,18 +18,19 @@
 		Some interesting information about thesis, Github projects or recent news.
 		</div>
 		
-		<!--Thesis -->
-		 <span>
+	<!--Thesis -->
+	 <span>
 		<% @thesis_posts.each do |thesis|%>
 			<h3><%= thesis.title%></h3>
 			<%= markdown thesis.content%>
 		<%end%>
-		</span>
+	</span>
 		
-		<hr>
-		<!-- Store -->
-		<% unless @product.blank? %>
-		<span>	
+	<hr>
+	
+	<!-- Store -->
+	<% unless @product.blank? %>
+	<span>	
 		<% @product.product_shots.each do |pic|%>
 			<%= image_tag pic.shot.url(:thumb)%>
 		<%end%>
@@ -46,11 +39,10 @@
 			<h4><%= variant.name%></h4>
 			<h2><%= number_to_currency(variant.price)%></h2>
 		<%end%>	
-		
-		</span>
-		<%end%>	
-	</span>
 	
+	</span>
+	<%end%>	
+
 	<!-- Posts pane -->
 	<span class="span6"> 
 		<% @posts.each do |post| %> 
@@ -65,5 +57,5 @@
 		
 		<hr>
 		<%end%> 
-		</span>
-</div>
+	</span>
+
