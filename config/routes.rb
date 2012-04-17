@@ -14,6 +14,8 @@ Rishi::Application.routes.draw do
   
   # projects
   get '/projects' => 'pages#projects'
+  # individual project
+  get '/project/:id' => 'pages#project', :as => :project
   
   #archive
   get 'blog/archive' => 'pages#archive'
