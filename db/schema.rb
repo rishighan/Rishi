@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418130732) do
+ActiveRecord::Schema.define(:version => 20120418202338) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "post_id"
@@ -114,6 +114,14 @@ ActiveRecord::Schema.define(:version => 20120418130732) do
     t.datetime "updated_at"
   end
 
+  create_table "post_drafts", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -137,13 +145,13 @@ ActiveRecord::Schema.define(:version => 20120418130732) do
   end
 
   create_table "product_shots", :force => true do |t|
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shot_file_name"
     t.string   "shot_content_type"
     t.integer  "shot_file_size"
     t.datetime "shot_updated_at"
-    t.integer  "product_id"
   end
 
   create_table "products", :force => true do |t|

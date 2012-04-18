@@ -1,4 +1,4 @@
-<%= nested_form_for([:admin, @post], :html => { :multipart => true, :class=>"span12" }) do |f| %>
+<%= nested_form_for([:admin, @post], :html => { :multipart => true }) do |f| %>
 
 <% if @post.errors.any? %>
 <div class="error">
@@ -26,8 +26,6 @@
 	<legend><%= controller.action_name.capitalize %> Post</legend>
 	<%= f.label :title%>
 	<%= f.text_field :title %>
-	
-	
 	
 	<%= f.label :category_id %>
 	<%=hidden_field_tag "post[category_ids][]" , nil%>
@@ -66,11 +64,13 @@
 		<!-- citations -->
 		<%= render :partial => "citations_form", :locals => {:f => f} %>
 		<br><br>
-		<%= f.submit :class=> "btn btn-primary"%>
-		
-		
+		<%= f.submit :class=> "btn btn-primary"  %>
+		<% if @post.has_draft? %>
+		<%= f.submit :class=>"btn btn-warning" , :value=>"Update Draft"%>
+		<%= f.submit :class=>"btn btn-danger" , :value=>"Utterly Destroy Draft"%>	
+		<%else%>
+		<%=	f.submit :class=> "btn btn-warning",  :value=>"Save as Draft" %>
+		<%end%>
 
-
-	
 </div>
 <% end %> 

@@ -5,15 +5,7 @@ class Admin::PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
 
-  rescue_from Tire::Search::SearchRequestFailed do |error|
-    # Indicate incorrect query to the user
-    if error.message =~ /SearchParseException/ && params[:query]
-      flash[:alert] = "Sorry, your query '#{params[:query]}' is invalid..."
-    else
-      # ... handle other possible situations ...
-    end
-    redirect_to admin_posts_url
-  end
+
 
   def index
     @post = Post.search(params) #defined in the model
@@ -30,6 +22,7 @@ class Admin::PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+
      if request.path!= admin_post_path(@post)
         redirect_to admin_post_path(@post), :status =>:moved_permanently
       end
@@ -67,24 +60,33 @@ class Admin::PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    
     respond_to do |format|
       if @post.save
-        #@post.categories.create(params[:post_category_id]) 
-        format.html { redirect_to admin_posts_url, :notice => 'Post was successfully created.' }
-        format.json { render :json => @post, :status => :created, :location => @post }
+        if params[:commit] == 'Save as Draft' # hook to save draft, in addition to the post.
+          @post.instantiate_draft! 
+          format.html { redirect_to admin_posts_url, :notice => 'Draft saved' }
+        else  
+          #@post.categories.create(params[:post_category_id]) 
+          format.html { redirect_to admin_posts_url, :notice => 'Post was successfully created.' }
+          format.json { render :json => @post, :status => :created, :location => @post }
+        end
       else
         format.html { render :action => "new" }
         format.json { render :json => @post.errors, :status => :unprocessable_entity }
       end
     end
+  
   end
 
   # PUT /posts/1
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
-  
+    
+    @post = @post.draft if @post.draft?
+
+
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to admin_posts_url, :notice => 'Post was successfully updated.' }

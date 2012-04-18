@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  layout :layout_by_resource
   
   private # this makes the cart method available to controllers and prevents it 
           #from being used as an action on the Controller          
@@ -11,4 +12,19 @@ class ApplicationController < ActionController::Base
     session[:cart_id] = cart.id
     cart #this returns the newly created cart
   end
+
+
+
+
+
+ protected
+
+ def layout_by_resource
+  if devise_controller?
+    "admin_layout"
+  else
+    "application"
+  end
+ end
+
 end
