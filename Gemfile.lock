@@ -77,6 +77,9 @@ GEM
       multi_json (~> 1.0)
     ffi (1.0.11)
     friendly_id (4.0.4)
+    has_draft (1.1.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     hashr (0.0.19)
     hike (1.2.1)
     httparty (0.8.1)
@@ -195,6 +198,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.1)
   devise
   friendly_id (~> 4.0.1)
+  has_draft
   jquery-rails (>= 1.0.12)
   json
   mysql2 (>= 0.3)

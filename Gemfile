@@ -16,6 +16,9 @@ gem 'acts-as-taggable-on', '~>2.1.0'
 #pagination
 gem 'will_paginate', '3.0.3'
 
+# saving drafts
+gem 'has_draft'
+
 #slugs and permalinks
 gem 'friendly_id', "~> 4.0.1"
 
