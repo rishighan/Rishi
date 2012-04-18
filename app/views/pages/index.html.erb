@@ -18,7 +18,7 @@
 		Some interesting information about thesis, Github projects or recent news.
 		</div>
 		
-	<!--Thesis -->
+	<!--Thesis post snippet -->
 	 <span>
 		<% @thesis_posts.each do |thesis|%>
 			<h3><%= thesis.title%></h3>
@@ -28,7 +28,7 @@
 		
 	<hr>
 
-	<!-- Store -->
+	<!-- Featured Product -->
 	<% unless @product.blank? %>
 	<span>	
 		<% @product.product_shots.each do |pic|%>

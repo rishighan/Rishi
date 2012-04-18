@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
+  has_draft
+  
   extend FriendlyId
   friendly_id :title, :use => [:slugged, :history]
   
