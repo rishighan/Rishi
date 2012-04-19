@@ -31,11 +31,11 @@ class Post < ActiveRecord::Base
   
   # filtering by category
   def self.exclude_category(cats)
-    joins(:categories).where('categories.category_name NOT IN (?)', cats).order("created_at DESC").limit(5)
+    includes(:categories).where('categories.category_name NOT IN (?)', cats).limit(5)
   end
 
   def self.include_category(cats)
-    joins(:categories).where('categories.category_name IN (?)', cats)
+    includes(:categories).where('categories.category_name IN (?)', cats)
   end
 
   

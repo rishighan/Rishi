@@ -23,9 +23,9 @@ class Admin::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
 
-     if request.path!= admin_post_path(@post)
-        redirect_to admin_post_path(@post), :status =>:moved_permanently
-      end
+    if request.path!= admin_post_path(@post)
+      redirect_to admin_post_path(@post), :status =>:moved_permanently
+    end
     # respond_to do |format|
     #   format.html # show.html.erb
     #   format.json { render :json => @post }
@@ -84,7 +84,7 @@ class Admin::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     
-    @post = @post.draft if @post.draft?
+    @post = @post.draft if @post.has_draft?
 
 
     respond_to do |format|
