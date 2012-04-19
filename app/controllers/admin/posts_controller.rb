@@ -91,7 +91,8 @@ class Admin::PostsController < ApplicationController
           format.html { redirect_to admin_posts_url, :notice => 'Draft was successfully updated.' }
           format.json { head :ok }
         when 'Update Post'
-          @post.replace_with_draft!
+          #@post.replace_with_draft!
+          @post.update_attributes(params[:post])
           @post.destroy_draft!
           format.html { redirect_to admin_posts_url, :notice => 'Post was successfully published.' }
           format.json { head :ok }

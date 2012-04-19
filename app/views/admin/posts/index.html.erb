@@ -19,15 +19,18 @@
   <h2><%= post.title %></h2>
 
   <% if post.has_draft? %>
-  <span class="label label-warning"> DRAFT</span>
+  <p><span class="label label-warning"> DRAFT</span></p>
   <%end %>
 
+  <p>
   filed under: 
   <% post.categories.each do |cat| %>
-  <%= cat.category_name %><br>
+  <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %><br>
   <% end -%>
-   <p>
-   <%= post.content %>
+  </p>
+  
+  <p>
+  <%= post.content %>
   </p>
    
    		<%unless post.attachments.empty? %>

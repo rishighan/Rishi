@@ -3,10 +3,13 @@
 <hr>
 
 <div class="row">
-<span class="span6">
+<span class="span7">
 <h3>Recent Activity</h3>
 <% unless @posts.empty? %>
 <% @posts.each do |post| %>
+  <% if post.has_draft? %>
+  <span class="label label-warning">DRAFT</span> 
+  <%end%>
   <%= post.title %> published at <%= post.created_at.to_s(:short) %><br/>
 <%end%>
 <% @orders.each do |order| %>
