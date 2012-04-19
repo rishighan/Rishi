@@ -21,7 +21,7 @@
   <% if post.has_draft? %>
   <span class="label label-warning"> DRAFT</span>
   <%end %>
-  <br/><br/>
+
   filed under: 
   <% post.categories.each do |cat| %>
   <%= cat.category_name %><br>

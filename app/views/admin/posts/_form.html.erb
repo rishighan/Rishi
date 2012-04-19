@@ -64,10 +64,10 @@
 		<!-- citations -->
 		<%= render :partial => "citations_form", :locals => {:f => f} %>
 		<br><br>
-		<%= f.submit :class=> "btn btn-primary"  %>
+		<%= f.submit :class=> "btn btn-primary" %>
 		<% if @post.has_draft? %>
 		<%= f.submit :class=>"btn btn-warning" , :value=>"Update Draft"%>
-		<%= f.submit :class=>"btn btn-danger" , :value=>"Utterly Destroy Draft"%>	
+		
 		<%else%>
 		<%=	f.submit :class=> "btn btn-warning",  :value=>"Save as Draft" %>
 		<%end%>
