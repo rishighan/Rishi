@@ -9,7 +9,7 @@
 <% @posts.each do |post| %>
   <% if post.has_draft? %>
   <span class="label label-warning">DRAFT</span> 
-  <%end%>
+  <%end%> 
   <%= post.title %> published at <%= post.created_at.to_s(:short) %><br/>
 <%end%>
 <% @orders.each do |order| %>

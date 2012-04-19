@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
+layout 'admin_layout'
+
   def index
     @orders = Order.all
 

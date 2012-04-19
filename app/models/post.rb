@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   friendly_id :title, :use => [:slugged, :history]
   
 
-  validates :title, :content, :presence =>true
+  validates :title, :content, :presence =>true, :uniqueness => true
   acts_as_taggable_on :keywords
   
   accepts_nested_attributes_for :categories, :allow_destroy => true

@@ -90,12 +90,14 @@ class Admin::PostsController < ApplicationController
           #@post.draft.update_attributes(params[:title]) 
           format.html { redirect_to admin_posts_url, :notice => 'Draft was successfully updated.' }
           format.json { head :ok }
+        
         when 'Update Post'
-          #@post.replace_with_draft!
+          #@post.replace_with_draft! #unnecessary
           @post.update_attributes(params[:post])
           @post.destroy_draft!
           format.html { redirect_to admin_posts_url, :notice => 'Post was successfully published.' }
           format.json { head :ok }
+        
         when 'Save as Draft'
           @post.instantiate_draft!
           format.html { redirect_to admin_posts_url, :notice => 'Post saved as a draft.' }
