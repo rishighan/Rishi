@@ -1,3 +1,6 @@
+// Rishi Ghan 
+// OM SHREE DATATTRAYA NAMAHA
+
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -63,18 +66,17 @@ a
 
 
 // For the home page hero carousel
-// Rishi Ghan 
-// OM SHREE DATATTRAYA NAMAHA
 .hero-module
 {
 	
 	width:100%;
 	margin-bottom:30px;
-    border-bottom:1px solid #999;
-	height:520px;
+    border-bottom:1px solid #CCC;
+	height:auto;
+	padding-bottom:8%;
 	
 		//images
-	   table, img,  div
+	   img
 		{
 		max-width:100%;
 		height:auto;
@@ -136,16 +138,33 @@ position:relative;
 border:1px solid red;
 width:300px;
 
-
 }
+
 
 
 // Navigation
 .home-navigation
 {
-	background:#FFFFCC;
-	border-bottom:2px solid #999;
+
+	
+
+	border-bottom:1px solid #99C;
 	padding: 0px 0 10px 0px;
+	list-style:none;
+	height:30px;
+	width:300px; // this had to be done, I'm sorry.
+	float:right;
+
+	li:first-child
+	{
+	padding-left:0;
+	}
+
+	li
+	{
+		float:left;
+		padding:10px 0 0 10px;
+	}
 }
 
 

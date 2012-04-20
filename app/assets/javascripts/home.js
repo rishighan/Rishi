@@ -31,7 +31,7 @@ $(document).ready(function(){
 			fx:'scrollRight',	
 			// timeout:0,
 			speed:800,
-			slideResize:0,
+			slideResize:0
 			
 			// Navigation
 			// pager:$nav,
