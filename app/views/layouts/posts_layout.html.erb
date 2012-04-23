@@ -37,8 +37,24 @@
 <%end%>
 
 <div class="row">
-<span class="span7">	
+<ul class="home-navigation span4 offset6">
+  
+    <li><%=link_to "Home", "/"%></li>
+    <li><%=link_to "Projects", projects_path %></li>
+    <li><%=link_to "Thesis", thesis_path %></li>
+    <li><%=link_to "Blog", blog_path %></li>
+    <li><%=link_to "Colophon" %></li>
+  
+</ul> 
+</div>
 
+<div class="row">
+<span><br/></span>
+</div>
+
+<!-- content -->
+<div class="row">
+<span class="span7">	
 <%= yield %>
 </span>
 

@@ -14,7 +14,7 @@ $(document).ready(function(){
 	        fx: 'scrollRight',
 			slideExpr: '.slide',
 			slideResize: 0,
-			speed:   300,
+			speed:   800,
 	        timeout: 0,
 	        pager:   $nav,
 		  
