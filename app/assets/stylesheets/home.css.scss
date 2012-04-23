@@ -132,9 +132,7 @@ a
 			left:0;
 			background:url('/assets/corners/bl.png') 0 0 no-repeat;
 		}
-		
-	
-	
+
 
 }
 
@@ -142,7 +140,7 @@ a
 .hero-carousel-nav
 {
 position:relative;
-border:1px solid red;
+border:1px solid #EEE;
 width:300px;
 
 }
@@ -152,8 +150,6 @@ width:300px;
 // Navigation
 .home-navigation
 {
-
-	
 
 	border-bottom:1px solid #EEE;
 	padding: 0px 0 10px 0px;
@@ -172,6 +168,16 @@ width:300px;
 		float:left;
 		padding:10px 0 0 10px;
 	}
+}
+
+
+//footer
+
+footer
+{
+	border-top:1px solid #EEE;
+	background:#EEE;
+	height:150px;
 }
 
 
