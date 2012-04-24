@@ -54,12 +54,12 @@
 
 <!-- content -->
 <div class="row">
-<span class="span6">	
+<span class="span7">	
 <%= yield %>
 </span>
 
 <!-- sidebar -->
-<span class="span3 offset1">
+<span class="span3">
 
 	<%= form_tag '/admin/posts/search', :method => 'get', :class=>"form-search" do %>
 	<%= text_field_tag :q, params[:q], :class=>" input-medium search-query", :placeholder=>"Search" %>
