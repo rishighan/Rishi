@@ -2,7 +2,7 @@ class Attachment < ActiveRecord::Base
   
   belongs_to :post
   
-  has_attached_file :photo, :styles => { :medium => "637x471>", 
+  has_attached_file :photo, :styles => { :medium => "660x", 
                     :thumb => Proc.new { |instance| instance.resize }},
                     :url => "/pictures/:style/:basename.:extension",
                     :path =>":rails_root/public/pictures/:style/:basename.:extension"
