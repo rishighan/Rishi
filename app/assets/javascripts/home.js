@@ -32,8 +32,8 @@ $(document).ready(function(){
 			// timeout:0,
 			speed:800,
 			slideResize:0,
-			prev:".left",
-			next:".right"
+			prev:"#left",
+			next:"#right"
 			
 			// Navigation
 			// pager:$nav,
