@@ -3,7 +3,7 @@ function insertMarkup(objt, markuptype, position) {
 
 		// image markup <img>
 		case 'image':
-			var hrefs = $(objt).prevAll('a').attr('href')
+			var hrefs = $(objt).attr('id')
 			var markup = '<img src="'+ hrefs +'" class="slide" />'
 
 			// need a better strategy to traverse and select the textarea.

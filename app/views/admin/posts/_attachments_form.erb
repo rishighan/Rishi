@@ -10,15 +10,18 @@
 
   <% unless attach.object.new_record? %>
   	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
-	<span class="label">
-	<%= attach.object.photo.url(:original)%><br/>
-	</span>
-	<br>	
-	<%= link_to_function "Insert image into post", "insertMarkup(this,'image')", :class=> "btn btn-mini"%>
+	<br/>
+
+<div class="btn-group">
+	<%= link_to_function "Insert Original" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:original), :class=> "btn btn-mini" %>
+  <%= link_to_function "Insert Medium" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:medium), :class=> "btn btn-mini" %>
+  <%= link_to_function "Insert Thumb" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:thumb), :class=> "btn btn-mini" %>
+	<%= attach.link_to_remove "Remove this image", {:id=> @post.id, :class=> "btn btn-mini btn-danger"} %> 
+</div>
  <%end%>
   
    
-  <%= attach.link_to_remove "Remove this image", {:id=> @post.id, :class=> "btn btn-mini btn-danger"} %> <br><br>
+  <br><br>
   
    <%end %>	
   

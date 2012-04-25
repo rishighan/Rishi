@@ -1,20 +1,19 @@
 class Attachment < ActiveRecord::Base
   
   belongs_to :post
-  
+
+  #TODO: revisit different sizes for images.
   has_attached_file :photo, :styles => { :medium => "660x", 
                     :thumb => Proc.new { |instance| instance.resize }},
                     :url => "/pictures/:style/:basename.:extension",
                     :path =>":rails_root/public/pictures/:style/:basename.:extension"
                     
                     
-  validates_attachment_content_type :photo, :content_type => ['image/png', 'image/jpg', 'image/jpeg', 'image/gif']                  
+  validates_attachment_content_type :photo, :content_type => ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/tiff']                  
   validates_attachment_size :photo, :less_than => 2.megabytes         
 
 
 ### End Paperclip ####
-
-
  def resize     
      geo = Paperclip::Geometry.from_file(photo.to_file(:original))
 
