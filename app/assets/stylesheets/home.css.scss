@@ -134,15 +134,26 @@ a
 		}
 
 
+
 }
 
 
 .hero-carousel-nav
 {
 position:relative;
-border:1px solid #EEE;
-width:300px;
+top:-190px;
+z-index:99;
+width:100%;
 
+
+	.left
+	{	background:#EEE;	
+		float:left;
+	}
+	.right
+	{
+		float:right;
+	}
 }
 
 
