@@ -7,8 +7,11 @@
 	<p>
 		<%= markdown post.content %>
 	</p>
+
 	<%= render (:partial=>'citations_snippets' ,:locals=>{:post=>post}) unless post.citations.blank? %>		
-	<hr>
+	<h3 align="center">&tilde;</h3>
+	
+	
 <%end%>
 	
 
