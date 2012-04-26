@@ -16,8 +16,15 @@
 <%=will_paginate @post, :container=>false, :class=>"pagination"%>
 
 <% @post.each do |post| %>
-  <h2><%= post.title %></h2>
 
+  <h2>
+    <% if post.has_draft? %>
+      <%= post.draft.title %>
+  <% else %>
+      <%= post.title %>
+  <%end%>
+  </h2>
+  
   <% if post.has_draft? %>
   <p><span class="label label-warning"> DRAFT</span></p>
   <%end %>
@@ -29,8 +36,14 @@
   <% end -%>
   </p>
   
+  <!-- Post content -->
   <p>
+  <% if post.has_draft? %>
+  <%= post.draft.content %>
+  <% else %>
   <%= post.content %>
+  <%end%>
+
   </p>
    
    		<%unless post.attachments.empty? %>

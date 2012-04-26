@@ -57,13 +57,19 @@
 			<%= link_to_function "Insert Code", "insertMarkup(this,'code')", :class=> "btn btn-mini"%>
 			
 			<br><br>
-			<%= f.text_area :content, :class=>"span8"%>
+
+			<% if @post.has_draft? %>
+			<%= f.text_area :content, :class=>"span7", :value=> @post.draft.content %>
+			<%else%>
+			<%= f.text_area :content, :class=>"span7"%>
+			<%end%>
+		
 		</div> 
 		
 		<!-- citations -->
 		<%= render :partial => "citations_form", :locals => {:f => f} %>
 		<br><br>
-		
+
 		<%= f.submit :class=> "btn btn-primary" %>
 		<% if @post.has_draft? %>
 		<%= f.submit :class=>"btn btn-warning" , :value=>"Update Draft"%>

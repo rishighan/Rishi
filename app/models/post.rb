@@ -11,7 +11,6 @@ class Post < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :title, :use => [:slugged, :history]
-  
 
   validates :title, :content, :presence =>true, :uniqueness => true
   acts_as_taggable_on :keywords

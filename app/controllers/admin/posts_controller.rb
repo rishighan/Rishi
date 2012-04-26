@@ -86,14 +86,14 @@ class Admin::PostsController < ApplicationController
 
     respond_to do |format|
       case params[:commit]
-        when 'Update Draft' #temporarily disabled.
-          #@post.draft.update_attributes(params[:title]) 
+        when 'Update Draft' #hacky way, I think.
+          @post.draft.update_attributes(:content => params[:post][:content], :title => params[:post][:title])
           format.html { redirect_to admin_posts_url, :notice => 'Draft was successfully updated.' }
           format.json { head :ok }
         
         when 'Update Post'
-          #@post.replace_with_draft! #unnecessary
-          @post.update_attributes(params[:post])
+          @post.replace_with_draft! #investigate this
+          #@post.update_attributes(params[:post])
           @post.destroy_draft!
           format.html { redirect_to admin_posts_url, :notice => 'Post was successfully published.' }
           format.json { head :ok }
@@ -101,7 +101,6 @@ class Admin::PostsController < ApplicationController
         when 'Save as Draft'
           @post.instantiate_draft!
           format.html { redirect_to admin_posts_url, :notice => 'Post saved as a draft.' }
-
       else
         format.html { render :action => "edit" }
         format.json { render :json => @post.errors, :status => :unprocessable_entity }
