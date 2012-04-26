@@ -39,11 +39,14 @@ class Post < ActiveRecord::Base
 
   
   # Elasticsearch
+  # TODO: update the index upon deletion
+  # overriding the default tire search function
   def self.search(params)
     tire.search(:load=>true, :page => params[:page], :per_page=>5) do
       query { string params[:query], :default_operator => "AND" } if params[:query].present?
       #filter :range, published_at: {lte: Time.zone.now}
       sort {by :created_at, "desc"}
+      
     end
   end
   

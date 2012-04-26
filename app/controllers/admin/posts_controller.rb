@@ -2,11 +2,9 @@ class Admin::PostsController < ApplicationController
  
  before_filter :authenticate_user!
  layout 'admin_layout'
+  
   # GET /posts
   # GET /posts.json
-
-
-
   def index
     @post = Post.search(params) #defined in the model
     @attachment =Attachment.all
@@ -93,8 +91,8 @@ class Admin::PostsController < ApplicationController
           format.json { head :ok }
         
         when 'Update Post'
-          @post.replace_with_draft! #investigate this
-          #@post.update_attributes(params[:post])
+          #@post.replace_with_draft! #investigate this
+          @post.update_attributes(params[:post])
           @post.destroy_draft!
           format.html { redirect_to admin_posts_url, :notice => 'Post was successfully published.' }
           format.json { head :ok }
@@ -102,9 +100,10 @@ class Admin::PostsController < ApplicationController
         when 'Save as Draft'
           @post.instantiate_draft!
           format.html { redirect_to admin_posts_url, :notice => 'Post saved as a draft.' }
-      else
+        else
         format.html { render :action => "edit" }
         format.json { render :json => @post.errors, :status => :unprocessable_entity }
+      
       end
     end
   end

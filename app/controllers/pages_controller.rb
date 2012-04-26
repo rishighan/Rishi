@@ -15,9 +15,8 @@ class PagesController < ApplicationController
   # GET /blog
   def blog
     @posts = Post.exclude_category(["Projects", "Home Carousel", "Thesis"])
-    @posts = @posts.paginate(:page=>params[:page],:per_page=>5)
     @categories = Category.all
-    
+    @posts = @posts.paginate(:page => params[:page], :per_page=>5)
   end
 
   # GET /blog/archive
@@ -25,13 +24,14 @@ class PagesController < ApplicationController
   	@posts = Post.all
   	@post_months = @posts.group_by {|post| post.created_at.beginning_of_month}
     render :layout => "application"
-
   end
 
-    # GET 
+  # GET 
   def search
-    @post = Post.search(params[:q])
-    render :action => blog
+    @posts = Post.search(params)
+    @categories = Category.all
+    #@post = @post.paginate(:page => params[:page], :per_page=>5)
+    render :action => :blog
   end
 
   # GET /blog/post/some-blog-post

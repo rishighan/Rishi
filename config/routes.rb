@@ -4,10 +4,14 @@ Rishi::Application.routes.draw do
   get "pages/index"
   root :to => 'pages#index'
   
-  #blog
-  #todo: create a new view for the posts by category view. 
+  # blog
+  # todo: create a new view for the posts by category view. 
   get '/blog' => 'pages#blog'
   get '/blog/post/:id' => 'pages#post', :as => :blog_post
+  
+  # search path
+  # todo: filter out home carousel slide category
+  get 'blog/search' => 'pages#search', :as=> :blog_search
   
   # thesis section
   get '/thesis' => 'pages#thesis'
@@ -36,7 +40,6 @@ Rishi::Application.routes.draw do
   
   # admin section
   namespace :admin do
-  
     resources :categories, :product_categories, :traits, :variants, :posts
 
     # to add variants from within a product

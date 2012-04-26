@@ -61,8 +61,8 @@
 <!-- sidebar -->
 <span class="span3">
 
-	<%= form_tag :method => 'get', :class=>"form-search" do %>
-	<%= text_field_tag :q, params[:q], :class=>" input-medium search-query", :placeholder=>"Search" %>
+	<%= form_tag blog_search_path, :method => 'get' do %>
+	<%= text_field_tag :query, params[:query], :class=>" input-medium search-query", :placeholder=>"Search" %>
 	
 	<% end %>
 
