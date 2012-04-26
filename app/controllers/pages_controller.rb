@@ -43,6 +43,14 @@ class PagesController < ApplicationController
       redirect_to blog_post_path(@post), :status =>:moved_permanently
     end
   end
+
+
+  def bycategory
+    @category = Category.find(params[:id])
+    @posts = find_by_category(@category)
+    
+  end
+
   
   # GET /thesis
   def thesis

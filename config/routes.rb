@@ -6,8 +6,9 @@ Rishi::Application.routes.draw do
   
   # blog
   # todo: create a new view for the posts by category view. 
-  get '/blog' => 'pages#blog'
-  get '/blog/post/:id' => 'pages#post', :as => :blog_post
+  get '/blog' => 'pages#blog' #index
+  get '/blog/post/:id' => 'pages#post', :as => :blog_post #indivdual post
+  get '/blog/:category_id' => 'pages#bycategory', :as=> :blog_category #filtering by category
   
   # search path
   # todo: filter out home carousel slide category
@@ -29,6 +30,8 @@ Rishi::Application.routes.draw do
   # get "store/index"
   match "/store", :to => "store#index"
     
+
+  # ADMIN SECTION  
   # shopping cart and checkout process
   resources :orders, :line_items, :carts
 
