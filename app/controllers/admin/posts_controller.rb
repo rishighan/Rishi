@@ -86,7 +86,8 @@ class Admin::PostsController < ApplicationController
 
     respond_to do |format|
       case params[:commit]
-        when 'Update Draft' #hacky way, I think.
+        when 'Update Draft' 
+          # TODO: need to be able to change and update the nested attributes too.
           @post.draft.update_attributes(:content => params[:post][:content], :title => params[:post][:title])
           format.html { redirect_to admin_posts_url, :notice => 'Draft was successfully updated.' }
           format.json { head :ok }

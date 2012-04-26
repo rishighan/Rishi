@@ -24,9 +24,14 @@
 	<!-- title, categories and keywords -->
 	<div class="well">
 	<legend><%= controller.action_name.capitalize %> Post</legend>
-	<%= f.label :title%>
-	<%= f.text_field :title %>
 	
+	<%= f.label :title%>
+	<% if @post.has_draft? %>
+		<%= f.text_field :title, :value=> @post.draft.title %>
+	<% else %>
+		<%= f.text_field :title %>
+	<%end%>
+
 	<%= f.label :category_id %>
 	<%=hidden_field_tag "post[category_ids][]" , nil%>
 	
