@@ -65,9 +65,10 @@ class PagesController < ApplicationController
 
    # GET /projects
    def projects
-    @posts = Post.include_category(["Projects"])
-    @posts = @posts.paginate(:page=>params[:page],:per_page=>1)
+    @initial_posts = Post.include_category(["Projects"])
+    @posts = @initial_posts.paginate(:page=>params[:page],:per_page=>1)
     @categories = Category.all
+    
     render :blog
    
   end

@@ -34,7 +34,8 @@ class Post < ActiveRecord::Base
   end
 
   def self.include_category(cats)
-    includes(:categories).where('categories.category_name IN (?)', cats)
+    without_draft.includes(:categories).where('categories.category_name IN (?)', cats)
+    
   end
 
   
