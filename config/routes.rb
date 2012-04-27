@@ -5,10 +5,9 @@ Rishi::Application.routes.draw do
   root :to => 'pages#index'
   
   # blog
-  # todo: create a new view for the posts by category view. 
   get '/blog' => 'pages#blog' #index
   get '/blog/post/:id' => 'pages#post', :as => :blog_post #indivdual post
-  get '/blog/:category_id' => 'pages#bycategory', :as=> :blog_category #filtering by category
+  get '/blog/category/:category_name' => 'pages#bycategory', :as=> :blog_category #filtering by category
   
   # search path
   # todo: filter out home carousel slide category

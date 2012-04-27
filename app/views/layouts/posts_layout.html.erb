@@ -68,7 +68,7 @@
 
 	<h5>Browse by:</h5>
 	<% @categories.each  do |cat|%>
-	<%=link_to cat.category_name, blog_category_path %><br>
+	<%=link_to cat.category_name, blog_category_path(cat.category_name) %><br>
 	<% end -%>
 	<hr>
 	<h5><%=link_to "ARCHIVE", blog_archive_path %></h5>

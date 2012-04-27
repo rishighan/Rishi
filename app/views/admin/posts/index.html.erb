@@ -31,9 +31,7 @@
 
   <p>
   filed under: 
-  <% post.categories.each do |cat| %>
   <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %><br>
-  <% end -%>
   </p>
   
   <!-- Post content -->
