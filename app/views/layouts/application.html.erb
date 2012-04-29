@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rishi</title>
+  <title>Rishi Ghan</title>
   <%= stylesheet_link_tag  "application" %>
  
-  <%= javascript_include_tag "application", :cache => false %>
-  <%= javascript_include_tag :vendor, :cache => false %>
+  
 
   <%= csrf_meta_tags %>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -59,6 +58,9 @@
 </div> 
 
 	<div class="wrapper">
+	<%= javascript_include_tag "application", :cache => false %>
+    <%= javascript_include_tag :vendor, :cache => false %>	
+	<%= render :partial => 'analytics'%>	
     <footer>
         <p>Built with a lot of love. <a href="http://twitter.com/frishi" target="_blank">@frishi</a> 
     </footer>
