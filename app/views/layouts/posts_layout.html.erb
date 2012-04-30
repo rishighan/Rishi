@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
- <%= content_for :title, controller.action_name.capitalize %>	
+  <title>Rishi Ghan / <%= yield :title%></title>  	
   <%= stylesheet_link_tag  "application" %>
  
   <%= javascript_include_tag "application", :cache => false %>
@@ -22,11 +21,6 @@
 <%unless notice.blank? %>
 <p class="alert alert-info">
   <%= notice %>
-    <span class="current-user">
-  <% if user_signed_in? %>
-  Signed in as <%=current_user.email %>  <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class=>"btn btn-mini" )%> 
-  <%end%>
-</span>
 </p>
 <%end%>
 

@@ -1,3 +1,5 @@
+<%= title controller.action_name.capitalize %>	
+
 <!-- paginated blog posts -->
 	<%= will_paginate @posts, :class=>"pagination", :container => false %>
 	<% @posts.each do |post| %> 

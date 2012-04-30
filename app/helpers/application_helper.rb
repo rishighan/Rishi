@@ -26,6 +26,12 @@ module ApplicationHelper
     content_tag("div", attributes, &block)
   end
 
+  #page title helper method
+  def title(page_title)
+    content_for :title do
+      page_title
+    end
+  end
  
 end
 
