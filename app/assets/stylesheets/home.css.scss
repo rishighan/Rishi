@@ -20,13 +20,10 @@
 #carousel-nav  
 
 { 
-
 top:-50px;
 position:relative;
 text-align:center;
 z-index:99;
-
-
 
 a
 {
@@ -70,7 +67,6 @@ a
 {
 	
 	width:100%;
-	
     border-bottom:1px solid #CCC;
 	height:auto;
 	margin-bottom:10px;
@@ -166,7 +162,7 @@ width:100%;
 	padding: 0px 0 10px 0px;
 	list-style:none;
 	height:30px;
-	width:300px; // this had to be done, I'm sorry.
+	width:300px; // this had to be done, I'm so sorry.
 	float:right;
 
 	li:first-child
