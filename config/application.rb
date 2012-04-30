@@ -35,6 +35,11 @@ module Rishi
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
+  
+    # 404 catch all route
+    config.after_initialize do |app|
+      app.routes.append{ match '*a', :to => 'application#render_not_found' } unless config.consider_all_requests_local
+    end
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
