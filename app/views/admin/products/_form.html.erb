@@ -1,3 +1,4 @@
+<%= title "#{controller.action_name.capitalize} #{controller_name.singularize.capitalize}"%>
 <%= nested_form_for([:admin,@product],  :html => {:multipart => true}) do |f| %>
 <% if @product.errors.any? %>
 <div id="error_explanation">

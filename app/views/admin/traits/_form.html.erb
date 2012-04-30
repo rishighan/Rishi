@@ -1,3 +1,4 @@
+<%= title "#{controller.action_name.capitalize} #{controller_name.singularize.capitalize}"%>
 <%= form_for([:admin,@trait]) do |f| %>
   <% if @trait.errors.any? %>
     <div id="error_explanation">
