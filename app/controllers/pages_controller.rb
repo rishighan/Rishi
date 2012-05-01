@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
 
   layout 'posts_layout'
-
+  rescue_from ActiveRecord::RecordNotFound, :with=> :render_not_found
+    
   def index
     @display_posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis"])
     @posts = @display_posts.without_draft.all
@@ -16,7 +17,7 @@ class PagesController < ApplicationController
   # GET /blog
   def blog
     @posts = Post.exclude_category(["Projects", "Home Carousel", "Thesis"])
-    @categories = Category.all
+    @categories = Category.find(:all, [:conditions=>'category_name!="Home Carousel"'])
     @posts = @posts.paginate(:page => params[:page], :per_page=>5)
   end
 
@@ -78,7 +79,6 @@ class PagesController < ApplicationController
   def project
     @post = Post.find(params[:id])
     @categories = Category.all
-    render :post
   end
   
   
