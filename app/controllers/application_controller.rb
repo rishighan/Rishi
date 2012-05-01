@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   
   def render_not_found
-    render "#{Rails.root}/public/404"
+    #render "#{Rails.root}/public/404"
+    render "#{Rails.root}/public/404", :layout => 'error_layout'
   end
 
   
