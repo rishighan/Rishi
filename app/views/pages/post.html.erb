@@ -1,6 +1,6 @@
 <%= title @post.title %>	
 <h3><%= @post.title %></h3> 
-	filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
+	filed under <%= @post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
 	<p>
 		<%= markdown @post.content %>
 	</p>

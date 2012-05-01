@@ -37,7 +37,6 @@ class PagesController < ApplicationController
   # GET 
   def search
     @posts = Post.search(params)
-
     #@post = @post.paginate(:page => params[:page], :per_page=>5)
     render :action => :blog
   end
