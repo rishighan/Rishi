@@ -79,7 +79,6 @@ class PagesController < ApplicationController
   # /project/some-project
   def project
     @post = Post.find(params[:id])
-    @categories = Category.all
     render :post
   end
   
