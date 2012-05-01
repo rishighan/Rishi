@@ -1,0 +1,22 @@
+<%= title controller.action_name.capitalize %>	
+
+<div class="well hero">
+<h1>Entropy in the visual realm</h1>
+<p>Articles on research and observations related to entropy in the visual realm</p>	
+</div>
+
+<!-- paginated thesis articles -->
+	<%= will_paginate @posts, :class=>"pagination", :container => false %>
+	<% @posts.each do |post| %> 
+	<h3><%= post.title %></h3> 
+
+	<p>
+		<%= markdown post.content %>
+	</p>
+
+	<%= render (:partial=>'citations_snippets' ,:locals=>{:post=>post}) unless post.citations.blank? %>		
+	<p align="center">&tilde;</p>
+	
+	
+<%end%>
+	

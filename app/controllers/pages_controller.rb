@@ -60,7 +60,7 @@ class PagesController < ApplicationController
     @posts = Post.include_category(["Thesis"])
     @posts = @posts.paginate(:page=>params[:page],:per_page=>6)
     @categories = Category.all
-    render :blog
+    render :layout => 'posts_layout'
    
   end
 
