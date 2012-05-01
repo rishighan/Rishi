@@ -45,7 +45,7 @@ class PagesController < ApplicationController
     end
   end
 
-
+  # GET /blog/category/categoryname
   def bycategory
     @posts = Post.include_category(params[:category_name])
     @categories = Category.all
