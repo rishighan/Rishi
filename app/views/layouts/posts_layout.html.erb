@@ -76,8 +76,15 @@
 </span>
 
 </div>
-
-
+<!-- footer -->
+<div class="wrapper">
+	<%= javascript_include_tag "application", :cache => false %>
+    <%= javascript_include_tag :vendor, :cache => false %>	
+	<%= render :partial=>'analytics'%>
+    <footer>
+        <p>Built with a lot of love. <a href="http://twitter.com/frishi" target="_blank">@frishi</a> 
+    </footer>
+</div>
 
 
 </div>
