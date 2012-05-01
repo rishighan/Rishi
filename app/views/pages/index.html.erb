@@ -1,11 +1,11 @@
 	<!-- hero carousel-->
-	<span class="span10">
+	<div class="span10">
 	<div id="hero" class="hero-module">
 	 <%=image_tag "/assets/herodummy.gif" %>	
 		<%@carousel_posts.each do |post|%>
-			<span> 
+			<div> 
 				 <%= markdown post.content %>
-			</span>
+			</div>
 		<%end%>
 	
 	</div>
@@ -14,10 +14,10 @@
 			<%=image_tag "/assets/arrows/right-arrow.png", :id=>"right"%>		
 		</div>
 	
-	</span>
+	</div>
 	
 	
-	<span class="span4" >
+	<div class="span4" >
 		<div class="well">
 		Some interesting information about thesis, Github projects or recent news.
 		</div>
@@ -46,10 +46,10 @@
 	
 	</span>
 	<%end%>	
-</span>	
+</div>	
 
 <!-- Posts pane -->
-<span class="span6"> 
+<div class="span6"> 
 	<% @posts.each do |post| %> 
 	<h3><%=link_to post.title, blog_post_path(post) %></h3> 
 	filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
@@ -62,4 +62,4 @@
 		
 	<hr>
 	<%end%> 
-</span>
+</div>

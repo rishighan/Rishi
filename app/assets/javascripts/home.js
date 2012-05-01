@@ -27,7 +27,7 @@ $(document).ready(function(){
 		// Hero Carousel
 		//var $nav = $('<div id="hero-carousel-nav"></div>').insertAfter('#hero');
 		$('#hero').cycle({
-			slideExpr:'span',
+			slideExpr:'div',
 			fx:'scrollRight',	
 			// timeout:0,
 			speed:800,
