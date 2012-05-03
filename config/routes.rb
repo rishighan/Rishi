@@ -29,7 +29,7 @@ Rishi::Application.routes.draw do
   get 'blog/archive' => 'pages#archive'
   
   #colophon
-  #get '/colophon' => 'pages#colophon'
+  get '/colophon' => 'pages#colophon'
   
   # store catalog root
   # get "store/index"

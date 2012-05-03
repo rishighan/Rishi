@@ -1,4 +1,4 @@
- 
+<%= title "#{controller.action_name.capitalize} #{controller_name.singularize.capitalize}"%> 
 <%= form_for [:admin,@category], :html => { :class => 'form-horizontal' } do |f| %>
 
 <% if @category.errors.any? %>

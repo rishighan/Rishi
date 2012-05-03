@@ -1,0 +1,15 @@
+<%= title controller.action_name.capitalize %>	
+
+<!-- paginated blog posts -->
+<span class="span6">
+	<%@post.each do |post|	%>
+	<h2><%= post.title %></h4> 
+	<p>
+		<%= markdown post.content %>
+	</p>
+	<p align="center">&tilde;</p>
+	
+	<%end%>
+</span>
+	
+

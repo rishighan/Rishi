@@ -6,11 +6,11 @@ class PagesController < ApplicationController
   # making sure that categories are filtered
   # TODO: see if we can remove the repitition in the posts
   def setup
-    @categories = Category.filter_category(["Projects", "Home Carousel"])
+    @categories = Category.filter_category(["Projects", "Home Carousel", "Colophon"])
   end  
     
   def index
-    @display_posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis"])
+    @display_posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis", "Colophon"])
     @posts = @display_posts.without_draft.all
     @carousel_posts = Post.include_category(["Home Carousel"])
     @thesis_posts = Post.include_category(["Thesis"])
@@ -22,7 +22,7 @@ class PagesController < ApplicationController
   
   # GET /blog
   def blog
-    @posts = Post.exclude_category(["Projects", "Home Carousel", "Thesis"]) 
+    @posts = Post.exclude_category(["Projects", "Home Carousel", "Thesis", "Colophon"]) 
     @posts = @posts.paginate(:page => params[:page], :per_page=>5)
     respond_to do |format|
       format.html
@@ -32,7 +32,7 @@ class PagesController < ApplicationController
 
   # GET /blog/archive
   def archive
-  	@posts = Post.exclude_category(["Home Carousel"])
+  	@posts = Post.exclude_category(["Home Carousel", "Colophon"])
   	@post_months = @posts.group_by {|post| post.created_at.beginning_of_month}
     render :layout => "application"
   end
@@ -80,6 +80,12 @@ class PagesController < ApplicationController
   def project
     @post = Post.find(params[:id])
     render :post
+  end
+  
+  # /colophon
+  def colophon
+    @post = Post.include_category(['Colophon'])
+    render :layout => 'application'
   end
   
   

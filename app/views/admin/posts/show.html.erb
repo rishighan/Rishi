@@ -1,19 +1,13 @@
-
+<%= title "Preview `#{@post.title}`"%>
 <p id="notice"><%= notice %></p>
 <h2><%=@post.title %></h2>
 
 
 <p>
-  filed under
- <ul>
-  <% @post.categories.each do |cat| %>
-  <li> <%= cat.category_name %> </li>
-  <% end -%>
-</ul>
+	filed under <%= @post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
 </p>
 
 <p>
-  <b>Content:</b>
   <%= markdown @post.content %><br>
  <hr>
   <% @post.citations.each do |citation| %>
