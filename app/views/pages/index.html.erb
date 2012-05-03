@@ -49,7 +49,7 @@
 </div>	
 
 <!-- Posts pane -->
-<div class="span6"> 
+<div class="span6 posts"> 
 	<% @posts.each do |post| %> 
 	<h3><%=link_to post.title, blog_post_path(post) %></h3> 
 	filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
