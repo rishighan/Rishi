@@ -16,6 +16,7 @@ Rishi::Application.routes.draw do
   get 'blog/search' => 'pages#search', :as=> :blog_search
   
   # thesis section
+  # TODO: thesis/article
   get '/thesis' => 'pages#thesis'
   
   # projects
