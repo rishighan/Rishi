@@ -1,5 +1,7 @@
 Rishi::Application.routes.draw do
   
+  get "sitemap/index"
+
   # site root
   get "pages/index"
   root :to => 'pages#index'
