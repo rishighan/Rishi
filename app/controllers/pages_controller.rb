@@ -32,7 +32,7 @@ class PagesController < ApplicationController
 
   # GET /blog/archive
   def archive
-  	@posts = Post.exclude_category(["Home Carousel", "Colophon"])
+  	@posts = Post.exclude_category(["Home Carousel", "Colophon"]).without_draft.all
   	@post_months = @posts.group_by {|post| post.created_at.beginning_of_month}
     render :layout => "application"
   end
