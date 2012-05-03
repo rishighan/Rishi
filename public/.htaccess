@@ -1,6 +1,5 @@
 RailsBaseURI /
 PassengerAppRoot /home/rishigha/rishi
-//Rewrite to www
 Options +FollowSymLinks
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^rishighan.com[nc]
