@@ -4,7 +4,7 @@ class StoreController < ApplicationController
     @variant = Variant.all
     
     @cart =current_cart
-   
+ 
   end
   
  

@@ -30,7 +30,7 @@ Rishi::Application.routes.draw do
   
   # store catalog root
   # get "store/index"
-  match "/store", :to => "store#index"
+  get "/store" => "store#index"
     
 
   # ADMIN SECTION  

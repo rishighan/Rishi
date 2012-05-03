@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout :layout_by_resource
+  rescue_from ActiveRecord::RecordNotFound, :with=> :render_not_found
+  rescue_from ActionView::TemplateError, :with=> :render_not_found
   
   def render_not_found
     #render "#{Rails.root}/public/404"

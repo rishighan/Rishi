@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
 
   layout 'posts_layout'
-  rescue_from ActiveRecord::RecordNotFound, :with=> :render_not_found
-  rescue_from ActionView::TemplateError, :with=> :render_not_found
   before_filter :setup
   
   # making sure that categories are filtered
