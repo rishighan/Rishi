@@ -66,9 +66,8 @@ class PagesController < ApplicationController
     @posts = Post.include_category(["Thesis"])
     @posts = @posts.paginate(:page=>params[:page],:per_page=>6)
     render :layout => 'posts_layout'
-   
   end
-
+  
    # GET /projects
    def projects
     @initial_posts = Post.include_category(["Projects"])
