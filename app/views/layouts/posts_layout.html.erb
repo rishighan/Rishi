@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rishi Ghan / <%= yield :title%></title>  	
+  <title>Rishi Ghan / <%= yield :title %></title>  	
   <%= stylesheet_link_tag  "application" %>
  
   <%= javascript_include_tag "application", :cache => false %>
@@ -33,16 +33,7 @@
 
 
 <div class="row">
-<%=image_tag "/assets/logo.png", :alt=>"Rishi Ghan" %>	
-<ul class="home-navigation span4 offset6">
-  
-    <li><%=link_to "Home", "/"%></li>
-    <li><%=link_to "Projects", projects_path %></li>
-    <li><%=link_to "Thesis", thesis_path %></li>
-    <li><%=link_to "Blog", blog_path %></li>
-    <li><%=link_to "Colophon"%></li>
-  
-</ul> 
+<%= render :partial=>'pages/navlogo'%>
 </div>
 
 <!-- content -->
