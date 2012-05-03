@@ -26,6 +26,10 @@ class PagesController < ApplicationController
   def blog
     @posts = Post.exclude_category(["Projects", "Home Carousel", "Thesis"]) 
     @posts = @posts.paginate(:page => params[:page], :per_page=>5)
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @posts} # Do we need a builder, and if yes, why?
+    end
   end
 
   # GET /blog/archive
@@ -55,8 +59,7 @@ class PagesController < ApplicationController
   def bycategory
     @posts = Post.include_category(params[:category_name])
     @posts = @posts.paginate(:page => params[:page], :per_page=>5)
-    render :blog
-    
+    render :blog 
   end
 
   

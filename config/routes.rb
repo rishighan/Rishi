@@ -25,6 +25,9 @@ Rishi::Application.routes.draw do
   #archive
   get 'blog/archive' => 'pages#archive'
   
+  #colophon
+  #get '/colophon' => 'pages#colophon'
+  
   # store catalog root
   # get "store/index"
   match "/store", :to => "store#index"
@@ -43,7 +46,6 @@ Rishi::Application.routes.draw do
   # admin section
   namespace :admin do
     resources :categories, :product_categories, :traits, :variants, :posts
-
     # to add variants from within a product
     resources :products do 
       resources :variants
