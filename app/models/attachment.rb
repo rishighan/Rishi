@@ -1,7 +1,7 @@
 class Attachment < ActiveRecord::Base
   
   belongs_to :post
-  content_types = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/tiff']
+  
   #TODO: revisit different sizes for images.
   has_attached_file :photo, 
                     :styles =>{
@@ -16,11 +16,13 @@ class Attachment < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 2.megabytes         
 
 
-### End Paperclip ####
+    # check if asset is image
+    # for use in the view
     def image?
       photo_content_type =~ %r{^(image|(x-)?application)/(bmp|gif|jpeg|jpg|pjpeg|png|x-png)$}
     end
-
+    
+    
     def resize_images
       return false unless image?
     end
