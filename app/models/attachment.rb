@@ -15,7 +15,6 @@ class Attachment < ActiveRecord::Base
   #validates_attachment_content_type :photo, :content_type => ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/tiff']                  
   validates_attachment_size :photo, :less_than => 2.megabytes         
 
-
     # check if asset is image
     # for use in the view
     def image?

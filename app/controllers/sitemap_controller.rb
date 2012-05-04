@@ -7,5 +7,4 @@ class SitemapController < ApplicationController
     headers['content-type'] ='application/xml'
     render :layout=>false
   end
-
 end
