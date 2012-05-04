@@ -2,11 +2,15 @@
 
 <!-- paginated blog posts -->
 <span class="span6">
+	<%@post.each do |post|	%>
+	
+	<h2><%= post.title %></h2> 
+	<br/>
 	<div class="well">
 	
 	</div>	
-	<%@post.each do |post|	%>
-	<h2><%= post.title %></h4> 
+	
+	
 	<p>
 		<%= markdown post.content %>
 	</p>
