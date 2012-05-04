@@ -68,6 +68,12 @@ class PagesController < ApplicationController
     render :layout => 'posts_layout'
   end
   
+  # GET /thesis/some-blog-post
+  def thesis_article
+    @post = Post.find(params[:id])
+    render :post
+  end
+  
    # GET /projects
    def projects
     @initial_posts = Post.include_category(["Projects"])
@@ -88,5 +94,6 @@ class PagesController < ApplicationController
     render :layout => 'application'
   end
   
+
   
 end

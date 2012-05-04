@@ -18,6 +18,7 @@ Rishi::Application.routes.draw do
   # thesis section
   # TODO: thesis/article
   get '/thesis' => 'pages#thesis'
+  get '/thesis/:id' => 'pages#thesis_article', :as => :thesis_article
   
   # projects
   get '/projects' => 'pages#projects'

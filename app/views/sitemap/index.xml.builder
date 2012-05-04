@@ -24,5 +24,13 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
      end
    end
    
+   @thesis.each do |thesis|
+      xml.url do
+        xml.loc thesis_article_url(thesis)
+        xml.lastmod thesis.updated_at.to_date
+        xml.priority 0.9
+      end
+    end
+   
 
 end
