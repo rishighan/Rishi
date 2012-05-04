@@ -9,15 +9,28 @@
   <%end%>
 
   <% unless attach.object.new_record? %>
-  	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%><br>
-	<br/>
+    <%if attach.object.image?%>
+	  	<%= link_to image_tag(attach.object.photo.url(:thumb)), attach.object.photo.url(:medium)%>
+		<br><br/>
 
-<div class="btn-group">
-	<%= link_to_function "Insert Original" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:original), :class=> "btn btn-mini" %>
-  <%= link_to_function "Insert Medium" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:medium), :class=> "btn btn-mini" %>
-  <%= link_to_function "Insert Thumb" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:thumb), :class=> "btn btn-mini" %>
-	<%= attach.link_to_remove "Remove this image", {:id=> @post.id, :class=> "btn btn-mini btn-danger"} %> 
-</div>
+	 <div class="btn-group">
+		<%= link_to_function "Insert Original" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:original), :class=> "btn btn-mini" %>
+	    <%= link_to_function "Insert Medium" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:medium), :class=> "btn btn-mini" %>
+	    <%= link_to_function "Insert Thumb" , "insertMarkup(this,'image')", :id=> attach.object.photo.url(:thumb), :class=> "btn btn-mini" %>
+		<%= attach.link_to_remove "Remove this image", {:id=> @post.id, :class=> "btn btn-mini btn-danger"} %> 
+	 </div>
+	
+	<%else%>
+	
+		<%= link_to attach.object.photo_file_name, attach.object.photo.url %>
+		<br/><br/>
+		<div class="btn-group">
+		<%= link_to_function "Insert File URL" , "insertMarkup(this,'file')", :id=> attach.object.photo.url, :class=> "btn btn-mini" %>
+		<%= attach.link_to_remove "Remove this file", {:id=> @post.id, :class=> "btn btn-mini btn-danger"} %>
+		</div>
+	<%end%>	
+		
+
  <%end%>
   
    
@@ -25,5 +38,5 @@
   
    <%end %>	
   
-  <%= f.link_to_add "Add another image", :attachments, :class=> "btn btn-mini" %>  
+  <%= f.link_to_add "Add another attachment", :attachments, :class=> "btn btn-mini" %>  
   </div>

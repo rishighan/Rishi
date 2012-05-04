@@ -44,16 +44,21 @@
   <%end%>
 
   </p>
-   
-   		<%unless post.attachments.empty? %>
+   <!-- attachment logic -->
+   <%unless post.attachments.empty? %>
         <div class="well">
     	<% post.attachments.each do |at|%>
-		<%= image_tag at.photo.url(:thumb)%>
+		  <% if at.image?%>
+			<%= image_tag at.photo.url(:thumb)%>
+		  <%else%>
+			<%=link_to at.photo_file_name, at.photo.url %>
+		  <%end%>	
 		<%end%>
     </div>
-		<%end%>
+  <%end%>
 		
-  <%unless post.citations.empty? %>  
+  	
+<%unless post.citations.empty? %>  
 	<%= render :partial=>'citations', :locals => {:post => post} %>
 	<%end %>
 		

@@ -10,6 +10,15 @@ function insertMarkup(objt, markuptype, position) {
 			var textarea = $("#post_content")
 			textarea.insertAtCaret(markup)
 			break;
+			
+		case 'file':
+			
+			var hrefs = $(objt).attr('id')
+			var markup = '<a href="'+ hrefs +'"/></a>'
+
+			var textarea = $("#post_content")
+			textarea.insertAtCaret(markup)
+			break;
 
 		// carousel markup <div class=post-carousel>
 		case 'carousel':
