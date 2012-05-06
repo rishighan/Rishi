@@ -1,4 +1,5 @@
 // Rishi Ghan 
+// rishighan.com
 // OM SHREE DATATTRAYA NAMAHA
 
 // Place all the styles related to the home controller here.
@@ -9,15 +10,16 @@
 {
 	max-width:100%;
 }
+
 .post-carousel
 {
 
- img
-{
-  display:block;
-  max-width:100%;
+	 img
+	{
+	  display:block;
+	  max-width:100%;
   
-}
+	}
 }
 
 
@@ -28,26 +30,24 @@ position:relative;
 text-align:center;
 z-index:99;
 
-a
-{
-
-  	background: url('/assets/navdot.png') 0 0 no-repeat; 
-	padding:3px 18px 0 0;
-	text-decoration:none;
-	margin:0 0 0 4px;
-	width:18px;
-	height:8px;
-	border:1px solid red;
-	
-	&:visited {background:#CCC;}
-  	&:hover
+	a
 	{
-	background:url('/assets/navdot.png') 0 -18px no-repeat;
-	}
-	
 
+	  	background: url('/assets/navdot.png') 0 0 no-repeat; 
+		padding:3px 18px 0 0;
+		text-decoration:none;
+		margin:0 0 0 4px;
+		width:18px;
+		height:8px;
+		border:1px solid red;
 	
-}
+		&:visited {background:#CCC;}
+	  	&:hover
+		{
+		background:url('/assets/navdot.png') 0 -18px no-repeat;
+		}
+
+	}
 
 	.activeSlide 
 	{ 
@@ -65,7 +65,7 @@ a
 }   
 
 
-// For the home page hero carousel
+// Image-based rounded corners, just in case.
 .hero-module
 {
 	
@@ -183,7 +183,7 @@ width:100%;
 
 
 // Index page, posts pane
-.posts
+.posts-pane, .thesis-pane
 {
 	h3
 	{font-family:'Lato',sans-serif;}

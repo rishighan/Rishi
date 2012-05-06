@@ -23,10 +23,11 @@
 		</div>
 		
 	<!--Thesis post snippet -->
-	 <span>
+	 <span class="thesis-pane">
 		<% @thesis_posts.each do |thesis|%>
 			<h3><%= thesis.title%></h3>
-			<%= markdown thesis.content%>
+			<%= markdown truncate_html(thesis.content, :length=>190, :omission=>'...')%>
+			
 		<%end%>
 	</span>
 		
@@ -49,7 +50,7 @@
 </div>	
 
 <!-- Posts pane -->
-<div class="span6 posts"> 
+<div class="span6 posts-pane"> 
 	<% @posts.each do |post| %> 
 	<h3><%=link_to post.title, blog_post_path(post) %></h3> 
 	filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>

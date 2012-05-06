@@ -11,7 +11,7 @@ module ApplicationHelper
   # http://pygments.org/docs/formatters/#formatter-classes
   # for line numbers add :options => {:linenos => 'inline'} to the Pygments call
   def syntax_highlighter(html)  
-    doc = Nokogiri::HTML(html)  
+    doc = Nokogiri::HTML::DocumentFragment.parse(html)  
     doc.search("//pre[@lang]").each do |pre|  
        pre.replace Pygments.highlight(pre.text.rstrip, :lexer => pre[:lang], :nowrap => true)  
     end  

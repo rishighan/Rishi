@@ -1,19 +1,12 @@
 <%= title controller.action_name.capitalize %>	
 
-<!-- paginated blog posts -->
+<!-- colophon -->
 <span class="span6">
 	<%@post.each do |post|	%>
 	
 	<h2><%= post.title %></h2> 
-	<br/>
-	<div class="well">
 	
-	</div>	
-	
-	
-	<p>
-		<%= markdown post.content %>
-	</p>
+	<%= markdown post.content %>
 	<p align="center">&tilde;</p>
 	
 	<%end%>
