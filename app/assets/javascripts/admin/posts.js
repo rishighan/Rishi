@@ -14,7 +14,7 @@ function insertMarkup(objt, markuptype, position) {
 		case 'file':
 			
 			var hrefs = $(objt).attr('id')
-			var markup = '<a href="'+ hrefs +'"/></a>'
+			var markup = '<a href="'+ hrefs +'"></a>'
 
 			var textarea = $("#post_content")
 			textarea.insertAtCaret(markup)
