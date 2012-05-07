@@ -25,7 +25,7 @@
 	<!--Thesis post snippet -->
 	 <span class="thesis-pane">
 		<% @thesis_posts.each do |thesis|%>
-			<h3><%= thesis.title%></h3>
+			<h3><%=link_to thesis.title, thesis_article_path(thesis)%></h3>
 			<%= markdown truncate_html(thesis.content, :length=>190, :omission=>'...')%>
 			
 		<%end%>
