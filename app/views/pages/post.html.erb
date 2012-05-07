@@ -4,4 +4,6 @@
 	<p>
 		<%= markdown @post.content %>
 	</p>
+	<%= render (:partial=>'citations_snippets' ,:locals=>{:post=>@post}) unless @post.citations.blank? %>		
+	<p align="center">&tilde;</p>
 <hr>
