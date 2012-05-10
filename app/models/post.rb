@@ -30,7 +30,7 @@ class Post < ActiveRecord::Base
   
   # filtering by category
   def self.exclude_category(cats)
-    includes(:categories).where('categories.category_name NOT IN (?)', cats).limit(5)
+    without_draft.includes(:categories).where('categories.category_name NOT IN (?)', cats).limit(5)
   end
 
   def self.include_category(cats)
