@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end  
     
   def index
-    @display_posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis", "Colophon"])
+    @display_posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis", "Colophon"]).limit(5)
     @posts = @display_posts.without_draft.all
     @carousel_posts = Post.include_category(["Home Carousel"])
     @thesis_posts = Post.include_category(["Thesis"])
