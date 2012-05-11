@@ -30,7 +30,7 @@ class Post < ActiveRecord::Base
   
   # filtering by category
   def self.exclude_category(cats)
-    without_draft.includes(:categories).where('categories.category_name NOT IN (?)', cats).sort_by(:created_at, "desc")
+    without_draft.includes(:categories).where('categories.category_name NOT IN (?)', cats).order('posts.created_at DESC')
   end
 
   def self.include_category(cats)
