@@ -19,9 +19,9 @@
 	
 	<div class="span4" >
 	<!-- Github Feed --> 
-	<div class="githubfeed">
+	<div class="githubfeed ">
 		<h3>Github Activity</h3>
-	   <%= markdown @githubFeed.entries.first.content %>
+	  <%= markdown @githubFeed.entries.first.content%>	
 		</div>
 	<hr/>	
 	<!--Thesis post snippet -->
@@ -55,8 +55,7 @@
 <div class="span6 posts-pane"> 
 	<% @posts.each do |post| %> 
 	<h3><%=link_to post.title, blog_post_path(post) %></h3> 
-	filed under <%= post.categories.map{|cat| cat.category_name}.to_sentence(:last_word_connector=>", and ")  %>
-	
+  <span class="dated"><%= post.created_at.to_s(:index)%> </span>
 		<p>
 			<%= markdown post.content %>
 		</p>

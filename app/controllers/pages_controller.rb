@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     
   def index
     @githubFeed = Feedzirra::Feed.fetch_and_parse("https://github.com/rishighan.atom") 
-    
+
     @display_posts = Post.exclude_category(["Home Carousel", "Projects", "Thesis", "Colophon"]).limit(5)
     @posts = @display_posts.without_draft.all
     @carousel_posts = Post.include_category(["Home Carousel"])
