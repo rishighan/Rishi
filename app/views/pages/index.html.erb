@@ -18,10 +18,12 @@
 	
 	
 	<div class="span4" >
-		<div class="well">
-		Some interesting information about thesis, Github projects or recent news.
+	<!-- Github Feed --> 
+	<div class="githubfeed">
+		<h3>Github Activity</h3>
+	   <%= markdown @githubFeed.entries.first.content %>
 		</div>
-		
+	<hr/>	
 	<!--Thesis post snippet -->
 	 <span class="thesis-pane">
 		<% @thesis_posts.each do |thesis|%>

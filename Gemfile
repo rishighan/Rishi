@@ -13,6 +13,9 @@ gem 'aws-sdk', '~> 1.3.4'
 #for tags
 gem 'acts-as-taggable-on', '~>2.1.0' 
 
+# atom feed parsing
+gem 'feedzirra'
+
 #pagination
 gem 'will_paginate', '3.0.3'
 
