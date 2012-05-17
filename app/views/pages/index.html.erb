@@ -17,10 +17,11 @@
 	</div>
 	
 	
-	<div class="span4" >
+	<div class="githubfeed span4" >
 	<!-- Github Feed --> 
-	<div class="githubfeed ">
-		<h3>Github Activity</h3>
+	<h3>Github Activity</h3>
+	<br/>
+	<div class="well">
 	  <%= markdown @githubFeed.entries.first.content %>	
 	</div>
 	<hr/>	
@@ -33,8 +34,7 @@
 			
 		<%end%>
 	</span>
-		
-	<hr>
+
 
 	<!-- Featured Product -->
 	<% unless @product.blank? %>
