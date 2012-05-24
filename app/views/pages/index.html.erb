@@ -17,13 +17,13 @@
 	</div>
 	
 	
-	<div class="githubfeed span4" >
+	<div class="span4">
 	<!-- Github Feed --> 
+	<span class="githubfeed">
 	<h3>Github Activity</h3>
-	<br/>
-	<div class="well">
-	  <%= markdown @githubFeed.entries.first.content %>	
-	</div>
+	<br/>  
+		<%= markdown @githubFeed.entries.first.content %>	
+	</span>
 	<hr/>	
 	
 	<!--Thesis post snippet -->

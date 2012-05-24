@@ -183,10 +183,13 @@ width:100%;
 
 
 // Index page, posts pane
-.posts-pane, .thesis-pane
+.posts-pane, .thesis-pane, .githubfeed
 {
 	h3
-	{font-family:'Lato',sans-serif;}
+	{
+	font-family:'Lato',sans-serif;
+	clear:both;
+	}
 	
 	.dated
 	{
@@ -195,23 +198,7 @@ width:100%;
 }
 
 
-// github feed
-.githubfeed
-{
-  
-  ul
-	 {
-		list-style:none;
-	 }
-  h3
-	 {
-		font-family:'Lato', sans-serif;
-	 }
-  blockquote
-	{
-		font-size:14px;
-	}
-}
+
 
 
 //footer
