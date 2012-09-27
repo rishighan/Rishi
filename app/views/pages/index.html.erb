@@ -1,18 +1,20 @@
 	<!-- hero carousel-->
 	<div class="span10">
-	<div id="hero" class="hero-module">
-	 <%=image_tag "/assets/herodummy.gif" %>	
+	<div class="span5"></div>	
+	<div id="hero-shaz" class="span5">
+	
 		<%@carousel_posts.each do |post|%>
-			<div> 
-				 <%= markdown post.content %>
-			</div>
+		
+				
+				 <h2><%=link_to post.title, blog_post_path(post) %></h2>
+			
 		<%end%>
 	
 	</div>
-		<div class="hero-carousel-nav">
+		<!-- <div class="hero-carousel-nav">
 			<%=image_tag "/assets/arrows/left-arrow.png", :id=>"left"%>
 			<%=image_tag "/assets/arrows/right-arrow.png", :id=>"right"%>		
-		</div>
+		</div> -->
 	
 	</div>
 	
